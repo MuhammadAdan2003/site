@@ -1,0 +1,2509 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>💗 For Ayesha 💗</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.33/dist/lenis.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <!-- Isko apne HTML head me check karein -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <!-- Swiper CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <style>
+      :root {
+        --dark-mocha: #1a0e21;
+        --rich-tan: #7c2d8f;
+        --warm-sand: #c25ec2;
+        --nude: #ff8fd6;
+        --cream: #ffe3f6;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html.lenis {
+        height: auto;
+      }
+      .lenis.lenis-smooth {
+        scroll-behavior: auto !important;
+      }
+
+      body {
+        background-color: var(--dark-mocha);
+        background-image: radial-gradient(
+          circle at 50% 50%,
+          #3a1245 0%,
+          #1b1212 100%
+        );
+        color: var(--cream);
+        font-family: "Poppins", sans-serif;
+        overflow-x: hidden;
+      }
+
+      /* Subtle Noise Effect */
+      body::after {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: url("https://grainy-gradients.vercel.app/noise.svg");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 100;
+      }
+
+      .font-serif {
+        font-family: "Playfair Display", serif;
+      }
+      .font-cursive {
+        font-family: "Dancing Script", cursive;
+      }
+
+      /* Custom Polaroid - High Quality */
+      .polaroid-frame {
+        background: #fffdfa;
+        padding: 15px 15px 65px 15px;
+        box-shadow:
+          20px 20px 60px rgba(0, 0, 0, 0.5),
+          -5px -5px 20px rgba(255, 255, 255, 0.02);
+        transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+        cursor: pointer;
+        position: relative;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      .polaroid-frame img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        filter: contrast(1.05) brightness(0.95) sepia(10%);
+      }
+      .polaroid-frame:hover {
+        transform: scale(1.1) rotate(0deg) !important;
+        z-index: 50;
+        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8);
+      }
+      .polaroid-tag {
+        position: absolute;
+        bottom: 20px;
+        left: 0;
+        width: 100%;
+        text-align: center;
+        color: var(--rich-tan);
+        font-family: "Dancing Script", cursive;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+
+      /* Premium Music Player */
+      #player-shell {
+        position: fixed;
+        bottom: 40px;
+        right: 40px;
+        z-index: 1000;
+        background: linear-gradient(145deg, #3a1245, #1b1212);
+        border: 1px solid rgba(255, 143, 214, 0.2);
+        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
+        transition: all 0.7s cubic-bezier(0.8, 0, 0.2, 1);
+        overflow: hidden;
+      }
+      .state-min {
+        width: 75px;
+        height: 75px;
+        border-radius: 20px;
+        cursor: pointer;
+      }
+      .state-max {
+        width: 360px;
+        height: 560px;
+        border-radius: 40px;
+        padding: 30px;
+      }
+
+      .progress-track {
+        width: 100%;
+        height: 6px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        margin: 25px 0;
+        cursor: pointer;
+        overflow: hidden;
+      }
+      #progress-fill {
+        height: 100%;
+        background: linear-gradient(to right, var(--warm-sand), var(--nude));
+        width: 0%;
+        transition: width 0.1s linear;
+      }
+
+      /* Glowing Quote Cards */
+      .glass-card {
+        background: rgba(99, 72, 50, 0.1);
+        border: 1px solid rgba(255, 143, 214, 0.1);
+        padding: 40px;
+        border-radius: 30px;
+        backdrop-filter: blur(10px);
+        transition: 0.5s;
+      }
+      .glass-card:hover {
+        background: rgba(99, 72, 50, 0.2);
+        border-color: var(--nude);
+        transform: translateY(-10px);
+      }
+
+      .accent-gradient {
+        background: linear-gradient(to bottom, var(--cream), var(--nude));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      /* Swiper Styling Updates */
+     /* Swiper Container Spacing */
+/* ==========================================================================
+   1. SWIPER CONTAINER CONFIGURATION
+   ========================================================================== */
+/* ==========================================================================
+   1. SWIPER CONTAINER CONFIGURATION
+   ========================================================================== */
+/* ==========================================================================
+   1. SWIPER CONTAINER CONFIGURATION
+   ========================================================================== */
+/* Swiper Master Setup */
+  .cinemaSwiper {
+    width: 100%;
+    padding-top: 30px !important;
+    padding-bottom: 60px !important;
+    perspective: 1200px; /* Restores high-fidelity 3D depth geometry */
+  }
+
+  /* 3D Base Structural Dimensions */
+  .cinemaSwiper .swiper-slide {
+    width: 78%;
+    aspect-ratio: 4 / 5;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #000;
+    
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    will-change: transform;
+    
+    transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Responsive Medium Shields */
+  @media (min-width: 640px) {
+    .cinemaSwiper .swiper-slide {
+      width: 50%;
+      aspect-ratio: 4 / 5;
+      border-radius: 14px;
+    }
+  }
+
+  /* Premium Desktop Aspect Locking */
+  @media (min-width: 1024px) {
+    .cinemaSwiper .swiper-slide {
+      width: 400px;
+      height: 520px;
+      border-radius: 16px;
+    }
+  }
+
+  /* Inner Card Image Configurations */
+  .premium-gallery-card {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent; /* Removes ugly blue mobile tap box */
+  }
+
+  .premium-gallery-card .img-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+
+  .premium-gallery-card .img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: filter, transform;
+    transition: 
+      filter 400ms cubic-bezier(0.25, 1, 0.5, 1), 
+      transform 400ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* Core Message Text Shield Layout */
+  .card-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.4); /* Modern premium dark contrast tint */
+    opacity: 0;
+    pointer-events: none;
+    z-index: 10;
+    padding: 1.5rem;
+    transition: opacity 400ms cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  /* ==========================================================================
+     TOUCH REVEAL MANIFESTO (STRICT ACTIVE MUTATION)
+     ========================================================================== */
+  /* Automatic center-slide triggers have been completely disabled. 
+     Only clicking the element manually updates the view layer state */
+  .premium-gallery-card.touch-revealed .img-container img {
+    filter: blur(5px) brightness(0.7); /* Perfect premium frosted background blur */
+    transform: scale(1.02);
+  }
+
+  .premium-gallery-card.touch-revealed .card-overlay {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Isolated Desktop Hover (Only fires if hardware supports mouse hover pointer) */
+  @media (min-width: 1024px) and (hover: hover) {
+    .premium-gallery-card:hover .img-container img {
+      filter: blur(5px) brightness(0.7);
+      transform: scale(1.04);
+    }
+    .premium-gallery-card:hover .card-overlay {
+      opacity: 1;
+    }
+  }
+
+  .cinemaSwiper .swiper-pagination-bullet {
+    background: #ff8fd6 !important;
+    opacity: 0.25;
+    transition: 
+      opacity 400ms ease, 
+      width 400ms cubic-bezier(0.25, 1, 0.5, 1), 
+      border-radius 400ms ease;
+  }
+
+  .cinemaSwiper .swiper-pagination-bullet-active {
+    opacity: 1;
+    width: 28px !important;
+    border-radius: 99px !important;
+  }
+
+/* end swiperr css  */
+
+      /* AUDIO PLAYER CONTAINER (Brown Glassmorphism) */
+      .audio-player {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        z-index: 1000;
+        width: 330px;
+        max-width: calc(100vw - 48px);
+        transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+        border-radius: 24px;
+        overflow: hidden;
+        box-shadow:
+          0 30px 60px -15px rgba(0, 0, 0, 0.9),
+          0 0 50px rgba(199, 66, 199, 0.08);
+        background: rgba(10, 7, 6, 0.88); /* Deep Earthy Chocolate Black */
+        border: 1px solid rgba(217, 119, 6, 0.1); /* Subtle Warm Border */
+        backdrop-filter: blur(24px);
+        transform-origin: bottom right;
+      }
+
+      /* MINIMIZED STATE */
+      .audio-player.minimized {
+        width: 290px !important;
+        height: 64px !important;
+        border-radius: 32px !important;
+        border: 1px solid rgba(199, 66, 199, 0.35); /* Elegant Caramel Outline */
+        box-shadow:
+          0 12px 35px rgba(0, 0, 0, 0.9),
+          0 0 25px rgba(199, 66, 199, 0.2) !important;
+      }
+
+      .audio-player.minimized .player-body {
+        display: none !important;
+      }
+
+      .audio-player.minimized .player-header {
+        padding: 0 12px 0 14px !important;
+        width: 100% !important;
+        height: 100% !important;
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        background: transparent;
+        cursor: pointer;
+      }
+
+      .audio-player.minimized .player-title {
+        display: flex !important;
+        align-items: center !important;
+        flex: 1;
+        min-width: 0;
+      }
+
+      .audio-player.minimized .song-name-mini {
+        color: #f5f5f4;
+        font-weight: 600;
+        font-size: 0.85rem;
+        padding-left: 10px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .audio-player.minimized .player-controls-mini {
+        display: flex !important;
+        align-items: center !important;
+        gap: 8px;
+      }
+
+      .audio-player.minimized .play-pause-mini {
+        background: rgba(199, 66, 199, 0.1);
+        border: 1px solid rgba(199, 66, 199, 0.25);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      .audio-player.minimized .play-pause-mini:hover {
+        background: rgba(199, 66, 199, 0.25);
+        transform: scale(1.05);
+      }
+
+      .audio-player.minimized .maximize-mini {
+        background: transparent;
+        color: #a8a29e;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* MAXIMIZED INNER ELEMENTS */
+      .player-header {
+        display: none;
+      }
+
+      .player-body {
+        padding: 20px;
+      }
+
+      .minimize-btn {
+        background: rgba(255, 255, 255, 0.02);
+        border: 1px solid rgba(255, 255, 255, 0.05);
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      /* TRACKLIST DESIGN */
+      .song-item {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 8px 12px;
+        border-radius: 12px;
+        cursor: pointer;
+        background: transparent;
+        border: 1px solid transparent;
+        transition: all 0.25s ease;
+      }
+
+      .song-item:hover {
+        background: rgba(255, 255, 255, 0.02);
+        border-color: rgba(255, 255, 255, 0.04);
+      }
+
+      .song-item.active {
+        background: rgba(199, 66, 199, 0.08) !important;
+        border-color: rgba(199, 66, 199, 0.25) !important;
+      }
+
+      /* TIMELINE PROGRESS SLIDER */
+      .progress-container {
+        width: 100%;
+        height: 8px;
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 2px;
+        cursor: pointer;
+        position: relative;
+      }
+      .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: #c742c7; /* Deep Warm Caramel */
+        border-radius: 2px;
+        box-shadow: 0 0 10px rgba(199, 66, 199, 0.6);
+        transition: width 0.1s linear;
+      }
+
+      /* CUSTOM SCROLLBAR FOR TRACKLIST */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 4px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 10px;
+      }
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(199, 66, 199, 0.3);
+      }
+
+      /* SPIN ANIMATION */
+      .image-spin {
+        animation: spin 14s linear infinite;
+        animation-play-state: paused;
+      }
+      .audio-playing .image-spin {
+        animation-play-state: running;
+      }
+      @keyframes spin {
+        from {
+          transform: rotate(0deg);
+        }
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      /* RESPONSIVE BREAKPOINTS (Mobile & Tablet Optimization) */
+      @media (max-width: 640px) {
+        .audio-player {
+          bottom: 16px;
+          right: 16px;
+          width: calc(100vw - 32px);
+          max-width: 360px;
+          border-radius: 20px;
+        }
+        .audio-player.minimized {
+          width: calc(100vw - 32px) !important;
+          max-width: 300px;
+          bottom: 16px;
+          right: 16px;
+        }
+        .player-body {
+          padding: 16px;
+        }
+      }
+
+      h1,
+      h2 {
+        font-family: "Cormorant Garamond", serif !important;
+      }
+      p,
+      span {
+        font-family: "Montserrat", sans-serif !important;
+      }
+
+      /* Enhanced Premium Custom Scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        width: 6px; /* Ekdum sleek aur thin profile width */
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-track {
+        background: transparent; /* Background track clean transparent rahega */
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb {
+        background: rgba(
+          16,
+          185,
+          129,
+          0.2
+        ); /* Emerald green translucent accent base tone */
+        border-radius: 20px;
+        border: 1px solid rgba(219, 39, 119, 0.1); /* Soft subtle glow outline */
+        transition: all 0.3s ease-in-out;
+      }
+
+      .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: rgba(
+          16,
+          185,
+          129,
+          0.6
+        ); /* Hover karne par solid sharp rose highlight */
+        box-shadow: 0 0 8px rgba(219, 39, 119, 0.4); /* Subtle ambient premium flow glow */
+      }
+
+      /* Smooth scroll behavior for dynamic chat flow */
+      .custom-scrollbar {
+        scroll-behavior: smooth;
+        scrollbar-width: thin; /* Firefox core support fallback */
+        scrollbar-color: rgba(219, 39, 119, 0.3) transparent; /* Firefox support */
+      }
+    </style>
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div
+      id="loader"
+      class="fixed inset-0 z-[10000] bg-[#fdf3fb] flex flex-col items-center justify-center overflow-hidden"
+    >
+      <!-- Soft Ambient Background Glow Behind the Loader -->
+      <div
+        class="absolute w-[40vw] h-[40vw] bg-accent pointer-events-none z-0"
+      ></div>
+
+      <div class="relative z-10 flex flex-col items-center justify-center">
+        <!-- GEOMETRIC LOADER CORE (Replacing the bar) -->
+        <div class="relative w-32 h-32 flex items-center justify-center mb-8">
+          <!-- Outer Elegant Spinning Ring -->
+          <div
+            class="absolute inset-0 rounded-full border border-[#7c2d8f] border-t-[#7c2d8f] animate-spin [animation-duration:1.5s]"
+          ></div>
+
+          <!-- Inner Reverse Pulsing Ring -->
+          <div
+            class="absolute inset-2 rounded-full border border-white/[0.03] border-b-[#7c2d8f]/40 animate-spin [animation-direction:reverse] [animation-duration:2.5s]"
+          ></div>
+
+          <!-- Center Smooth Percentage Number -->
+          <div
+            class="font-mono text-2xl font-extralight tracking-tighter text-black flex items-center justify-center"
+          >
+            <span id="loader-percentage">00</span
+            ><span class="text-xs text-[#000] font-normal ml-0.5">%</span>
+          </div>
+        </div>
+
+        <!-- Masked Text Reveal Effect -->
+        <div class="overflow-hidden h-8 flex items-center justify-center">
+          <div
+            id="loader-text"
+            class="font-serif italic text-xl text-black tracking-widest translate-y-full"
+          >
+            Entering into my heart...
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HERO SECTION -->
+    <section
+      class="relative min-h-screen w-full bg-accent text-stone-200 flex flex-col justify-between px-6 sm:px-16 py-8 overflow-hidden select-none"
+    >
+      <!-- Subtle Amber Ambient Light Spot -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[radial-gradient(circle,rgba(216,120,220,0.03)_0%,transparent_60%)] pointer-events-none"
+      ></div>
+
+      <!-- 2. CENTER PIECE: VERTICAL MINIMALIST STACK -->
+      <div
+        class="flex-1 flex flex-col items-center justify-center text-center max-w-2xl mx-auto relative z-10 my-12"
+      >
+        <!-- Delicate Poetic Kicker -->
+        <span
+          class="reveal opacity-0 block text-[10px] font-mono uppercase tracking-[0.8em] text-[#e79bea] mb-6 pl-[0.8em]"
+        >
+          My Favorite Person
+        </span>
+
+        <!-- Giant Elegant Typography Name -->
+        <h1
+          class="reveal opacity-0 text-7xl sm:text-9xl md:text-[10rem] font-serif font-bold italic leading-none text-stone-100 tracking-tighter filter drop-shadow-md"
+        >
+          Ayesha
+        </h1>
+
+        <!-- Soft Poetic Text Wrap -->
+        <div class="mt-8 max-w-md">
+          <p
+            class="reveal opacity-0 text-sm sm:text-base text-stone-400 font-light leading-relaxed tracking-wide italic"
+          >
+            "In a world full of temporary noise, you are my permanent melody."
+          </p>
+          <p
+            class="reveal opacity-0 text-xs text-stone-500 font-light leading-relaxed tracking-wide mt-4"
+          >
+            "You know, it’s honestly a good thing we’re close friends, because
+            if we weren’t, I’d spend way too much time trying to figure out how
+            to look that effortlessly good. You walk around casually setting the
+            standard for everyone else Don't let this go to your head, but
+            you're pretty much unforgettable." ayeshaaaaaaaa khaann aap meri bht
+            achi dost hain apke sath game khel krr baat krke mzak krke bht maza
+            aata h... chalen ub aap scroll kren or enjoy kren.
+          </p>
+        </div>
+      </div>
+
+     
+    </section>
+
+    <!-- QUOTES SECTION -->
+    <section class="py-32 container mx-auto px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="glass-card reveal opacity-0">
+          <i data-lucide="sparkles" class="text-nude mb-8" size="32"></i>
+          <p class="text-2xl font-serif italic leading-snug">
+            You’re my favorite distraction.
+          </p>
+        </div>
+        <div class="glass-card reveal opacity-0 md:translate-y-16">
+          <i data-lucide="fingerprint" class="text-nude mb-8" size="32"></i>
+          <p class="text-2xl font-serif italic leading-snug">
+            "Are you always this charming, or do I just bring out the best in
+            you?."
+          </p>
+        </div>
+        <div class="glass-card reveal opacity-0">
+          <i data-lucide="feather" class="text-nude mb-8" size="32"></i>
+          <p class="text-2xl font-serif italic leading-snug">
+            "I'd tell you you're breathtaking, but I don't want to leave myself
+            breathless."
+          </p>
+        </div>
+        <div class="glass-card reveal opacity-0 md:translate-y-10">
+          <i data-lucide="heart-handshake" class="text-nude mb-8" size="32"></i>
+          <p class="text-2xl font-serif italic leading-snug">
+            "Every playlist I make somehow turns into songs that remind me of
+            you."
+          </p>
+        </div>
+        <div class="glass-card reveal opacity-0">
+          <i data-lucide="star" class="text-nude mb-8" size="32"></i>
+          <p class="text-2xl font-serif italic leading-snug">
+            "You didn't just walk into my life, you redecorated the whole
+            place."
+          </p>
+        </div>
+        <div class="glass-card reveal opacity-0 md:translate-y-16">
+          <i data-lucide="candy" class="text-nude mb-8" size="32"></i>
+          <p class="text-2xl font-serif italic leading-snug">
+            "Warning: prolonged exposure to your smile may cause butterflies."
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- REASONS SECTION -->
+    <section class="py-24 container mx-auto px-8">
+      <div class="mb-16 text-center">
+        <h2 class="font-serif text-5xl italic accent-gradient">
+          Reasons I'm Obsessed With You
+        </h2>
+        <div class="h-[2px] w-20 bg-nude/30 mx-auto mt-6"></div>
+      </div>
+      <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
+        <div class="reveal opacity-0 flex items-start gap-3">
+          <span class="text-nude text-lg">💗</span>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">Your laugh is genuinely my favorite sound.</p>
+        </div>
+        <div class="reveal opacity-0 flex items-start gap-3">
+          <span class="text-nude text-lg">💜</span>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You remember tiny things I didn't think mattered.</p>
+        </div>
+        <div class="reveal opacity-0 flex items-start gap-3">
+          <span class="text-nude text-lg">💖</span>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You make ordinary days feel like main character moments.</p>
+        </div>
+        <div class="reveal opacity-0 flex items-start gap-3">
+          <span class="text-nude text-lg">🩷</span>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">Your texts turn my whole mood around instantly.</p>
+        </div>
+        <div class="reveal opacity-0 flex items-start gap-3">
+          <span class="text-nude text-lg">✨</span>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You're effortlessly the most interesting person in any room.</p>
+        </div>
+        <div class="reveal opacity-0 flex items-start gap-3">
+          <span class="text-nude text-lg">💫</span>
+          <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You just... get me, without needing an explanation.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- POLAROID GALLERY -->
+    <section class="py-40 container mx-auto px-6">
+      <div class="mb-24 text-center">
+        <h2 class="font-serif text-6xl italic accent-gradient">
+          Ayeshaaaaaaaa ki Pictures
+        </h2>
+        <div class="h-[2px] w-20 bg-nude/30 mx-auto mt-6"></div>
+      </div>
+      <div
+        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16"
+        id="gallery-wall"
+      >
+        <!-- Polariods go here -->
+      </div>
+    </section>
+
+    <!-- SWIPER SECTION START -->
+   <section class="py-20 md:py-40 container mx-auto px-4 overflow-hidden">
+  <div class="mb-16 md:mb-24 text-center">
+    <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl italic accent-gradient">
+      Ayeshaaaaaa ki or Pictures
+    </h2>
+    <p class="text-stone-400 mt-2">Pictures pr click kren...</p>
+    <div class="h-[2px] w-16 md:w-20 bg-nude/30 mx-auto mt-4 md:mt-6"></div>
+  </div>
+
+  <div class="swiper cinemaSwiper !overflow-visible">
+    <div class="swiper-wrapper" id="gallery-wall">
+      
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/9.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-white text-center italic tracking-wide">
+              Strikingly simple, effortlessly beautiful
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/10.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              Elegance in its purest form
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/11.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              Pure visual poetry
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/12.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              Favorite Smile
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/13.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              Timeless grace
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/14.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              WOwwww veryy dangerous
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/15.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              WOwwwwwwwww beautiful
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+        <div class="img-container">
+          <img src="pics/16.jpeg" alt="Ayesha" class="w-full h-full object-cover" />
+          <div class="card-overlay">
+            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+              very very very cute
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="swiper-pagination"></div>
+  </div>
+</section>
+    <!-- SWIPER SECTION END -->
+
+   <div id="audio-player" class="audio-player minimized">
+  <div class="player-header" id="player-toggle">
+    <div class="player-title">
+      <div class="relative w-9 h-9 rounded-full overflow-hidden border border-fuchsia-500/40 flex-shrink-0 image-spin" id="mini-album-art-container">
+        <img src="https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg" id="mini-album-art" alt="Album Art" class="w-full h-full object-cover" />
+      </div>
+      <div class="flex flex-col min-w-0">
+        <span class="song-name-mini" id="mini-song-name">I Think They Call This Love</span>
+        <span class="text-[10px] text-pink-400/80 font-medium tracking-wider pl-[10px] uppercase">Playing</span>
+      </div>
+    </div>
+    <div class="player-controls-mini">
+      <button class="play-pause-mini" id="mini-play-btn">
+        <i class="fas fa-play text-pink-400" id="mini-play-icon"></i>
+      </button>
+      <button class="maximize-mini" id="mini-maximize-btn">
+        <i class="fas fa-expand-alt text-pink-300"></i>
+      </button>
+    </div>
+  </div>
+
+  <div class="player-body">
+    <div class="flex justify-between items-center mb-5 border-b border-white/5 pb-3">
+      <span class="text-xs font-semibold tracking-widest text-pink-400 uppercase">Now Playing</span>
+      <button id="minimize-btn" class="minimize-btn group">
+        <i class="fas fa-compress-alt text-zinc-400 group-hover:text-pink-400 transition-colors" id="minimize-icon"></i>
+      </button>
+    </div>
+
+    <div class="flex items-center space-x-4 mb-5 p-3 rounded-2xl bg-white/[0.02] border border-white/5">
+      <div class="w-16 h-16 rounded-xl overflow-hidden shadow-lg shadow-black/70 border border-fuchsia-500/30 relative flex-shrink-0" id="main-album-art-container">
+        <img src="" id="main-album-art" alt="Album Art" class="w-full h-full object-cover" />
+      </div>
+      <div class="min-w-0 flex-1">
+        <h3 class="text-stone-100 font-bold text-base truncate tracking-wide" id="current-song">Song Title</h3>
+        <p class="text-pink-400 text-xs font-medium truncate mt-0.5" id="current-artist">Artist Name</p>
+      </div>
+    </div>
+
+    <div class="flex items-center justify-center space-x-6 mb-4">
+      <button id="prev-btn" class="text-stone-400 hover:text-pink-400 hover:scale-110 active:scale-95 transition-all text-lg">
+        <i class="fas fa-step-backward"></i>
+      </button>
+      <button id="play-btn" class="w-12 h-12 rounded-full bg-fuchsia-500 text-stone-950 font-bold flex items-center justify-center shadow-[0_0_20px_rgba(199,66,199,0.4)] hover:shadow-[0_0_25px_rgba(199,66,199,0.7)] hover:scale-105 active:scale-95 transition-all">
+        <i class="fas fa-play text-lg pl-0.5" id="play-btn-icon"></i>
+      </button>
+      <button id="next-btn" class="text-stone-400 hover:text-pink-400 hover:scale-110 active:scale-95 transition-all text-lg">
+        <i class="fas fa-step-forward"></i>
+      </button>
+    </div>
+
+    <div class="progress-container mb-2" id="progress-container">
+      <div class="progress-bar" id="progress"></div>
+    </div>
+
+    <div class="flex justify-between text-[11px] font-mono text-stone-400 mb-5">
+      <span id="current-time">0:00</span>
+      <span id="duration">0:00</span>
+    </div>
+
+    <div class="song-list custom-scrollbar max-h-[160px] overflow-y-auto space-y-1.5 pr-1">
+      
+      <div class="song-item active" data-index="0">
+        <div class="flex items-center space-x-3 min-w-0">
+          <img src="https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
+          <div class="min-w-0">
+            <p class="text-stone-200 font-medium text-xs truncate">I Think They Call This Love</p>
+            <p class="text-stone-400 text-[10px] truncate">Dedicated to Ayesha</p>
+          </div>
+        </div>
+        <i class="fas fa-play text-pink-400 text-[10px] flex-shrink-0 animate-pulse"></i>
+      </div>
+
+      <div class="song-item" data-index="1">
+        <div class="flex items-center space-x-3 min-w-0">
+          <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-lg object-cover" alt="" />
+          <div class="min-w-0">
+            <p class="text-stone-200 font-medium text-xs truncate">Sahiba Lyrics</p>
+            <p class="text-stone-400 text-[10px] truncate">For Ayesha Khan</p>
+          </div>
+        </div>
+        <i class="fas fa-heart text-stone-500 text-[10px] flex-shrink-0"></i>
+      </div>
+
+      <div class="song-item" data-index="2">
+        <div class="flex items-center space-x-3 min-w-0">
+          <img src="https://m.media-amazon.com/images/I/71fqFyMSaNL._AC_UF1000,1000_QL80_.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
+          <div class="min-w-0">
+            <p class="text-stone-200 font-medium text-xs truncate">Ed Sheeran - Perfect</p>
+            <p class="text-stone-400 text-[10px] truncate">For Ayesha Khan</p>
+          </div>
+        </div>
+        <i class="fas fa-crown text-stone-500 text-[10px] flex-shrink-0"></i>
+      </div>
+
+      <div class="song-item" data-index="3">
+        <div class="flex items-center space-x-3 min-w-0">
+          <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-lg object-cover" alt="" />
+          <div class="min-w-0">
+            <p class="text-stone-200 font-medium text-xs truncate">Ishq Wala Love</p>
+            <p class="text-stone-400 text-[10px] truncate">For Ayesha</p>
+          </div>
+        </div>
+        <i class="fas fa-star text-stone-500 text-[10px] flex-shrink-0"></i>
+      </div>
+
+      <div class="song-item" data-index="4">
+        <div class="flex items-center space-x-3 min-w-0">
+          <img src="https://i.ytimg.com/vi/A1MdThqGarI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihJMA8=&rs=AOn4CLCDbzt4dnR3ecEhgddKfElJI9UIJQ" class="w-8 h-8 rounded-lg object-cover" alt="" />
+          <div class="min-w-0">
+            <p class="text-stone-200 font-medium text-xs truncate">Pretty Little Baby</p>
+            <p class="text-stone-400 text-[10px] truncate">For Ayesha</p>
+          </div>
+        </div>
+        <i class="fas fa-moon text-stone-500 text-[10px] flex-shrink-0"></i>
+      </div>
+
+      <div class="song-item" data-index="5">
+        <div class="flex items-center space-x-3 min-w-0">
+          <img src="https://i.ytimg.com/vi/vO_wELU6pGM/maxresdefault.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
+          <div class="min-w-0">
+            <p class="text-stone-200 font-medium text-xs truncate">O Meri Laila Lyrics</p>
+            <p class="text-stone-400 text-[10px] truncate">For Ayesha</p>
+          </div>
+        </div>
+        <i class="fas fa-heartbeat text-stone-500 text-[10px] flex-shrink-0"></i>
+      </div>
+    </div>
+
+    <div class="mt-4 pt-3 border-t border-white/5 flex justify-between items-center bg-black/40 p-2 rounded-xl">
+      <button id="volume-btn" class="text-stone-400 hover:text-pink-400 transition-colors">
+        <i class="fas fa-volume-up"></i>
+      </button>
+      <div class="w-3/4 px-2">
+        <input type="range" id="volume-slider" min="0" max="100" value="70" class="volume-slider w-full h-1 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-fuchsia-500" />
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- new game sec  -->
+
+    <section
+      class="relative h-auto w-full bg-[var(--dark-mocha)] text-[var(--cream)] flex flex-col justify-between px-6 sm:px-16 py-8 overflow-hidden select-none"
+    >
+      <!-- Subtle Background Glow -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(circle,rgba(255,143,214,0.05)_0%,transparent_60%)] pointer-events-none"
+      ></div>
+
+      <!-- Game Box Matrix -->
+      <div
+        class="flex-1 flex flex-col items-center justify-center text-center max-w-xl mx-auto relative z-10 my-6 w-full"
+      >
+        <!-- Header -->
+        <div class="mb-8">
+          <h2
+            class="text-3xl font-serif font-bold italic text-[var(--cream)] tracking-tight"
+          >
+            How Well Do We Sync?
+          </h2>
+        </div>
+
+        <!-- Main Dynamic Card Component -->
+        <div
+          id="quiz-card"
+          class="w-full bg-[var(--dark-mocha)] border border-[var(--warm-sand)]/20 rounded-3xl p-6 sm:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-500"
+        >
+          <!-- Screens inside this card will be managed by JS -->
+          <div id="quiz-content" class="space-y-6">
+            <!-- Question Title -->
+            <h3
+              id="question-text"
+              class="text-xl font-serif font-medium text-white italic leading-relaxed"
+            >
+              Loading your thoughts...
+            </h3>
+
+            <!-- Options Stack -->
+            <div id="options-container" class="flex flex-col gap-3 pt-4">
+              <!-- Buttons will slide in here dynamic -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Mini Progress Dots -->
+        <div
+          id="quiz-progress"
+          class="flex gap-2 mt-6 justify-center items-center"
+        >
+          <div
+            class="w-2 h-2 rounded-full bg-[var(--nude)] transition-all duration-300"
+          ></div>
+          <div
+            class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"
+          ></div>
+          <div
+            class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"
+          ></div>
+          <div
+            class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"
+          ></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- end it  -->
+
+    <!-- another  -->
+    <section
+      class="relative h-auto w-full bg-[var(--dark-mocha)] text-[var(--cream)] flex flex-col justify-between px-6 sm:px-16 py-8 overflow-hidden select-none"
+    >
+      <!-- Subtle Background Glow -->
+      <div
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(circle,rgba(255,143,214,0.06)_0%,transparent_60%)] pointer-events-none"
+      ></div>
+
+      <!-- Main Machine/Card Wrapper -->
+      <div
+        class="flex-1 flex flex-col items-center justify-center text-center max-w-xl mx-auto relative z-10 my-6 w-full"
+      >
+        <!-- Header -->
+        <div class="mb-8">
+          <h2
+            class="text-3xl font-serif font-bold italic text-[var(--cream)] tracking-tight"
+          >
+            The Feeling Capsule
+          </h2>
+        </div>
+
+        <!-- The Animated Card Frame -->
+        <div
+          id="flirt-card"
+          class="w-full aspect-[4/3] sm:h-72 bg-[var(--dark-mocha)] border border-[var(--warm-sand)]/20 rounded-3xl p-6 sm:p-10 flex flex-col items-center justify-center shadow-[0_30px_70px_rgba(0,0,0,0.6)] backdrop-blur-md relative overflow-hidden"
+        >
+        
+
+          <!-- Content Area where text flips -->
+          <div id="text-perspective" class="w-full perspective-1000">
+            <p
+              id="flirt-text"
+              class="text-lg sm:text-xl font-serif font-medium text-white italic leading-relaxed tracking-wide"
+            >
+              "Click the pink node below. Let's see what my heart is thinking
+              about you right now."
+            </p>
+          </div>
+        </div>
+
+        <!-- The Generator Button Node -->
+        <div class="pt-8">
+          <button
+            id="generate-btn"
+            class="group px-8 py-3 rounded-full bg-[var(--nude)] text-[var(--dark-mocha)] font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 active:scale-95 hover:bg-[var(--cream)] shadow-[0_10px_25px_rgba(255,143,214,0.15)]"
+          >
+            <span class="flex items-center gap-3">
+              Generate Thoughts
+              <i
+                class="fa-solid fa-wand-magic-sparkles text-[var(--dark-mocha)] group-hover:rotate-12 transition-transform"
+              ></i>
+            </span>
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- end  -->
+
+    <!-- Chatbot Section Container -->
+    <div
+      class="flex flex-col h-[500px] w-[90%] max-w-md mx-auto rounded-3xl overflow-hidden border border-[var(--rich-tan)]/30 shadow-2xl bg-[var(--dark-mocha)] text-[var(--cream)] font-sans"
+    >
+      <!-- Chat Header -->
+      <div
+        class="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[var(--rich-tan)] to-[var(--dark-mocha)] border-b border-[var(--rich-tan)]/40"
+      >
+        <div class="flex items-center gap-3">
+          <div class="relative">
+            <div
+              class="w-10 h-10 rounded-full bg-[var(--warm-sand)]/20 border border-[var(--nude)]/40 flex items-center justify-center text-xl shadow-inner"
+            >
+              🤖
+            </div>
+            <span
+              class="absolute bottom-0 right-0 w-3 h-3 bg-pink-400 border-2 border-[var(--dark-mocha)] rounded-full animate-pulse"
+            ></span>
+          </div>
+          <div>
+            <h3
+              class="font-semibold text-base text-[var(--cream)] tracking-wide"
+            >
+              LoveBot mirror of Adan
+            </h3>
+            <p class="text-xs text-[var(--nude)] font-medium">
+              Always Online For Ayesha
+            </p>
+          </div>
+        </div>
+
+        <button
+          id="clear-chat-btn"
+          class="text-xs bg-[var(--rich-tan)]/60 hover:bg-red-900/60 text-[var(--cream)] px-3 py-1.5 rounded-xl border border-[var(--warm-sand)]/30 transition-all active:scale-95"
+        >
+          Clear Chat 🗑️
+        </button>
+      </div>
+
+      <!-- Chat Messages Area -->
+      <div
+        id="chat-messages"
+        class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar"
+      >
+        <!-- Bot Message (Welcome) -->
+        <div class="flex gap-3 items-end max-w-[85%] animate-fade-in">
+          <div
+            class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0"
+          >
+            ✨
+          </div>
+          <div
+            class="bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm"
+          >
+            Hello Ayesha! I'm your LoveBot, here to chat, share thoughts, or
+            just be a cozy companion whenever you need. Ask me anything or tell
+            me how you're feeling today!
+          </div>
+        </div>
+
+        <!-- Animated Typing Indicator -->
+        <div
+          id="typing-indicator"
+          class="flex gap-3 items-end max-w-[85%] hidden"
+        >
+          <div
+            class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm flex-shrink-0"
+          >
+            ✨
+          </div>
+          <div
+            class="bg-[var(--rich-tan)]/30 border border-[var(--rich-tan)]/40 px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-1.5 h-10"
+          >
+            <span
+              class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce [animation-delay:-0.3s]"
+            ></span>
+            <span
+              class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce [animation-delay:-0.15s]"
+            ></span>
+            <span
+              class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce"
+            ></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Footer -->
+      <div
+        class="p-4 bg-[var(--dark-mocha)] border-t border-[var(--rich-tan)]/30"
+      >
+        <form
+          id="chat-form"
+          class="flex items-center gap-2 bg-[var(--rich-tan)]/20 border border-[var(--rich-tan)]/50 rounded-2xl p-2 pl-4 focus-within:border-[var(--nude)]/70 transition-all duration-300"
+        >
+          <!-- Input field ko text-base kar diya -->
+          <input
+            type="text"
+            id="user-input"
+            placeholder="Type your prompt here..."
+            class="flex-1 bg-transparent border-none outline-none text-[var(--cream)] placeholder-zinc-600 text-base pr-2"
+            required
+            autocomplete="off"
+          />
+
+          <!-- Send Button (Fixed SVG) -->
+          <button
+            type="submit"
+            class="bg-[var(--warm-sand)] hover:bg-[var(--nude)] text-[var(--dark-mocha)] p-2.5 rounded-xl transition-all duration-300 flex items-center justify-center shadow-md hover:scale-105 active:scale-95 group"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2.5"
+              stroke="currentColor"
+              class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5"
+              />
+            </svg>
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <!-- last section  -->
+    <section
+      id="loveSection"
+      class="w-full min-h-[450px] flex flex-col items-center justify-center p-6 bg-[var(--dark-mocha)] select-none relative overflow-hidden"
+    >
+      <!-- Isolated Animation Styles -->
+      <style>
+        /* Virtual Kiss Animation */
+        @keyframes floatUpKiss {
+          0% {
+            transform: translateY(0) scale(0.3) rotate(0deg);
+            opacity: 0;
+          }
+          15% {
+            opacity: 1;
+            transform: translateY(-20px) scale(1.3) rotate(-10deg);
+          }
+          100% {
+            transform: translateY(-140px) scale(1) rotate(10deg);
+            opacity: 0;
+          }
+        }
+        .animate-virtual-kiss {
+          animation: floatUpKiss 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        /* Heart Rain Animation */
+        @keyframes heartRain {
+          0% {
+            transform: translateY(-20px) rotate(0deg);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.9;
+          }
+          90% {
+            opacity: 0.9;
+          }
+          100% {
+            transform: translateY(420px) rotate(360deg);
+            opacity: 0;
+          }
+        }
+        .animate-heart-rain {
+          animation: heartRain 2.5s linear forwards;
+        }
+      </style>
+
+      <!-- Content Container -->
+      <div
+        class="relative w-full max-w-xl text-center flex flex-col items-center gap-8 z-10"
+      >
+        <h3
+          class="text-[var(--cream)] text-xl sm:text-2xl font-semibold tracking-wide px-4"
+        >
+          Spread the Love!
+        </h3>
+
+        <!-- Flex Row Container for Buttons (Stacks on tiny screens, side-by-side on mobile up) -->
+        <div
+          class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4"
+        >
+          <!-- Button 1: Virtual Kiss -->
+          <div class="relative inline-block w-full sm:w-auto">
+            <button
+              id="kissBtn"
+              class="w-full sm:w-auto bg-[var(--rich-tan)] text-[var(--cream)] border-2 border-[var(--warm-sand)] hover:bg-[var(--warm-sand)] hover:text-[var(--dark-mocha)] active:scale-95 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg sm:text-xl font-bold shadow-xl transition-all duration-200 cursor-pointer flex items-center justify-center gap-3"
+            >
+              <span>Receive a Kiss</span>
+              <span class="text-2xl sm:text-3xl">💋</span>
+            </button>
+          </div>
+
+          <!-- Button 2: Heart Rain -->
+          <div class="relative inline-block w-full sm:w-auto">
+            <button
+              id="heartBtn"
+              class="w-full sm:w-auto bg-[var(--rich-tan)] text-[var(--cream)] border-2 border-[var(--warm-sand)] hover:bg-[var(--warm-sand)] hover:text-[var(--dark-mocha)] active:scale-95 px-6 py-3 sm:px-8 sm:py-4 rounded-full text-lg sm:text-xl font-bold shadow-xl transition-all duration-200 cursor-pointer flex items-center justify-center gap-3"
+            >
+              <span>Receive Hearts</span>
+              <span class="text-2xl sm:text-3xl">❤️</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- end last sec -->
+
+    <!-- Extra Tailwind Custom Animation Configurations (If your config doesn't have fade-in) -->
+    <style>
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+    </style>
+
+   <script>
+  // Global context scope tracking function (Bypasses Swiper loop duplicate mutations flawlessly)
+  function toggleMobileMessage(element) {
+    if (window.innerWidth < 1024) {
+      
+      // Check if the explicitly tapped target already contains the open class
+      if (element.classList.contains('touch-revealed')) {
+        element.classList.remove('touch-revealed');
+      } else {
+        // Safe reset: clear out any lingering text boxes on alternative slides
+        document.querySelectorAll('.premium-gallery-card').forEach(slide => {
+          slide.classList.remove('touch-revealed');
+        });
+        
+        // Unleash current view state
+        element.classList.add('touch-revealed');
+      }
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const cinemaSwiper = new Swiper(".cinemaSwiper", {
+      effect: "coverflow",
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: "auto",
+      loop: true, /* Infinite layout generation engine */
+      watchSlidesProgress: true,
+      speed: 600,
+      coverflowEffect: {
+        rotate: 4,
+        stretch: 0,
+        depth: 100,
+        modifier: 2,
+        slideShadows: false,
+      },
+      autoplay: {
+        delay: 3000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: ".cinemaSwiper .swiper-pagination",
+        clickable: true,
+      },
+      on: {
+        // Clean snap listener: whenever user drags or swipes away, wipe the previous messages clean!
+        slideChange: function () {
+          document.querySelectorAll('.premium-gallery-card').forEach(slide => {
+            slide.classList.remove('touch-revealed');
+          });
+        }
+      }
+    });
+  });
+</script>
+
+    <footer class="py-32 text-center">
+      <p class="text-[14px] text-nude/20">
+        Designed and Developed with ❤️ for Ayesha by Adan
+      </p>
+    </footer>
+
+    <script>
+      if (typeof lucide !== "undefined") {
+        lucide.createIcons();
+      } else {
+        console.warn("Lucide icons failed to load from CDN — icons will be skipped.");
+      }
+
+      // 1. SMOOTH SCROLL (falls back to native scroll if the CDN is blocked)
+      if (typeof Lenis !== "undefined") {
+        const lenis = new Lenis({ lerp: 0.05 });
+        function raf(time) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+      } else {
+        console.warn("Lenis failed to load from CDN — using native scrolling instead.");
+      }
+
+      // Variable to hold the actual objective progress
+
+      // Outward clean animations happening simultaneously
+
+      // Global Core Engine Configuration
+      let trackProgress = { value: 0 };
+      const percentText = document.getElementById("loader-percentage");
+
+      // Safety net: if GSAP never loaded (CDN blocked), skip the animated
+      // loader entirely so the page never gets stuck behind it.
+      if (typeof gsap === "undefined") {
+        console.warn("GSAP failed to load from CDN — skipping animated loader.");
+        const loaderElement = document.getElementById("loader");
+        if (loaderElement) loaderElement.remove();
+        document.querySelectorAll(".reveal").forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "none";
+        });
+        if (typeof initMusic === "function") initMusic();
+      } else {
+
+      /**
+       * 1. INITIAL ENTRY TIMELINE
+       * Loader window load hote hi text ko niche se upar slide karega smoothly
+       */
+      gsap.to("#loader-text", {
+        y: "0%",
+        duration: 1.2,
+        ease: "power4.out",
+        delay: 0.1,
+      });
+
+      /**
+       * 2. PROGRESS ENGINE SIMULATOR
+       * Math.random use karke dynamic calculation generate karta hai bina jhatke khaye
+       */
+      const progressSimulation = setInterval(() => {
+        let nextStep = trackProgress.value + (Math.random() * 18 + 6);
+        if (nextStep >= 100) {
+          nextStep = 100;
+          clearInterval(progressSimulation);
+        }
+
+        // Makhan Smooth GSAP Tween Property handling
+        gsap.to(trackProgress, {
+          value: nextStep,
+          duration: 0.7,
+          ease: "power2.out",
+          onUpdate: () => {
+            const currentPercent = Math.floor(trackProgress.value);
+            // Double digit format management (01, 05, 12, 99)
+            percentText.textContent =
+              currentPercent < 10 ? `0${currentPercent}` : currentPercent;
+          },
+          onComplete: () => {
+            if (trackProgress.value === 100) {
+              triggerLoaderExit();
+            }
+          },
+        });
+      }, 280);
+
+      } // end gsap-available branch
+
+      /**
+       * 3. PREMIUM EXIT SEQUENCE ORCHESTRATOR
+       * Loader ko dismiss karke back-to-back sequential delay par hero elements reveal karega
+       */
+      function triggerLoaderExit() {
+        const exitTimeline = gsap.timeline({
+          onComplete: () => {
+            // DOM cleanup perform karega performance enhance karne ke liye
+            const loaderElement = document.getElementById("loader");
+            if (loaderElement) loaderElement.remove();
+
+            // Audio stream initialize karne ka function
+            if (typeof initMusic === "function") initMusic();
+
+            // Continuous micro-interactions activate karega background layer par
+            startAmbientFloating();
+          },
+        });
+
+        exitTimeline
+          // A: Loader components scaling down softly
+          .to("#loader-text, .relative.w-32", {
+            opacity: 0,
+            scale: 0.85,
+            duration: 0.5,
+            ease: "power3.in",
+          })
+          // B: Main Solid Black Panel Curtains sliding straight up
+          .to(
+            "#loader",
+            {
+              y: "-100%",
+              duration: 1.4,
+              ease: "expo.inOut",
+            },
+            "-=0.2",
+          )
+          // C: HERO ELEMENTS REVEAL STACK (Staggered Entrance Animation)
+          .fromTo(
+            ".reveal",
+            {
+              opacity: 0,
+              y: 40,
+            },
+            {
+              opacity: 1,
+              y: 0,
+              stagger: 0.12, // Har element ke beech 0.12s ka delay automatic manage hoga
+              duration: 1.5,
+              ease: "power4.out", // Clean custom decelerated ease profile
+            },
+            "-=0.7", // Pura screen khulne se thoda pehle text dynamic slide shuru kar dega
+          );
+      }
+
+      /**
+       * 4. AMBIENT FLOATING ELEMENTS (Optional Pro Tip)
+       * Screen open hone ke baad user experience ko completely immersive rakhne ke liye subtle wave effect
+       */
+      function startAmbientFloating() {
+        // Check if target element exists
+        if (document.querySelector(".group img")) {
+          gsap.to(".group img", {
+            y: -6,
+            duration: 3,
+            ease: "sine.inOut",
+            yoyo: true, // Reverse path automatically calculate karega
+            repeat: -1, // Infinite infinite loop stream configuration
+          });
+        }
+      }
+
+      // end
+
+      // 3. POLAROID WALL
+      const imgList = [
+        "pics/1.jpeg",
+        "pics/2.jpeg",
+        "pics/3.jpeg",
+        "pics/4.jpeg",
+        "pics/5.jpeg",
+        "pics/6.jpeg",
+        "pics/7.jpeg",
+        "pics/8.jpeg",
+      ];
+      const wall = document.getElementById("gallery-wall");
+      imgList.forEach((src, i) => {
+        const angle = Math.random() * 20 - 10;
+        wall.innerHTML += `
+                <div class="polaroid-frame reveal opacity-0" style="transform: rotate(${angle}deg)">
+                    <img src="${src}" class="shadow-md" />
+                    <div class="polaroid-tag">Picture #${i + 1}</div>
+                </div>
+            `;
+      });
+
+  
+      
+
+   
+    
+
+      
+    </script>
+
+   <script>
+  function initAudioPlayer() {
+    const audioPlayer = document.getElementById("audio-player");
+    const minimizeBtn = document.getElementById("minimize-btn");
+    const playBtn = document.getElementById("play-btn");
+    const playBtnIcon = document.getElementById("play-btn-icon");
+    const prevBtn = document.getElementById("prev-btn");
+    const nextBtn = document.getElementById("next-btn");
+    const progress = document.getElementById("progress");
+    const progressContainer = document.getElementById("progress-container");
+    const currentTimeEl = document.getElementById("current-time");
+    const durationEl = document.getElementById("duration");
+    const currentSongEl = document.getElementById("current-song");
+    const currentArtistEl = document.getElementById("current-artist");
+    const volumeBtn = document.getElementById("volume-btn");
+    const volumeSlider = document.getElementById("volume-slider");
+    const songItems = document.querySelectorAll(".song-item");
+
+    const playerToggle = document.getElementById("player-toggle");
+    const miniPlayBtn = document.getElementById("mini-play-btn");
+    const miniPlayIcon = document.getElementById("mini-play-icon");
+    const miniMaximizeBtn = document.getElementById("mini-maximize-btn");
+    const miniSongName = document.getElementById("mini-song-name");
+
+    const mainAlbumArt = document.getElementById("main-album-art");
+    const miniAlbumArt = document.getElementById("mini-album-art");
+
+    const audio = new Audio();
+    let currentSongIndex = 0; 
+    let isPlaying = false;
+    let isMinimized = true;
+
+    const songs = [
+      {
+        title: "I Think They Call This Love",
+        artist: "Dedicated to Ayesha",
+        src: "songs/I_Think_They_Call_This_Love.mp3",
+        cover: "https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg",
+      },
+      {
+        title: "Sahiba Lyrics",
+        artist: "For Ayesha Khan",
+        src: "songs/Sahiba_Lyrics-Aditya_Rikhari.mp3",
+        cover: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop",
+      },
+      {
+        title: "Ed Sheeran - Perfect",
+        artist: "For Ayesha Khan",
+        src: "songs/Ed_Sheeran-Perfect.mp3",
+        cover: "https://m.media-amazon.com/images/I/71fqFyMSaNL._AC_UF1000,1000_QL80_.jpg",
+      },
+      {
+        title: "Ishq Wala Love",
+        artist: "For Ayesha",
+        src: "songs/Ishq_Wala_Love.mp3",
+        cover: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=100&auto=format&fit=crop",
+      },
+      {
+        title: "Pretty Little Baby",
+        artist: "For Ayesha",
+        src: "songs/Connie_Francis-Pretty_Little_Baby.mp3",
+        cover: "https://i.ytimg.com/vi/A1MdThqGarI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihJMA8=&rs=AOn4CLCDbzt4dnR3ecEhgddKfElJI9UIJQ",
+      },
+      {
+        title: "O Meri Laila Lyrics",
+        artist: "For Ayesha",
+        src: "songs/O_Meri_Laila_Lyrics-Atif_Aslam.mp3",
+        cover: "https://i.ytimg.com/vi/vO_wELU6pGM/maxresdefault.jpg",
+      },
+    ];
+
+    // Standard volume setup & loading track
+    audio.volume = 0.7;
+    setPlayerMode(true);
+    loadSong(currentSongIndex);
+
+    // ==========================================
+    // SEAMLESS PASSIVE AUTOPLAY ENFORCEMENT
+    // ==========================================
+    // This watches for any touch, click, scroll start or keyboard interaction
+    const userInteractions = ["click", "touchstart", "pointerdown", "scroll"];
+    
+    function triggerSeamlessAutoplay() {
+      if (!isPlaying) {
+        audio.play().then(() => {
+          isPlaying = true;
+          if (audioPlayer) audioPlayer.classList.add("audio-playing");
+          updatePlayIcons();
+        }).catch((err) => {
+          console.warn("Autoplay was held back by the sandbox engine:", err);
+        });
+      }
+
+      // Cleanup listeners immediately so subsequent scrolling or touching does not interrupt playback
+      userInteractions.forEach((event) => {
+        document.removeEventListener(event, triggerSeamlessAutoplay);
+      });
+    }
+
+    userInteractions.forEach((event) => {
+      document.addEventListener(event, triggerSeamlessAutoplay, { passive: true });
+    });
+    // ==========================================
+
+    function setPlayerMode(minimized) {
+      isMinimized = minimized;
+      if (!audioPlayer) return;
+      if (minimized) {
+        audioPlayer.classList.add("minimized");
+      } else {
+        audioPlayer.classList.remove("minimized");
+      }
+    }
+
+    if (playerToggle) {
+      playerToggle.addEventListener("click", function () {
+        if (isMinimized) setPlayerMode(false);
+      });
+    }
+
+    if (miniMaximizeBtn) {
+      miniMaximizeBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setPlayerMode(false);
+      });
+    }
+
+    if (minimizeBtn) {
+      minimizeBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        setPlayerMode(true);
+      });
+    }
+
+    function togglePlay() {
+      if (isPlaying) {
+        pauseSong();
+      } else {
+        playSong();
+      }
+    }
+
+    function playSong() {
+      isPlaying = true;
+      if (audioPlayer) audioPlayer.classList.add("audio-playing");
+      
+      audio.play().catch((e) => {
+        isPlaying = false;
+        if (audioPlayer) audioPlayer.classList.remove("audio-playing");
+        updatePlayIcons();
+      });
+      updatePlayIcons();
+    }
+
+    function pauseSong() {
+      isPlaying = false;
+      if (audioPlayer) audioPlayer.classList.remove("audio-playing");
+      audio.pause();
+      updatePlayIcons();
+    }
+
+    function updatePlayIcons() {
+      if (isPlaying) {
+        if (playBtnIcon) playBtnIcon.className = "fas fa-pause text-lg";
+        if (miniPlayIcon) miniPlayIcon.className = "fas fa-pause text-pink-400";
+      } else {
+        if (playBtnIcon) playBtnIcon.className = "fas fa-play text-lg pl-0.5";
+        if (miniPlayIcon) miniPlayIcon.className = "fas fa-play text-pink-400";
+      }
+    }
+
+    if (playBtn) playBtn.addEventListener("click", togglePlay);
+    
+    if (miniPlayBtn) {
+      miniPlayBtn.addEventListener("click", function (e) {
+        e.stopPropagation();
+        togglePlay();
+      });
+    }
+
+    if (prevBtn) {
+      prevBtn.addEventListener("click", function () {
+        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+        loadSong(currentSongIndex);
+        playSong();
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener("click", function () {
+        currentSongIndex = (currentSongIndex + 1) % songs.length;
+        loadSong(currentSongIndex);
+        playSong();
+      });
+    }
+
+    function loadSong(index) {
+      audio.src = songs[index].src;
+      if (currentSongEl) currentSongEl.textContent = songs[index].title;
+      if (currentArtistEl) currentArtistEl.textContent = songs[index].artist;
+      if (miniSongName) miniSongName.textContent = songs[index].title;
+
+      if (mainAlbumArt) mainAlbumArt.src = songs[index].cover;
+      if (miniAlbumArt) miniAlbumArt.src = songs[index].cover;
+
+      if (progress) progress.style.width = "0%";
+      if (currentTimeEl) currentTimeEl.textContent = "0:00";
+
+      updateActiveSongItem(index);
+    }
+
+    audio.addEventListener("timeupdate", function () {
+      if (!isNaN(audio.duration)) {
+        const progressPercent = (audio.currentTime / audio.duration) * 100;
+        if (progress) progress.style.width = `${progressPercent}%`;
+        if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
+      }
+    });
+
+    if (progressContainer) {
+      progressContainer.addEventListener("click", function (e) {
+        const width = this.clientWidth;
+        const clickX = e.offsetX;
+        const duration = audio.duration;
+        if (!isNaN(duration)) {
+          audio.currentTime = (clickX / width) * duration;
+        }
+      });
+    }
+
+    if (volumeSlider) {
+      volumeSlider.addEventListener("input", function (e) {
+        audio.volume = e.target.value / 100;
+        if (!volumeBtn) return;
+        const volumeIcon = volumeBtn.querySelector("i");
+        if (!volumeIcon) return;
+        
+        if (e.target.value == 0) {
+          volumeIcon.className = "fas fa-volume-mute";
+        } else if (e.target.value < 50) {
+          volumeIcon.className = "fas fa-volume-down";
+        } else {
+          volumeIcon.className = "fas fa-volume-up";
+        }
+      });
+    }
+
+    if (volumeBtn) {
+      volumeBtn.addEventListener("click", function () {
+        const volumeIcon = volumeBtn.querySelector("i");
+        if (!volumeIcon) return;
+        
+        if (audio.volume > 0) {
+          audio.volume = 0;
+          if (volumeSlider) volumeSlider.value = 0;
+          volumeIcon.className = "fas fa-volume-mute";
+        } else {
+          audio.volume = 0.7;
+          if (volumeSlider) volumeSlider.value = 70;
+          volumeIcon.className = "fas fa-volume-up";
+        }
+      });
+    }
+
+    songItems.forEach((item) => {
+      item.addEventListener("click", function () {
+        const clickedIndex = parseInt(this.getAttribute("data-index"));
+        if (clickedIndex !== currentSongIndex) {
+          currentSongIndex = clickedIndex;
+          loadSong(currentSongIndex);
+          playSong();
+        }
+      });
+    });
+
+    function updateActiveSongItem(activeIndex) {
+      songItems.forEach((item, index) => {
+        const icon = item.querySelector("i");
+        if (index === activeIndex) {
+          item.classList.add("active");
+          if (icon) icon.className = "fas fa-play text-pink-400 text-[10px] flex-shrink-0 animate-pulse";
+        } else {
+          item.classList.remove("active");
+          if (icon) {
+            const icons = ["fa-play", "fa-heart", "fa-crown", "fa-star", "fa-moon", "fa-heartbeat"];
+            icon.className = `fas ${icons[index] || "fa-music"} text-stone-500 text-[10px] flex-shrink-0`;
+          }
+        }
+      });
+    }
+
+    function formatTime(seconds) {
+      if (isNaN(seconds)) return "0:00";
+      const mins = Math.floor(seconds / 60);
+      const secs = Math.floor(seconds % 60);
+      return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+    }
+
+    audio.addEventListener("ended", function () {
+      currentSongIndex = (currentSongIndex + 1) % songs.length;
+      loadSong(currentSongIndex);
+      playSong();
+    });
+
+    audio.addEventListener("loadedmetadata", () => {
+      if (!isNaN(audio.duration)) {
+        if (durationEl) durationEl.textContent = formatTime(audio.duration);
+      }
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", initAudioPlayer);
+</script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const questionText = document.getElementById("question-text");
+        const optionsContainer = document.getElementById("options-container");
+        const progressDots = document.getElementById("quiz-progress").children;
+        const quizCard = document.getElementById("quiz-card");
+
+        let currentStep = 0;
+
+        // 3 Fully Tailored Romantic/Flirty Questions Dataset
+        const quizData = [
+          {
+            question: "In a room full of art, what would I be staring at?",
+            options: [
+              {
+                text: "The expensive paintings",
+                correct: false,
+                reply: "Nah, art on the wall is boring.",
+              },
+              {
+                text: "The beautiful architecture",
+                correct: false,
+                reply: "Structures can't compete.",
+              },
+              {
+                text: "Directly at you, obviously. 🤎",
+                correct: true,
+                reply: "Exactly. You easily outshine any masterpiece.",
+              },
+            ],
+          },
+          {
+            question: "What is my absolute favorite playlist or soundscape?",
+            options: [
+              {
+                text: "Lo-Fi Beats at midnight",
+                correct: false,
+                reply: "Close, but still second place.",
+              },
+              {
+                text: "The sound of your voice. ✨",
+                correct: true,
+                reply: "Spot on. Your voice is my permanent melody.",
+              },
+              {
+                text: "Cinematic classical tracks",
+                correct: false,
+                reply: "Too dramatic, needs more of you.",
+              },
+            ],
+          },
+          {
+            question: "Quick round: what's my go-to excuse to text you first?",
+            options: [
+              {
+                text: "\"Just checking the weather\"",
+                correct: false,
+                reply: "Nice try, but nobody buys that one.",
+              },
+              {
+                text: "I don't need an excuse, I just want to. 🩷",
+                correct: true,
+                reply: "Exactly. No excuse needed, ever.",
+              },
+              {
+                text: "Group project updates",
+                correct: false,
+                reply: "There's no group project and you know it.",
+              },
+            ],
+          },
+          {
+            question:
+              "One last thing... who owns the permanent keys to this entire digital space?",
+            options: [
+              {
+                text: "Synth & Stack Developers",
+                correct: false,
+                reply: "We just code it, we don't own it!",
+              },
+              {
+                text: "Ayesha, today & forever. 👑",
+                correct: true,
+                reply: "Always. This whole universe is curated for you.",
+              },
+              {
+                text: "Just a random visitor",
+                correct: false,
+                reply: "No way, this is premium exclusively for one soul.",
+              },
+            ],
+          },
+        ];
+
+        // Load Question with Smooth Mask/Slide Fade
+        function loadQuestion() {
+          if (currentStep >= quizData.length) {
+            showFinalReveal();
+            return;
+          }
+
+          const currentData = quizData[currentStep];
+
+          // Update progress dots visually
+          for (let i = 0; i < progressDots.length; i++) {
+            if (i === currentStep) {
+              progressDots[i].style.backgroundColor = "var(--nude)";
+              progressDots[i].style.width = "16px";
+            } else {
+              progressDots[i].style.backgroundColor = "rgba(166,123,91,0.3)";
+              progressDots[i].style.width = "8px";
+            }
+            progressDots[i].style.transition = "all 0.3s ease";
+          }
+
+          // GSAP Animate Text Switch smoothly
+          gsap.to([questionText, optionsContainer], {
+            opacity: 0,
+            y: -10,
+            duration: 0.25,
+            onComplete: () => {
+              questionText.textContent = currentData.question;
+              optionsContainer.innerHTML = "";
+
+              // Build premium buttons dynamically
+              currentData.options.forEach((opt) => {
+                const btn = document.createElement("button");
+                btn.className =
+                  "w-full px-5 py-3.5 rounded-xl border border-[var(--warm-sand)]/20 bg-[var(--rich-tan)]/10 text-sm font-serif text-left italic text-[var(--cream)] transition-all duration-300 hover:border-[var(--nude)]/50 hover:bg-[var(--rich-tan)]/20 active:scale-[0.99]";
+                btn.textContent = opt.text;
+
+                btn.addEventListener("click", () =>
+                  handleOptionClick(opt, btn),
+                );
+                optionsContainer.appendChild(btn);
+              });
+
+              // Slide everything back up elegantly
+              gsap.to([questionText, optionsContainer], {
+                opacity: 1,
+                y: 0,
+                duration: 0.4,
+                ease: "power2.out",
+              });
+            },
+          });
+        }
+
+        // Handle choice execution
+        function handleOptionClick(option, buttonElement) {
+          if (option.correct) {
+            // Highlight green border accent temporarily and move forward
+            gsap.to(buttonElement, {
+              borderColor: "rgba(219,39,119,0.5)",
+              backgroundColor: "rgba(219,39,119,0.05)",
+              duration: 0.2,
+            });
+
+            setTimeout(() => {
+              currentStep++;
+              loadQuestion();
+            }, 1000);
+          } else {
+            // Wrong choice shake dynamic effect (Using GSAP standard manipulation)
+            gsap.fromTo(
+              buttonElement,
+              { x: -6 },
+              { x: 6, duration: 0.08, clearProps: "x", repeat: 5, yoyo: true },
+            );
+            gsap.to(buttonElement, {
+              borderColor: "rgba(239,68,68,0.4)",
+              duration: 0.2,
+            });
+
+            // Update temporarily with a witty reminder response
+            const originalText = buttonElement.textContent;
+            buttonElement.textContent = option.reply;
+            buttonElement.style.color = "var(--nude)";
+
+            setTimeout(() => {
+              buttonElement.textContent = originalText;
+              buttonElement.style.color = "var(--cream)";
+              buttonElement.style.borderColor = "rgba(166,123,91,0.2)";
+            }, 2000);
+          }
+        }
+
+        // Grand Romantic Final Screen Reveal
+        function showFinalReveal() {
+          gsap.to(quizCard, {
+            borderColor: "var(--nude)",
+            boxShadow: "0 0 40px rgba(255,143,214,0.15)",
+            duration: 0.8,
+            onComplete: () => {
+              document.getElementById("quiz-progress").style.display = "none";
+
+              quizCard.innerHTML = `
+          <div class="space-y-6 opacity-0 transform translate-y-4" id="final-card-view">
+            <div class="text-4xl">🤎</div>
+            <h3 class="text-3xl font-serif font-bold italic text-white">Perfect Rhythm!</h3>
+            <p class="text-sm text-[var(--cream)]/80 font-light leading-relaxed max-w-sm mx-auto">
+              "In a world full of temporary noise, you are my permanent melody, Ayesha. You parsed every question perfectly, just like how you understand my soul."
+            </p>
+            <div class="pt-4">
+              <span class="text-[9px] font-mono tracking-[0.4em] text-[var(--nude)] uppercase border-t border-[var(--warm-sand)]/20 pt-4 block w-24 mx-auto">
+                End Transmission
+              </span>
+            </div>
+          </div>
+        `;
+
+              gsap.to("#final-card-view", {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power2.out",
+              });
+            },
+          });
+        }
+
+        // Initialize engine execution loop
+        loadQuestion();
+      });
+    </script>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const flirtText = document.getElementById("flirt-text");
+        const generateBtn = document.getElementById("generate-btn");
+        const flirtCard = document.getElementById("flirt-card");
+
+        // Premium Flirty Dialogues Database exclusively for Ayesha
+        const thoughtBank = [
+          // --- Existing Items (Jo pehle se hain unke niche ye add karlo) ---
+
+          // Tech & Code Blends (For that Software Engineer touch 😉)
+          "My database could hold terabytes of data, but the only schema it naturally saves is you. 💻",
+          "If my heart was an API, you’d be the only authorized token with unlimited access requests.",
+          "I can clear my browser cache, my local storage, and my server logs, but your memory is hardcoded. ☕",
+          "You are the CSS to my HTML—without you, my world is just an unstyled skeleton.",
+          "Are you a git commit? Because every time you enter my life, everything stabilizes perfectly.",
+          "I could run a million simulation loops, but every single path leads straight back to you. ♾️",
+
+          // Pure Cinematic & Aesthetics
+          "The universe has billions of galaxies, but my favorite view will always be your smile. 🌌",
+          "They look at the moon and write poetry; I just look at you and understand what art means. ✨",
+          "In a crowded room full of bright lights, my eyes will always find your calm silhouette. 🤎",
+          "You carry a kind of grace that makes even the chaotic world look like a slow-motion movie.",
+          "If comfort was a person, it would definitely have your voice and your laugh. 🌸",
+          "Some people need coffee to wake up; I just need a single glance at your name pop-up. ☕",
+
+          // Witty, Playful & Scientific Cleverness
+          "Are you an anomaly? Because you completely broke all the mathematical rules of my predictable life.",
+          "Do you have a map? Because I keep getting lost in the depth of those eyes. 🗺️",
+          "If charm was measured in volts, you’d be powering up this entire city on your own.",
+          "Are we made of entangled particles? Because no matter the distance, I feel every bit of your vibe.",
+          "I'm pretty sure thermodynamics is wrong, because you keep generating endless warmth without cooling down. ☀️",
+
+          // Premium Romantic
+          "Honestly, if I could bookmark a moment in time, it would be any second spent talking to you. 📌",
+          "You aren’t just a chapter in my story, Ayesha; you are the entire plot twist I never knew I needed. 👑",
+          "The world is busy looking for shooting stars, but I already found my permanent wish in you.",
+
+          // New extra-flirty additions 💗
+          "If being this cute was a crime, you'd be serving a life sentence, no bail. 🩷",
+          "I keep 'accidentally' opening our chat just to see your name pop up. 💌",
+          "You're the reason my playlists are 90% love songs now.",
+          "Pretty sure my heart does a little happy dance every time you text first. 💓",
+          "You + me + zero plans = still somehow my favorite kind of day.",
+          "I don't believe in luck, but somehow knowing you feels exactly like winning something. 🎀",
+          "If overthinking about you burned calories, I'd be in the best shape of my life.",
+          "You're basically my favorite notification. 📱💗",
+        ];
+
+        let lastIndex = -1;
+
+        generateBtn.addEventListener("click", () => {
+          // Pick a truly random index without repeating the immediate last one
+          let randomIndex;
+          do {
+            randomIndex = Math.floor(Math.random() * thoughtBank.length);
+          } while (randomIndex === lastIndex);
+
+          lastIndex = randomIndex;
+          const nextThought = thoughtBank[randomIndex];
+
+          // Premium 3D Card Slot/Flip Transition Timeline
+          const tl = gsap.timeline();
+
+          // 1. Interactive Button Feedback Ripple
+          gsap.fromTo(
+            generateBtn,
+            { scale: 1 },
+            { scale: 0.94, duration: 0.15, yoyo: true, repeat: 1 },
+          );
+
+          // 2. Flash dynamic pink outline on the card container
+          gsap.to(flirtCard, {
+            borderColor: "var(--nude)",
+            duration: 0.2,
+            yoyo: true,
+            repeat: 1,
+          });
+
+          // 3. Flip Out Old Text down/backward
+          tl.to(flirtText, {
+            rotationX: -90,
+            opacity: 0,
+            y: 15,
+            duration: 0.25,
+            ease: "power2.in",
+            onComplete: () => {
+              // Change text when fully invisible
+              flirtText.textContent = nextThought;
+              // Preset position for incoming flip animation
+              gsap.set(flirtText, { rotationX: 90, y: -15 });
+            },
+          })
+            // 4. Flip In New Text from top/forward
+            .to(flirtText, {
+              rotationX: 0,
+              opacity: 1,
+              y: 0,
+              duration: 0.45,
+              ease: "back.out(1.4)", // Adds a beautiful rubber-band text bounce effect
+            });
+        });
+      });
+    </script>
+
+    <script>
+      const chatForm = document.getElementById("chat-form");
+      const userInput = document.getElementById("user-input");
+      const chatMessages = document.getElementById("chat-messages");
+      const typingIndicator = document.getElementById("typing-indicator");
+      const clearChatBtn = document.getElementById("clear-chat-btn");
+
+      // Load chat logs from LocalStorage or fall back to welcome object array
+      let chatHistory = JSON.parse(
+        localStorage.getItem("synth_chat_history"),
+      ) || [
+        {
+          role: "assistant",
+          content:
+            "Hello Ayesha! I'm your LoveBot, here to chat, share thoughts, or just be a cozy companion whenever you need. Ask me anything or tell me how you're feeling today!.",
+        },
+      ];
+
+      // Render initialization history
+      function initChat() {
+        // Keep indicator node secure during clear re-render
+        chatMessages.innerHTML = "";
+        chatMessages.appendChild(typingIndicator);
+
+        chatHistory.forEach((msg) => {
+          renderStaticMessage(
+            msg.content,
+            msg.role === "user" ? "user" : "bot",
+          );
+        });
+        scrollToBottom();
+      }
+
+      function renderStaticMessage(text, sender) {
+        const msgDiv = document.createElement("div");
+        if (sender === "user") {
+          msgDiv.className =
+            "flex gap-3 items-end max-w-[85%] ml-auto justify-end animate-fade-in";
+          msgDiv.innerHTML = `
+        <div class="bg-[var(--warm-sand)] text-[var(--dark-mocha)] font-medium px-4 py-3 rounded-2xl rounded-br-sm shadow-md text-sm leading-relaxed">${text}</div>
+      `;
+        } else {
+          msgDiv.className = "flex gap-3 items-end max-w-[85%] animate-fade-in";
+          msgDiv.innerHTML = `
+        <div class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0">✨</div>
+        <div class="bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm">${text}</div>
+      `;
+        }
+        chatMessages.insertBefore(msgDiv, typingIndicator);
+      }
+
+      // ChatGPT Typing Effect Simulator
+      function typeMessageEffect(text, containerElement) {
+        let index = 0;
+        // Fast step typing pacing (milliseconds)
+        const interval = setInterval(() => {
+          if (index < text.length) {
+            containerElement.textContent += text.charAt(index);
+            index++;
+            scrollToBottom();
+          } else {
+            clearInterval(interval);
+          }
+        }, 20);
+      }
+
+      function appendDynamicBotResponse(fullText) {
+        const msgDiv = document.createElement("div");
+        msgDiv.className = "flex gap-3 items-end max-w-[85%] animate-fade-in";
+
+        msgDiv.innerHTML = `
+      <div class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0">✨</div>
+      <div class="text-target bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm"></div>
+    `;
+
+        chatMessages.insertBefore(msgDiv, typingIndicator);
+        const textContainer = msgDiv.querySelector(".text-target");
+        typeMessageEffect(fullText, textContainer);
+      }
+
+      function scrollToBottom() {
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      }
+
+      // Submit Handler Action
+      chatForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        const prompt = userInput.value.trim();
+        if (!prompt) return;
+
+        // Append and save user interaction
+        renderStaticMessage(prompt, "user");
+        chatHistory.push({ role: "user", content: prompt });
+        localStorage.setItem("synth_chat_history", JSON.stringify(chatHistory));
+
+        userInput.value = "";
+        typingIndicator.classList.remove("hidden");
+        scrollToBottom();
+
+        try {
+          const response = await fetch("/.netlify/functions/bot", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            // Passing 'message' and 'history' mapping structure cleanly to function backend
+            body: JSON.stringify({
+              message: prompt,
+              history: chatHistory,
+            }),
+          });
+
+          const result = await response.json();
+          typingIndicator.classList.add("hidden");
+
+          if (result.success && (result.reply || result.data)) {
+            const botReply = result.reply || result.data;
+
+            // Execute typing engine execution and pipeline data
+            appendDynamicBotResponse(botReply);
+            chatHistory.push({ role: "assistant", content: botReply });
+            localStorage.setItem(
+              "synth_chat_history",
+              JSON.stringify(chatHistory),
+            );
+          } else {
+            renderStaticMessage(
+              "Something went wrong. Please try again.",
+              "bot",
+            );
+          }
+        } catch (error) {
+          typingIndicator.classList.add("hidden");
+          renderStaticMessage("Network error or server is down.", "bot");
+          console.error("Error:", error);
+        }
+      });
+
+      // Clear Session Data Event
+      clearChatBtn.addEventListener("click", () => {
+        localStorage.removeItem("synth_chat_history");
+        chatHistory = [
+          {
+            role: "assistant",
+            content:
+              "Hello Ayesha! I'm your LoveBot, here to chat, share thoughts, or just be a cozy companion whenever you need. Ask me anything or tell me how you're feeling today!.",
+          },
+        ];
+        initChat();
+      });
+
+      // Run initial state render cycle
+      initChat();
+    </script>
+
+    <!-- end sec js  -->
+
+    <!-- JavaScript Logic -->
+    <script>
+      (function () {
+        const kissBtn = document.getElementById("kissBtn");
+        const heartBtn = document.getElementById("heartBtn");
+        const section = document.getElementById("loveSection");
+
+        if (!kissBtn || !heartBtn || !section) return;
+
+        // --- 1. KISS BUTTON LOGIC ---
+        kissBtn.addEventListener("click", () => {
+          const kiss = document.createElement("span");
+          kiss.innerText = "💋";
+          kiss.className =
+            "absolute text-4xl sm:text-5xl pointer-events-none animate-virtual-kiss z-50";
+
+          const scatterX = Math.floor(Math.random() * 80) - 40;
+          kiss.style.left = `calc(50% + ${scatterX}px - 20px)`;
+          kiss.style.top = "-25px";
+
+          kissBtn.parentElement.appendChild(kiss);
+          setTimeout(() => kiss.remove(), 1200);
+        });
+
+        // --- 2. HEART RAIN LOGIC ---
+        const heartTypes = ["❤️", "💖", "💝", "💕", "💘"];
+
+        heartBtn.addEventListener("click", () => {
+          // Spawns a burst of 15 hearts raining down simultaneously
+          for (let i = 0; i < 15; i++) {
+            const heart = document.createElement("span");
+
+            // Pick a random heart emoji style
+            heart.innerText =
+              heartTypes[Math.floor(Math.random() * heartTypes.length)];
+
+            // Style & attach animation
+            heart.className =
+              "absolute text-xl sm:text-3xl pointer-events-none animate-heart-rain z-0";
+
+            // Randomize horizontal starting point across the section width (0% to 100%)
+            heart.style.left = `${Math.random() * 100}%`;
+
+            // Top constraint starting point
+            heart.style.top = "-40px";
+
+            // Stagger the falling speed and starting delay slightly for a natural look
+            const delay = Math.random() * 0.6;
+            const duration = 1.8 + Math.random() * 1.2;
+            heart.style.animationDelay = `${delay}s`;
+            heart.style.animationDuration = `${duration}s`;
+
+            section.appendChild(heart);
+
+            // Clean up element after animation finishes (delay + duration max)
+            setTimeout(
+              () => {
+                heart.remove();
+              },
+              (delay + duration) * 1000,
+            );
+          }
+        });
+      })();
+    </script>
+
+    <!-- end sec js ends here  -->
+  </body>
+</html>

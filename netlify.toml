@@ -1,0 +1,6 @@
+[build]
+  # Yeh batata hai ke frontend files kahan hain (agar root par hain toh ".")
+  publish = "."
+
+  # Yeh batata hai ke backend/API functions kahan hain
+  functions = "netlify/functions"
