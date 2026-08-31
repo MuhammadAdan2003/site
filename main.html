@@ -1155,6 +1155,132 @@
     </section>
     <!-- end  -->
 
+    <!-- yes no section  -->
+     <!-- DO YOU LOVE ADAN? SECTION -->
+      <style>
+        /* Love Question Section */
+.love-question-card {
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255,143,214,0.15);
+  border-radius: 48px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
+  transition: all 0.4s ease;
+}
+.love-question-card:hover {
+  border-color: rgba(255,143,214,0.4);
+  box-shadow: 0 30px 80px rgba(199,66,199,0.15);
+}
+.btn-love-yes {
+  background: linear-gradient(145deg, #ff8fd6, #c25ec2);
+  color: #1a0e21;
+  font-weight: 700;
+  padding: 16px 48px;
+  border-radius: 60px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(255,143,214,0.3);
+}
+.btn-love-yes:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255,143,214,0.5); }
+.btn-love-no {
+  background: rgba(255,255,255,0.05);
+  color: #ff8fd6;
+  border: 1px solid rgba(255,143,214,0.3);
+  padding: 16px 48px;
+  border-radius: 60px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(4px);
+  position: relative;
+  touch-action: none;
+}
+.btn-love-no:hover { background: rgba(255,143,214,0.1); border-color: #ff8fd6; }
+.celebration-emoji { font-size: 4rem; animation: float 2s ease-in-out infinite; }
+@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+      </style>
+<section class="py-24 container mx-auto px-6 max-w-3xl">
+  <div class="love-question-card text-center">
+    <h2 class="font-serif text-4xl md:text-5xl italic text-[var(--cream)] mb-4">💖 Do you love Adan? 💖</h2>
+    <p class="text-stone-400 text-sm font-light mb-10">Be honest, your heart knows the answer. 👀</p>
+    <div class="flex flex-wrap items-center justify-center gap-6 relative" id="love-buttons-container" style="min-height:100px;">
+      <button class="btn-love-yes" id="btn-love-yes">Yes 💕</button>
+      <button class="btn-love-no" id="btn-love-no" style="touch-action: none;">No 😤</button>
+    </div>
+    <div id="celebration-area" class="mt-10 hidden">
+      <div class="celebration-emoji">🥳💖🎉</div>
+      <p class="text-2xl font-serif italic text-[var(--nude)] mt-4">Yesss! I knew it! 💞</p>
+      <div class="flex flex-wrap justify-center gap-2 mt-4 text-4xl">
+        <span>❤️</span><span>💕</span><span>💗</span><span>💖</span><span>💘</span><span>💝</span>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  // LOVE QUESTION (Do you love Adan?) - No button runs away on touch AND mouse
+document.addEventListener("DOMContentLoaded", () => {
+  const yesBtn = document.getElementById("btn-love-yes");
+  const noBtn = document.getElementById("btn-love-no");
+  const celebration = document.getElementById("celebration-area");
+  const container = document.getElementById("love-buttons-container");
+
+  function moveNoButton() {
+    const rect = container.getBoundingClientRect();
+    const btnRect = noBtn.getBoundingClientRect();
+    const maxX = rect.width - btnRect.width - 10;
+    const maxY = rect.height - btnRect.height - 10;
+    const x = Math.random() * Math.max(0, maxX);
+    const y = Math.random() * Math.max(0, maxY);
+    noBtn.style.position = "relative";
+    noBtn.style.left = `${x}px`;
+    noBtn.style.top = `${y}px`;
+    noBtn.style.transition = "all 0.2s ease";
+  }
+
+  // For mouse hover
+  noBtn.addEventListener("mouseenter", moveNoButton);
+  
+  // For touch devices (touchstart)
+  noBtn.addEventListener("touchstart", (e) => {
+    e.preventDefault();
+    moveNoButton();
+  });
+
+  // Yes button celebration
+  yesBtn.addEventListener("click", () => {
+    celebration.classList.remove("hidden");
+    celebration.scrollIntoView({ behavior: "smooth", block: "center" });
+    
+    // Rain of hearts celebration
+    for (let i = 0; i < 30; i++) {
+      setTimeout(() => {
+        const heart = document.createElement("span");
+        heart.textContent = ["❤️","💕","💗","💖","💘","💝"][Math.floor(Math.random()*6)];
+        heart.style.position = "fixed";
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.top = "-10px";
+        heart.style.fontSize = (Math.random() * 30 + 20) + "px";
+        heart.style.zIndex = "9999";
+        heart.style.pointerEvents = "none";
+        heart.style.transition = "all 3s ease-out";
+        document.body.appendChild(heart);
+        
+        requestAnimationFrame(() => {
+          heart.style.transform = `translateY(${window.innerHeight + 100}px) rotate(${Math.random()*360}deg)`;
+          heart.style.opacity = "0";
+        });
+        
+        setTimeout(() => heart.remove(), 3000);
+      }, i * 60);
+    }
+  });
+});
+</script>
+    <!-- yes no section  -->
+
     <!-- Chatbot Section Container -->
     <div
       class="flex flex-col h-[500px] w-[90%] max-w-md mx-auto rounded-3xl overflow-hidden border border-[var(--rich-tan)]/30 shadow-2xl bg-[var(--dark-mocha)] text-[var(--cream)] font-sans"
