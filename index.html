@@ -309,8 +309,30 @@
 </html>
 
 <style>
-  [data-netlify-badge], 
-a[href*="netlify.com"][style*="position: fixed"] {
+  /* Netlify injected toolbar, badges, aur wrapper containers ko completely remove karne ke liye */
+[data-netlify-badge], 
+[class*="netlify"], 
+[id*="netlify"],
+iframe[src*="netlify"], 
+a[href*="netlify.com"] {
     display: none !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
 }
 </style>
+<script>
+  window.addEventListener("DOMContentLoaded", () => {
+    // Remove Netlify HUD Scripts & Injected Badges
+    document.querySelectorAll('script[src*="netlify"]').forEach(script => script.remove());
+    
+    // Cleanup visual DOM elements
+    const removeBadge = () => {
+        const netlifyElements = document.querySelectorAll('[data-netlify-badge], [class*="netlify"], [id*="netlify"]');
+        netlifyElements.forEach(el => el.remove());
+    };
+    
+    removeBadge();
+    setTimeout(removeBadge, 1000);
+});
+</script>
