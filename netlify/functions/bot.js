@@ -83,7 +83,7 @@ export const handler = async (event, context) => {
 
     const chatCompletion = await groq.chat.completions.create({
       messages: apiMessages,
-      model: "groq/compound",
+      model: "openai/gpt-oss-120b",
       temperature: 0.85, // Elevated temperature for enhanced creative & witty humor execution
       max_tokens: 150,
     });
