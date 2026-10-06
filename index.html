@@ -6,70 +6,142 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
-    <title>Welcome to My heart For zainab khan only ✨</title>
+    <title>Welcome to My heart For Zainab Khan only ✨</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;1,900&family=Dancing+Script:wght@700&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-      /* Premium Luxury Mocha & Cream Palette Variables */
+      /* ========== BURGUNDY & GIRLY PALETTE ========== */
       :root {
-        --bg: #1a0e21;
-        --panel: #241130;
-        --border: #402350;
-        --primary: #ff8fd6;
-        --cream: #ffe3f6;
+        --bg: #2a0e1a;
+        --panel: #3d0e24;
+        --panel-soft: #4a1530;
+        --border: #6d1b3a;
+        --border-soft: #8b1e3f;
+        --primary: #ffb3c6;
+        --primary-deep: #c94b6b;
+        --rose-gold: #e8b4b8;
+        --blush: #fdd5df;
+        --cream: #ffe3ec;
+        --burgundy: #6d1b3a;
+        --deep-plum: #1a0510;
+      }
+
+      * {
+        box-sizing: border-box;
       }
 
       body {
         background-color: var(--bg);
+        background-image: radial-gradient(
+            circle at 20% 20%,
+            rgba(201, 75, 107, 0.15) 0%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 80% 80%,
+            rgba(255, 179, 198, 0.1) 0%,
+            transparent 45%
+          ),
+          radial-gradient(
+            circle at 50% 50%,
+            #3d0e24 0%,
+            #1a0510 100%
+          );
         color: #ffffff;
-        font-family:
-          system-ui,
-          -apple-system,
-          BlinkMacSystemFont,
-          "Segoe UI",
-          Roboto,
-          sans-serif;
+        font-family: "Montserrat", sans-serif;
         overflow: hidden;
+        position: relative;
       }
 
-      /* Prevents mobile browser auto-zoom on input focus */
+      /* Subtle noise grain overlay */
+      body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background: url("https://grainy-gradients.vercel.app/noise.svg");
+        opacity: 0.05;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Cormorant Garamond", serif;
+      }
+
+      .font-cursive {
+        font-family: "Dancing Script", cursive;
+      }
+
       .no-zoom-input {
         font-size: 16px !important;
       }
 
-      /* Floating Login Hearts Ambient Background Animation */
+      /* ========== FLOATING HEARTS BG ========== */
       .bg-heart {
         position: absolute;
         bottom: -40px;
         pointer-events: none;
         z-index: 0;
-        opacity: 0.12;
+        opacity: 0.15;
         animation: floatUp 6s linear forwards;
       }
 
       @keyframes floatUp {
         0% {
-          transform: translateY(0) rotate(0deg);
+          transform: translateY(0) rotate(0deg) scale(0.8);
           opacity: 0;
         }
         10% {
-          opacity: 0.22;
+          opacity: 0.35;
+        }
+        50% {
+          transform: translateY(-50vh) rotate(180deg) scale(1.1);
+          opacity: 0.35;
         }
         90% {
-          opacity: 0.22;
+          opacity: 0.25;
         }
         100% {
-          transform: translateY(-105vh) rotate(360deg);
+          transform: translateY(-105vh) rotate(360deg) scale(0.9);
           opacity: 0;
         }
       }
 
-      /* Failed Dynamic Attempt Shake Vibrate Animation */
+      /* ========== SPARKLE DOTS DECORATION ========== */
+      .sparkle-dot {
+        position: absolute;
+        border-radius: 50%;
+        background: var(--primary);
+        pointer-events: none;
+        animation: sparklePulse 3s ease-in-out infinite;
+      }
+
+      @keyframes sparklePulse {
+        0%,
+        100% {
+          opacity: 0.2;
+          transform: scale(1);
+        }
+        50% {
+          opacity: 0.6;
+          transform: scale(1.4);
+        }
+      }
+
+      /* ========== SHAKE ANIMATION ========== */
       .shake-anim {
         animation: shakeBox 0.4s ease-in-out;
       }
@@ -88,7 +160,7 @@
         }
       }
 
-      /* Success Blast Confetti Particles */
+      /* ========== SUCCESS CONFETTI ========== */
       .success-particle {
         position: fixed;
         pointer-events: none;
@@ -107,62 +179,274 @@
           opacity: 0;
         }
       }
+
+      /* ========== PANEL GLOW ========== */
+      .main-panel {
+        background: linear-gradient(
+          145deg,
+          rgba(61, 14, 36, 0.95) 0%,
+          rgba(42, 14, 26, 0.98) 100%
+        );
+        backdrop-filter: blur(20px);
+        border: 1.5px solid rgba(139, 30, 63, 0.6);
+        box-shadow: 0 35px 70px rgba(0, 0, 0, 0.75),
+          0 0 60px rgba(201, 75, 107, 0.12),
+          inset 0 1px 0 rgba(255, 179, 198, 0.08);
+        position: relative;
+      }
+
+      .main-panel::before {
+        content: "";
+        position: absolute;
+        inset: -1px;
+        border-radius: inherit;
+        padding: 1px;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 179, 198, 0.4),
+          rgba(201, 75, 107, 0.1),
+          rgba(255, 179, 198, 0.3)
+        );
+        -webkit-mask: linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+        pointer-events: none;
+      }
+
+      /* ========== AVATAR RING ========== */
+      .avatar-ring {
+        background: linear-gradient(
+          135deg,
+          rgba(255, 179, 198, 0.2),
+          rgba(109, 27, 58, 0.4)
+        );
+        border: 1.5px solid rgba(255, 179, 198, 0.4);
+        box-shadow: 0 10px 30px rgba(201, 75, 107, 0.2),
+          inset 0 2px 8px rgba(255, 179, 198, 0.1);
+      }
+
+      /* ========== INPUT STYLING ========== */
+      .input-shell {
+        background: rgba(26, 5, 16, 0.7);
+        border: 1.5px solid rgba(109, 27, 58, 0.8);
+        transition: all 0.35s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .input-shell:focus-within {
+        border-color: var(--primary);
+        box-shadow: 0 0 25px rgba(255, 179, 198, 0.15),
+          inset 0 0 15px rgba(255, 179, 198, 0.05);
+        transform: translateY(-1px);
+      }
+
+      .input-shell input::placeholder {
+        color: rgba(255, 179, 198, 0.25) !important;
+        font-weight: 400;
+        letter-spacing: 0.02em;
+      }
+
+      /* ========== BUTTON GRADIENT ========== */
+      .unlock-btn {
+        background: linear-gradient(135deg, #ffb3c6 0%, #c94b6b 50%, #8b1e3f 100%);
+        background-size: 200% 200%;
+        color: #2a0e1a;
+        box-shadow: 0 15px 35px rgba(201, 75, 107, 0.35),
+          inset 0 -2px 6px rgba(0, 0, 0, 0.15),
+          inset 0 2px 4px rgba(255, 255, 255, 0.2);
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        animation: gradientShift 4s ease infinite;
+      }
+
+      @keyframes gradientShift {
+        0%,
+        100% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+      }
+
+      .unlock-btn:hover {
+        transform: translateY(-2px) scale(1.01);
+        box-shadow: 0 22px 45px rgba(201, 75, 107, 0.55),
+          inset 0 -2px 6px rgba(0, 0, 0, 0.15),
+          inset 0 2px 4px rgba(255, 255, 255, 0.3);
+      }
+
+      .unlock-btn:active {
+        transform: translateY(0) scale(0.98);
+      }
+
+      /* ========== STATUS TEXT ANIMATION ========== */
+      .status-reveal {
+        animation: statusFadeIn 0.4s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+      }
+
+      @keyframes statusFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-5px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ========== GLOWING ORBS ========== */
+      .glow-orb {
+        position: absolute;
+        border-radius: 50%;
+        filter: blur(90px);
+        pointer-events: none;
+        z-index: 0;
+      }
+
+      /* ========== HEARTBEAT BADGE ========== */
+      .heartbeat-badge {
+        animation: heartBeat 1.5s ease-in-out infinite;
+      }
+
+      @keyframes heartBeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        25% {
+          transform: scale(1.15);
+        }
+        40% {
+          transform: scale(1);
+        }
+        60% {
+          transform: scale(1.1);
+        }
+      }
+
+      /* ========== DECORATIVE CORNER HEART ========== */
+      .corner-heart {
+        position: absolute;
+        font-size: 14px;
+        color: var(--primary);
+        opacity: 0.3;
+        animation: cornerFloat 4s ease-in-out infinite;
+      }
+
+      @keyframes cornerFloat {
+        0%,
+        100% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 0.25;
+        }
+        50% {
+          transform: translateY(-6px) rotate(15deg);
+          opacity: 0.55;
+        }
+      }
     </style>
   </head>
   <body class="min-h-screen flex items-center justify-center p-4 relative">
+    <!-- Glowing Orbs Background -->
     <div
-      class="absolute top-1/4 left-1/4 w-72 h-72 bg-[var(--primary)]/5 rounded-full blur-[90px] pointer-events-none z-0"
+      class="glow-orb top-1/4 left-1/4 w-72 h-72"
+      style="background: rgba(255, 179, 198, 0.12)"
     ></div>
     <div
-      class="absolute bottom-1/4 right-1/4 w-72 h-72 bg-[var(--cream)]/5 rounded-full blur-[90px] pointer-events-none z-0"
+      class="glow-orb bottom-1/4 right-1/4 w-72 h-72"
+      style="background: rgba(201, 75, 107, 0.15)"
+    ></div>
+    <div
+      class="glow-orb top-1/2 right-1/3 w-56 h-56"
+      style="background: rgba(139, 30, 63, 0.18)"
     ></div>
 
+    <!-- Decorative Sparkles -->
+    <div class="sparkle-dot" style="top: 12%; left: 8%; width: 4px; height: 4px; animation-delay: 0s"></div>
+    <div class="sparkle-dot" style="top: 25%; right: 12%; width: 3px; height: 3px; animation-delay: 0.8s"></div>
+    <div class="sparkle-dot" style="bottom: 18%; left: 15%; width: 5px; height: 5px; animation-delay: 1.6s"></div>
+    <div class="sparkle-dot" style="bottom: 30%; right: 10%; width: 3px; height: 3px; animation-delay: 0.4s"></div>
+    <div class="sparkle-dot" style="top: 45%; left: 5%; width: 4px; height: 4px; animation-delay: 2s"></div>
+    <div class="sparkle-dot" style="top: 60%; right: 6%; width: 3px; height: 3px; animation-delay: 1.2s"></div>
+
     <main
-      class="relative w-full max-w-[380px] p-8 rounded-[2.8rem] bg-[var(--panel)] border border-[var(--border)] shadow-[0_35px_70px_rgba(0,0,0,0.7)] text-center z-10 transition-all duration-500 focus-within:border-[var(--primary)]/20"
+      class="main-panel relative w-full max-w-[400px] p-8 sm:p-10 rounded-[2.8rem] text-center z-10"
     >
+      <!-- Corner Hearts -->
+      <span class="corner-heart" style="top: 18px; left: 22px">💗</span>
+      <span class="corner-heart" style="top: 18px; right: 22px; animation-delay: 1s">💕</span>
+      <span class="corner-heart" style="bottom: 18px; left: 22px; animation-delay: 2s">💖</span>
+      <span class="corner-heart" style="bottom: 18px; right: 22px; animation-delay: 1.5s">💝</span>
+
+      <!-- Avatar -->
       <div
-        class="relative mx-auto mb-5 w-16 h-16 flex items-center justify-center"
+        class="relative mx-auto mb-6 w-20 h-20 flex items-center justify-center"
       >
         <div
           id="avatar-container"
-          class="w-full h-full rounded-2xl bg-[var(--primary)]/10 border border-[var(--primary)]/30 flex items-center justify-center text-3xl transition-transform duration-300 transform hover:rotate-6"
+          class="avatar-ring w-full h-full rounded-2xl flex items-center justify-center text-4xl transition-transform duration-500 transform hover:rotate-6 hover:scale-105"
         >
           🧸
         </div>
-        <span class="absolute top-0 right-0 flex h-3 w-3">
+        <span class="absolute top-0 right-0 flex h-3.5 w-3.5 heartbeat-badge">
           <span
             class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[var(--primary)] opacity-60"
           ></span>
           <span
-            class="relative inline-flex rounded-full h-3 w-3 bg-[var(--primary)]/80"
+            class="relative inline-flex rounded-full h-3.5 w-3.5 bg-gradient-to-br from-[var(--primary)] to-[var(--primary-deep)] border border-[var(--cream)]/40"
           ></span>
         </span>
       </div>
 
-      <h1 class="text-2xl mb-3 font-black tracking-wide text-[var(--cream)] mb-1">
-      Only For zainab, with all my heart
-      </h1>     
+      <!-- Title -->
+      <h1
+        class="text-3xl sm:text-4xl mb-2 font-bold italic tracking-tight text-[var(--cream)] leading-tight"
+      >
+        Only For Zainab
+      </h1>
+      <p
+        class="font-cursive text-xl text-[var(--primary)] mb-6 opacity-90"
+      >
+        with all my heart
+      </p>
+
+      <!-- Decorative Divider -->
+      <div class="flex items-center justify-center gap-3 mb-6">
+        <div
+          class="h-[1px] w-12"
+          style="background: linear-gradient(to right, transparent, rgba(255, 179, 198, 0.5))"
+        ></div>
+        <span class="text-[var(--primary)] text-sm">✦</span>
+        <div
+          class="h-[1px] w-12"
+          style="background: linear-gradient(to left, transparent, rgba(255, 179, 198, 0.5))"
+        ></div>
+      </div>
+
+      <!-- Form -->
       <div class="space-y-4 text-left">
         <label
-          class="block text-[9px] font-mono uppercase tracking-widest text-[var(--primary)] font-black pl-1.5 opacity-80"
-          >Enter your Name</label
+          class="block text-[10px] font-mono uppercase tracking-[0.25em] text-[var(--primary)] font-bold pl-2 opacity-80"
         >
+          Enter your Name
+        </label>
 
         <div
           id="input-container"
-          class="w-full bg-[var(--bg)] border-2 border-[var(--border)] rounded-2xl p-1.5 flex items-center focus-within:border-[var(--primary)] focus-within:shadow-[0_0_20px_rgba(255,143,214,0.06)] transition-all duration-300"
+          class="input-shell w-full rounded-2xl p-1.5 flex items-center"
         >
           <div
             id="input-icon"
-            class="pl-3.5 pr-2.5 text-[var(--primary)]/50 flex items-center justify-center transition-colors duration-300"
+            class="pl-4 pr-3 text-[var(--primary)]/60 flex items-center justify-center transition-colors duration-300"
           >
-            <i class="fa-solid fa-signature text-xs"></i>
+            <i class="fa-solid fa-signature text-sm"></i>
           </div>
 
           <input
             type="text"
             id="name-input"
-            class="w-full bg-transparent py-2.5 pr-4 text-white font-bold tracking-wide outline-none placeholder:text-white/10 font-sans no-zoom-input"
+            class="w-full bg-transparent py-3 pr-4 text-white font-semibold tracking-wide outline-none font-sans no-zoom-input"
             placeholder="Apna naam likhen..."
             autocomplete="off"
             style="
@@ -174,29 +458,37 @@
 
         <div
           id="status-wrapper"
-          class="hidden transition-all duration-300 pl-1.5"
+          class="hidden transition-all duration-300 pl-2"
         >
           <p
             id="status-text"
-            class="text-[11px] font-semibold flex items-center gap-2"
+            class="text-[12px] font-semibold flex items-center gap-2"
           ></p>
         </div>
 
         <button
           onclick="validateAndLogin()"
-          class="w-full bg-[var(--primary)] hover:bg-[var(--cream)] text-[#1a0e21] font-black text-sm py-3.5 rounded-2xl transition-all duration-300 active:scale-[0.97] shadow-lg shadow-[var(--primary)]/5 flex items-center justify-center gap-2 mt-5 group"
+          class="unlock-btn w-full font-bold text-sm py-4 rounded-2xl flex items-center justify-center gap-2 mt-6 group uppercase tracking-widest"
         >
           Unlock Space
           <i
-            class="fa-solid fa-heart text-xs transform group-hover:scale-125 transition-transform duration-300 animate-pulse"
+            class="fa-solid fa-heart text-sm transform group-hover:scale-125 transition-transform duration-300 animate-pulse"
           ></i>
         </button>
+
+        <!-- Footer hint -->
+        <p
+          class="text-center text-[10px] font-mono tracking-widest uppercase text-[var(--primary)]/40 pt-2"
+        >
+          Made with 💗 just for you
+        </p>
       </div>
     </main>
 
     <script>
       function createBackgroundHearts() {
-        const heartCount = 6;
+        const heartCount = 8;
+        const heartTypes = ["fa-heart", "fa-heart", "fa-heart", "fa-heart"];
         for (let i = 0; i < heartCount; i++) {
           setTimeout(() => {
             const heart = document.createElement("i");
@@ -205,9 +497,11 @@
             heart.style.left = Math.random() * 100 + "vw";
             heart.style.animationDuration = Math.random() * 3 + 5 + "s";
             heart.style.fontSize = Math.random() * 14 + 10 + "px";
+            heart.style.color =
+              Math.random() > 0.5 ? "#ffb3c6" : "#c94b6b";
             document.body.appendChild(heart);
-            setTimeout(() => heart.remove(), 7000);
-          }, i * 1000);
+            setTimeout(() => heart.remove(), 8000);
+          }, i * 800);
         }
       }
       createBackgroundHearts();
@@ -222,27 +516,32 @@
         const avatarEl = document.getElementById("avatar-container");
         const iconEl = document.getElementById("input-icon");
 
-        // 1. Inputs ko completely wrap aur trim kar ke lowercase me set kar diya
+        // Inputs ko completely wrap aur trim kar ke lowercase me set kar diya
         const nameValue = inputEl.value.trim().toLowerCase();
 
         // Reset dynamic layouts on each check loop
         containerEl.classList.remove(
           "shake-anim",
           "border-red-500/40",
-          "border-green-500/40",
+          "border-green-500/40"
         );
+        wrapperEl.classList.remove("status-reveal");
+        void wrapperEl.offsetWidth; // force reflow
+        wrapperEl.classList.add("status-reveal");
 
         // STRICT VALIDATION: EQUALS ONLY TO "zainab khan"
-        if (nameValue === "Zuza" || nameValue === "Laddu") {
+        if (nameValue === "zainab khan" || nameValue === "zuza" || nameValue === "laddu") {
           // SUCCESS STATE ARCHITECTURE
           wrapperEl.classList.remove("hidden");
           textEl.className =
             "text-green-400 font-semibold flex items-center gap-2";
           textEl.innerHTML = `<i class="fa-solid fa-circle-check text-xs"></i> Access Granted!... 🌸`;
 
-          containerEl.style.borderColor = "rgba(34, 197, 94, 0.4)"; // Forced CSS Green highlight
+          containerEl.style.borderColor = "rgba(34, 197, 94, 0.5)";
+          containerEl.style.boxShadow =
+            "0 0 25px rgba(34, 197, 94, 0.2), inset 0 0 15px rgba(34, 197, 94, 0.05)";
           iconEl.className =
-            "pl-3.5 pr-2.5 text-green-400 flex items-center justify-center transition-colors duration-300";
+            "pl-4 pr-3 text-green-400 flex items-center justify-center transition-colors duration-300";
           avatarEl.innerText = "✨";
 
           triggerSuccessBurst();
@@ -251,16 +550,18 @@
             window.location.href = "mainpage.html";
           }, 1250);
         } else {
-          // FAILED COMPONENT RUNTIME (Triggered if anyone types just "zainab" or anything else)
+          // FAILED COMPONENT RUNTIME
           wrapperEl.classList.remove("hidden");
           textEl.className =
             "text-red-400 font-semibold flex items-center gap-2";
           textEl.innerHTML = `<i class="fa-solid fa-circle-xmark text-xs"></i> Nhiii yaar sahi naam likhen... 🐾`;
 
           containerEl.classList.add("shake-anim");
-          containerEl.style.borderColor = "rgba(239, 68, 68, 0.4)"; // Forced CSS Red highlight
+          containerEl.style.borderColor = "rgba(239, 68, 68, 0.5)";
+          containerEl.style.boxShadow =
+            "0 0 25px rgba(239, 68, 68, 0.2), inset 0 0 15px rgba(239, 68, 68, 0.05)";
           iconEl.className =
-            "pl-3.5 pr-2.5 text-red-400 flex items-center justify-center transition-colors duration-300";
+            "pl-4 pr-3 text-red-400 flex items-center justify-center transition-colors duration-300";
           avatarEl.innerText = "🙀";
 
           setTimeout(() => {
@@ -271,8 +572,8 @@
 
       // CONFETTI PHYSICS PARSE EMITTER ENGINE
       function triggerSuccessBurst() {
-        const burstCount = 35;
-        const emojis = ["💋", "💖", "✨", "🧸", "🌸", "👑"];
+        const burstCount = 40;
+        const emojis = ["💋", "💖", "✨", "🧸", "🌸", "👑", "💕", "💗"];
 
         for (let i = 0; i < burstCount; i++) {
           const particle = document.createElement("div");
@@ -281,7 +582,7 @@
             emojis[Math.floor(Math.random() * emojis.length)];
 
           const angle = Math.random() * Math.PI * 2;
-          const distance = Math.random() * 180 + 120;
+          const distance = Math.random() * 200 + 120;
           const x = Math.cos(angle) * distance + "px";
           const y = Math.sin(angle) * distance + "px";
           const rot = Math.random() * 360 + "deg";
@@ -292,7 +593,7 @@
 
           particle.style.left = "50%";
           particle.style.top = "50%";
-          particle.style.fontSize = Math.random() * (30 - 18) + 18 + "px";
+          particle.style.fontSize = Math.random() * (32 - 18) + 18 + "px";
 
           document.body.appendChild(particle);
           setTimeout(() => particle.remove(), 1200);
@@ -310,29 +611,33 @@
 
 <style>
   /* Netlify injected toolbar, badges, aur wrapper containers ko completely remove karne ke liye */
-[data-netlify-badge], 
-[class*="netlify"], 
-[id*="netlify"],
-iframe[src*="netlify"], 
-a[href*="netlify.com"] {
+  [data-netlify-badge],
+  [class*="netlify"],
+  [id*="netlify"],
+  iframe[src*="netlify"],
+  a[href*="netlify.com"] {
     display: none !important;
     opacity: 0 !important;
     visibility: hidden !important;
     pointer-events: none !important;
-}
+  }
 </style>
 <script>
   window.addEventListener("DOMContentLoaded", () => {
     // Remove Netlify HUD Scripts & Injected Badges
-    document.querySelectorAll('script[src*="netlify"]').forEach(script => script.remove());
-    
+    document
+      .querySelectorAll('script[src*="netlify"]')
+      .forEach((script) => script.remove());
+
     // Cleanup visual DOM elements
     const removeBadge = () => {
-        const netlifyElements = document.querySelectorAll('[data-netlify-badge], [class*="netlify"], [id*="netlify"]');
-        netlifyElements.forEach(el => el.remove());
+      const netlifyElements = document.querySelectorAll(
+        '[data-netlify-badge], [class*="netlify"], [id*="netlify"]'
+      );
+      netlifyElements.forEach((el) => el.remove());
     };
-    
+
     removeBadge();
     setTimeout(removeBadge, 1000);
-});
+  });
 </script>
