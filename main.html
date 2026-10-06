@@ -2,7 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0" /> -->
     <meta
       name="viewport"
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
@@ -14,7 +13,6 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,900&family=Poppins:wght@300;400;600&family=Dancing+Script:wght@700&display=swap"
       rel="stylesheet"
     />
-
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -25,27 +23,26 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-    <!-- Isko apne HTML head me check karein -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
     />
-
-    <!-- Swiper CSS -->
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
     />
-
-    <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <style>
       :root {
-        --dark-mocha: #1a0e21;
-        --rich-tan: #7c2d8f;
-        --warm-sand: #c25ec2;
-        --nude: #ff8fd6;
-        --cream: #ffe3f6;
+        --dark-mocha: #2a0e1a;
+        --rich-tan: #8b1e3f;
+        --warm-sand: #c94b6b;
+        --nude: #ffb3c6;
+        --cream: #ffe3ec;
+        --burgundy: #6d1b3a;
+        --rose-gold: #e8b4b8;
+        --blush: #fdd5df;
+        --deep-plum: #3d0e24;
       }
 
       * {
@@ -64,8 +61,8 @@
         background-color: var(--dark-mocha);
         background-image: radial-gradient(
           circle at 50% 50%,
-          #3a1245 0%,
-          #1b1212 100%
+          #3d0e24 0%,
+          #1a0510 100%
         );
         color: var(--cream);
         font-family: "Poppins", sans-serif;
@@ -92,6 +89,362 @@
       .font-cursive {
         font-family: "Dancing Script", cursive;
       }
+
+      /* ========== CUTE LOADER ========== */
+      #loader {
+        background: linear-gradient(145deg, #fdf3fb 0%, #fce7f0 50%, #fbd5e3 100%);
+      }
+
+      .loader-heart-ring {
+        position: relative;
+        width: 140px;
+        height: 140px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .loader-heart-ring::before {
+        content: "💗";
+        position: absolute;
+        font-size: 3rem;
+        animation: loaderHeartbeat 1s ease-in-out infinite;
+      }
+
+      .loader-ring-outer {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        border: 2px solid rgba(139, 30, 63, 0.15);
+        border-top-color: #c94b6b;
+        animation: loaderSpin 1.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .loader-ring-inner {
+        position: absolute;
+        inset: 14px;
+        border-radius: 50%;
+        border: 2px solid rgba(201, 75, 107, 0.1);
+        border-bottom-color: #ffb3c6;
+        animation: loaderSpinReverse 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+      }
+
+      .loader-float-hearts span {
+        position: absolute;
+        font-size: 1rem;
+        animation: loaderFloat 3s ease-in-out infinite;
+        opacity: 0.5;
+      }
+      .loader-float-hearts span:nth-child(1) {
+        left: 10%;
+        top: 20%;
+        animation-delay: 0s;
+      }
+      .loader-float-hearts span:nth-child(2) {
+        right: 15%;
+        top: 30%;
+        animation-delay: 0.8s;
+      }
+      .loader-float-hearts span:nth-child(3) {
+        left: 20%;
+        bottom: 25%;
+        animation-delay: 1.6s;
+      }
+      .loader-float-hearts span:nth-child(4) {
+        right: 20%;
+        bottom: 35%;
+        animation-delay: 0.4s;
+      }
+      .loader-float-hearts span:nth-child(5) {
+        left: 50%;
+        top: 10%;
+        animation-delay: 1.2s;
+      }
+
+      @keyframes loaderSpin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+      @keyframes loaderSpinReverse {
+        to {
+          transform: rotate(-360deg);
+        }
+      }
+      @keyframes loaderHeartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.15);
+        }
+      }
+      @keyframes loaderFloat {
+        0%,
+        100% {
+          transform: translateY(0) scale(1);
+          opacity: 0.3;
+        }
+        50% {
+          transform: translateY(-18px) scale(1.1);
+          opacity: 0.7;
+        }
+      }
+
+      /* ========== END LOADER ========== */
+
+      /* ========== MODERN SLIDER (HERO) ========== */
+      .hero-slider {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        min-height: 650px;
+        overflow: hidden;
+      }
+
+      .hero-slider .swiper-slide {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+      }
+
+      .hero-slider .slide-bg {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transform: scale(1.08);
+        transition: transform 8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      .hero-slider .swiper-slide-active .slide-bg {
+        transform: scale(1);
+      }
+
+      .hero-slider .slide-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(
+          to right,
+          rgba(26, 5, 16, 0.92) 0%,
+          rgba(61, 14, 36, 0.7) 50%,
+          rgba(26, 5, 16, 0.4) 100%
+        );
+      }
+
+      .hero-slider .slide-content {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 8%;
+        z-index: 10;
+        max-width: 750px;
+      }
+
+      .hero-slider .slide-tag {
+        display: inline-block;
+        font-family: "Montserrat", sans-serif;
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.45em;
+        text-transform: uppercase;
+        color: var(--nude);
+        margin-bottom: 22px;
+        padding-left: 0.45em;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .hero-slider .slide-title {
+        font-family: "Playfair Display", serif;
+        font-size: clamp(2.6rem, 7vw, 5.5rem);
+        font-weight: 900;
+        font-style: italic;
+        line-height: 1.02;
+        color: #fff;
+        letter-spacing: -0.02em;
+        margin-bottom: 24px;
+        text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      .hero-slider .slide-title .accent-word {
+        background: linear-gradient(135deg, #ffb3c6, #c94b6b);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        display: block;
+      }
+
+      .hero-slider .slide-desc {
+        font-family: "Montserrat", sans-serif;
+        font-size: clamp(0.85rem, 1.6vw, 1.05rem);
+        font-weight: 300;
+        line-height: 1.85;
+        color: rgba(255, 227, 236, 0.8);
+        max-width: 520px;
+        margin-bottom: 36px;
+        opacity: 0;
+        transform: translateY(25px);
+      }
+
+      .hero-slider .slide-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 14px;
+        padding: 16px 38px;
+        border-radius: 60px;
+        background: linear-gradient(135deg, #c94b6b, #8b1e3f);
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        text-decoration: none;
+        width: fit-content;
+        box-shadow: 0 15px 40px rgba(201, 75, 107, 0.4);
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      .hero-slider .slide-btn:hover {
+        transform: translateY(-3px) scale(1.03);
+        box-shadow: 0 22px 55px rgba(201, 75, 107, 0.6);
+      }
+
+      .hero-slider .slide-btn i {
+        transition: transform 0.3s ease;
+      }
+
+      .hero-slider .slide-btn:hover i {
+        transform: translateX(5px);
+      }
+
+      /* Staggered animations for active slide */
+      .hero-slider .swiper-slide-active .slide-tag {
+        animation: slideUpFade 0.9s cubic-bezier(0.25, 1, 0.5, 1) 0.35s forwards;
+      }
+      .hero-slider .swiper-slide-active .slide-title {
+        animation: slideUpFade 1s cubic-bezier(0.25, 1, 0.5, 1) 0.5s forwards;
+      }
+      .hero-slider .swiper-slide-active .slide-desc {
+        animation: slideUpFade 1s cubic-bezier(0.25, 1, 0.5, 1) 0.7s forwards;
+      }
+      .hero-slider .swiper-slide-active .slide-btn {
+        animation: slideUpFade 1s cubic-bezier(0.25, 1, 0.5, 1) 0.9s forwards;
+      }
+
+      @keyframes slideUpFade {
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Slider Navigation */
+      .hero-slider .swiper-button-next,
+      .hero-slider .swiper-button-prev {
+        width: 54px;
+        height: 54px;
+        border-radius: 50%;
+        background: rgba(255, 179, 198, 0.08);
+        border: 1px solid rgba(255, 179, 198, 0.3);
+        backdrop-filter: blur(10px);
+        color: var(--nude);
+        transition: all 0.35s ease;
+      }
+
+      .hero-slider .swiper-button-next::after,
+      .hero-slider .swiper-button-prev::after {
+        font-size: 16px;
+        font-weight: 700;
+      }
+
+      .hero-slider .swiper-button-next:hover,
+      .hero-slider .swiper-button-prev:hover {
+        background: rgba(201, 75, 107, 0.5);
+        border-color: var(--nude);
+        transform: scale(1.08);
+      }
+
+      .hero-slider .swiper-pagination {
+        bottom: 38px !important;
+      }
+
+      .hero-slider .swiper-pagination-bullet {
+        width: 8px;
+        height: 8px;
+        background: rgba(255, 179, 198, 0.3);
+        opacity: 1;
+        transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+      }
+
+      .hero-slider .swiper-pagination-bullet-active {
+        width: 34px;
+        border-radius: 99px;
+        background: var(--nude);
+      }
+
+      /* Scroll hint */
+      .scroll-hint {
+        position: absolute;
+        bottom: 38px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 20;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        color: rgba(255, 227, 236, 0.5);
+        font-size: 10px;
+        letter-spacing: 0.35em;
+        text-transform: uppercase;
+        font-family: "Montserrat", sans-serif;
+      }
+
+      .scroll-hint .scroll-line {
+        width: 1px;
+        height: 50px;
+        background: linear-gradient(to bottom, var(--nude), transparent);
+        animation: scrollPulse 2s ease-in-out infinite;
+      }
+
+      @keyframes scrollPulse {
+        0%,
+        100% {
+          opacity: 0.3;
+          transform: scaleY(0.6);
+          transform-origin: top;
+        }
+        50% {
+          opacity: 1;
+          transform: scaleY(1);
+          transform-origin: top;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-slider .slide-content {
+          padding: 0 7%;
+        }
+        .hero-slider .swiper-button-next,
+        .hero-slider .swiper-button-prev {
+          display: none;
+        }
+        .scroll-hint {
+          display: none;
+        }
+      }
+
+      /* ========== END MODERN SLIDER ========== */
 
       /* Custom Polaroid - High Quality */
       .polaroid-frame {
@@ -134,7 +487,7 @@
         bottom: 40px;
         right: 40px;
         z-index: 1000;
-        background: linear-gradient(145deg, #3a1245, #1b1212);
+        background: linear-gradient(145deg, #3d0e24, #1a0510);
         border: 1px solid rgba(255, 143, 214, 0.2);
         box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
         transition: all 0.7s cubic-bezier(0.8, 0, 0.2, 1);
@@ -171,15 +524,15 @@
 
       /* Glowing Quote Cards */
       .glass-card {
-        background: rgba(99, 72, 50, 0.1);
-        border: 1px solid rgba(255, 143, 214, 0.1);
+        background: rgba(109, 27, 58, 0.15);
+        border: 1px solid rgba(255, 179, 198, 0.12);
         padding: 40px;
         border-radius: 30px;
         backdrop-filter: blur(10px);
         transition: 0.5s;
       }
       .glass-card:hover {
-        background: rgba(99, 72, 50, 0.2);
+        background: rgba(109, 27, 58, 0.25);
         border-color: var(--nude);
         transform: translateY(-10px);
       }
@@ -189,142 +542,117 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      /* Swiper Styling Updates */
-     /* Swiper Container Spacing */
-/* ==========================================================================
-   1. SWIPER CONTAINER CONFIGURATION
-   ========================================================================== */
-/* ==========================================================================
-   1. SWIPER CONTAINER CONFIGURATION
-   ========================================================================== */
-/* ==========================================================================
-   1. SWIPER CONTAINER CONFIGURATION
-   ========================================================================== */
-/* Swiper Master Setup */
-  .cinemaSwiper {
-    width: 100%;
-    padding-top: 30px !important;
-    padding-bottom: 60px !important;
-    perspective: 1200px; /* Restores high-fidelity 3D depth geometry */
-  }
 
-  /* 3D Base Structural Dimensions */
-  .cinemaSwiper .swiper-slide {
-    width: 78%;
-    aspect-ratio: 4 / 5;
-    border-radius: 12px;
-    overflow: hidden;
-    background: #000;
-    
-    transform-style: preserve-3d;
-    backface-visibility: hidden;
-    will-change: transform;
-    
-    transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
-  }
+      /* ========== SWIPER ========== */
+      .cinemaSwiper {
+        width: 100%;
+        padding-top: 30px !important;
+        padding-bottom: 60px !important;
+        perspective: 1200px;
+      }
 
-  /* Responsive Medium Shields */
-  @media (min-width: 640px) {
-    .cinemaSwiper .swiper-slide {
-      width: 50%;
-      aspect-ratio: 4 / 5;
-      border-radius: 14px;
-    }
-  }
+      .cinemaSwiper .swiper-slide {
+        width: 78%;
+        aspect-ratio: 4 / 5;
+        border-radius: 12px;
+        overflow: hidden;
+        background: #000;
+        transform-style: preserve-3d;
+        backface-visibility: hidden;
+        will-change: transform;
+        transition: transform 600ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
 
-  /* Premium Desktop Aspect Locking */
-  @media (min-width: 1024px) {
-    .cinemaSwiper .swiper-slide {
-      width: 400px;
-      height: 520px;
-      border-radius: 16px;
-    }
-  }
+      @media (min-width: 640px) {
+        .cinemaSwiper .swiper-slide {
+          width: 50%;
+          aspect-ratio: 4 / 5;
+          border-radius: 14px;
+        }
+      }
 
-  /* Inner Card Image Configurations */
-  .premium-gallery-card {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    cursor: pointer;
-    -webkit-tap-highlight-color: transparent; /* Removes ugly blue mobile tap box */
-  }
+      @media (min-width: 1024px) {
+        .cinemaSwiper .swiper-slide {
+          width: 400px;
+          height: 520px;
+          border-radius: 16px;
+        }
+      }
 
-  .premium-gallery-card .img-container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
+      .premium-gallery-card {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+      }
 
-  .premium-gallery-card .img-container img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    will-change: filter, transform;
-    transition: 
-      filter 400ms cubic-bezier(0.25, 1, 0.5, 1), 
-      transform 400ms cubic-bezier(0.25, 1, 0.5, 1);
-  }
+      .premium-gallery-card .img-container {
+        position: relative;
+        width: 100%;
+        height: 100%;
+      }
 
-  /* Core Message Text Shield Layout */
-  .card-overlay {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.4); /* Modern premium dark contrast tint */
-    opacity: 0;
-    pointer-events: none;
-    z-index: 10;
-    padding: 1.5rem;
-    transition: opacity 400ms cubic-bezier(0.25, 1, 0.5, 1);
-  }
+      .premium-gallery-card .img-container img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        will-change: filter, transform;
+        transition:
+          filter 400ms cubic-bezier(0.25, 1, 0.5, 1),
+          transform 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
 
-  /* ==========================================================================
-     TOUCH REVEAL MANIFESTO (STRICT ACTIVE MUTATION)
-     ========================================================================== */
-  /* Automatic center-slide triggers have been completely disabled. 
-     Only clicking the element manually updates the view layer state */
-  .premium-gallery-card.touch-revealed .img-container img {
-    filter: blur(5px) brightness(0.7); /* Perfect premium frosted background blur */
-    transform: scale(1.02);
-  }
+      .card-overlay {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(0, 0, 0, 0.45);
+        opacity: 0;
+        pointer-events: none;
+        z-index: 10;
+        padding: 1.5rem;
+        transition: opacity 400ms cubic-bezier(0.25, 1, 0.5, 1);
+      }
 
-  .premium-gallery-card.touch-revealed .card-overlay {
-    opacity: 1;
-    pointer-events: auto;
-  }
+      .premium-gallery-card.touch-revealed .img-container img {
+        filter: blur(5px) brightness(0.7);
+        transform: scale(1.02);
+      }
 
-  /* Isolated Desktop Hover (Only fires if hardware supports mouse hover pointer) */
-  @media (min-width: 1024px) and (hover: hover) {
-    .premium-gallery-card:hover .img-container img {
-      filter: blur(5px) brightness(0.7);
-      transform: scale(1.04);
-    }
-    .premium-gallery-card:hover .card-overlay {
-      opacity: 1;
-    }
-  }
+      .premium-gallery-card.touch-revealed .card-overlay {
+        opacity: 1;
+        pointer-events: auto;
+      }
 
-  .cinemaSwiper .swiper-pagination-bullet {
-    background: #ff8fd6 !important;
-    opacity: 0.25;
-    transition: 
-      opacity 400ms ease, 
-      width 400ms cubic-bezier(0.25, 1, 0.5, 1), 
-      border-radius 400ms ease;
-  }
+      @media (min-width: 1024px) and (hover: hover) {
+        .premium-gallery-card:hover .img-container img {
+          filter: blur(5px) brightness(0.7);
+          transform: scale(1.04);
+        }
+        .premium-gallery-card:hover .card-overlay {
+          opacity: 1;
+        }
+      }
 
-  .cinemaSwiper .swiper-pagination-bullet-active {
-    opacity: 1;
-    width: 28px !important;
-    border-radius: 99px !important;
-  }
+      .cinemaSwiper .swiper-pagination-bullet {
+        background: #ffb3c6 !important;
+        opacity: 0.25;
+        transition:
+          opacity 400ms ease,
+          width 400ms cubic-bezier(0.25, 1, 0.5, 1),
+          border-radius 400ms ease;
+      }
 
-/* end swiperr css  */
+      .cinemaSwiper .swiper-pagination-bullet-active {
+        opacity: 1;
+        width: 28px !important;
+        border-radius: 99px !important;
+      }
 
-      /* AUDIO PLAYER CONTAINER (Brown Glassmorphism) */
+      /* ========== AUDIO PLAYER ========== */
       .audio-player {
         position: fixed;
         bottom: 24px;
@@ -337,22 +665,21 @@
         overflow: hidden;
         box-shadow:
           0 30px 60px -15px rgba(0, 0, 0, 0.9),
-          0 0 50px rgba(199, 66, 199, 0.08);
-        background: rgba(10, 7, 6, 0.88); /* Deep Earthy Chocolate Black */
-        border: 1px solid rgba(217, 119, 6, 0.1); /* Subtle Warm Border */
+          0 0 50px rgba(201, 75, 107, 0.1);
+        background: rgba(26, 5, 16, 0.92);
+        border: 1px solid rgba(201, 75, 107, 0.15);
         backdrop-filter: blur(24px);
         transform-origin: bottom right;
       }
 
-      /* MINIMIZED STATE */
       .audio-player.minimized {
         width: 290px !important;
         height: 64px !important;
         border-radius: 32px !important;
-        border: 1px solid rgba(199, 66, 199, 0.35); /* Elegant Caramel Outline */
+        border: 1px solid rgba(255, 179, 198, 0.35);
         box-shadow:
           0 12px 35px rgba(0, 0, 0, 0.9),
-          0 0 25px rgba(199, 66, 199, 0.2) !important;
+          0 0 25px rgba(201, 75, 107, 0.2) !important;
       }
 
       .audio-player.minimized .player-body {
@@ -394,8 +721,8 @@
       }
 
       .audio-player.minimized .play-pause-mini {
-        background: rgba(199, 66, 199, 0.1);
-        border: 1px solid rgba(199, 66, 199, 0.25);
+        background: rgba(201, 75, 107, 0.1);
+        border: 1px solid rgba(201, 75, 107, 0.25);
         width: 36px;
         height: 36px;
         border-radius: 50%;
@@ -407,7 +734,7 @@
       }
 
       .audio-player.minimized .play-pause-mini:hover {
-        background: rgba(199, 66, 199, 0.25);
+        background: rgba(201, 75, 107, 0.25);
         transform: scale(1.05);
       }
 
@@ -423,7 +750,6 @@
         transition: all 0.3s ease;
       }
 
-      /* MAXIMIZED INNER ELEMENTS */
       .player-header {
         display: none;
       }
@@ -445,7 +771,6 @@
         transition: all 0.3s ease;
       }
 
-      /* TRACKLIST DESIGN */
       .song-item {
         display: flex;
         align-items: center;
@@ -464,11 +789,10 @@
       }
 
       .song-item.active {
-        background: rgba(199, 66, 199, 0.08) !important;
-        border-color: rgba(199, 66, 199, 0.25) !important;
+        background: rgba(201, 75, 107, 0.08) !important;
+        border-color: rgba(201, 75, 107, 0.25) !important;
       }
 
-      /* TIMELINE PROGRESS SLIDER */
       .progress-container {
         width: 100%;
         height: 8px;
@@ -480,13 +804,12 @@
       .progress-bar {
         height: 100%;
         width: 0%;
-        background: #c742c7; /* Deep Warm Caramel */
+        background: #c94b6b;
         border-radius: 2px;
-        box-shadow: 0 0 10px rgba(199, 66, 199, 0.6);
+        box-shadow: 0 0 10px rgba(201, 75, 107, 0.6);
         transition: width 0.1s linear;
       }
 
-      /* CUSTOM SCROLLBAR FOR TRACKLIST */
       .custom-scrollbar::-webkit-scrollbar {
         width: 4px;
       }
@@ -498,10 +821,9 @@
         border-radius: 10px;
       }
       .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(199, 66, 199, 0.3);
+        background: rgba(201, 75, 107, 0.3);
       }
 
-      /* SPIN ANIMATION */
       .image-spin {
         animation: spin 14s linear infinite;
         animation-play-state: paused;
@@ -518,7 +840,6 @@
         }
       }
 
-      /* RESPONSIVE BREAKPOINTS (Mobile & Tablet Optimization) */
       @media (max-width: 640px) {
         .audio-player {
           bottom: 16px;
@@ -547,83 +868,234 @@
         font-family: "Montserrat", sans-serif !important;
       }
 
-      /* Enhanced Premium Custom Scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
-        width: 6px; /* Ekdum sleek aur thin profile width */
+        width: 6px;
       }
-
       .custom-scrollbar::-webkit-scrollbar-track {
-        background: transparent; /* Background track clean transparent rahega */
+        background: transparent;
       }
-
       .custom-scrollbar::-webkit-scrollbar-thumb {
-        background: rgba(
-          16,
-          185,
-          129,
-          0.2
-        ); /* Emerald green translucent accent base tone */
+        background: rgba(201, 75, 107, 0.2);
         border-radius: 20px;
-        border: 1px solid rgba(219, 39, 119, 0.1); /* Soft subtle glow outline */
+        border: 1px solid rgba(255, 179, 198, 0.1);
         transition: all 0.3s ease-in-out;
       }
-
       .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-        background: rgba(
-          16,
-          185,
-          129,
-          0.6
-        ); /* Hover karne par solid sharp rose highlight */
-        box-shadow: 0 0 8px rgba(219, 39, 119, 0.4); /* Subtle ambient premium flow glow */
+        background: rgba(201, 75, 107, 0.6);
+        box-shadow: 0 0 8px rgba(255, 179, 198, 0.4);
       }
-
-      /* Smooth scroll behavior for dynamic chat flow */
       .custom-scrollbar {
         scroll-behavior: smooth;
-        scrollbar-width: thin; /* Firefox core support fallback */
-        scrollbar-color: rgba(219, 39, 119, 0.3) transparent; /* Firefox support */
+        scrollbar-width: thin;
+        scrollbar-color: rgba(201, 75, 107, 0.3) transparent;
+      }
+
+      /* ========== LOVE QUESTION ========== */
+      .love-question-card {
+        background: rgba(109, 27, 58, 0.1);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 179, 198, 0.2);
+        border-radius: 48px;
+        padding: 2.5rem 2rem;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+        transition: all 0.4s ease;
+      }
+      .love-question-card:hover {
+        border-color: rgba(255, 179, 198, 0.5);
+        box-shadow: 0 30px 80px rgba(201, 75, 107, 0.2);
+      }
+      .btn-love-yes {
+        background: linear-gradient(145deg, #ffb3c6, #c94b6b);
+        color: #2a0e1a;
+        font-weight: 700;
+        padding: 16px 48px;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(255, 179, 198, 0.3);
+      }
+      .btn-love-yes:hover {
+        transform: scale(1.05);
+        box-shadow: 0 15px 40px rgba(255, 179, 198, 0.5);
+      }
+      .btn-love-no {
+        background: rgba(255, 255, 255, 0.05);
+        color: #ffb3c6;
+        border: 1px solid rgba(255, 179, 198, 0.3);
+        padding: 16px 48px;
+        border-radius: 60px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        backdrop-filter: blur(4px);
+        position: relative;
+        touch-action: none;
+      }
+      .btn-love-no:hover {
+        background: rgba(255, 179, 198, 0.1);
+        border-color: #ffb3c6;
+      }
+      .celebration-emoji {
+        font-size: 4rem;
+        animation: float 2s ease-in-out infinite;
+      }
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-15px);
+        }
+      }
+
+      /* ========== NEW SECTIONS STYLING ========== */
+      .timeline-card {
+        background: rgba(109, 27, 58, 0.12);
+        border: 1px solid rgba(255, 179, 198, 0.12);
+        border-radius: 24px;
+        padding: 30px;
+        backdrop-filter: blur(8px);
+        transition: all 0.4s ease;
+      }
+      .timeline-card:hover {
+        border-color: rgba(255, 179, 198, 0.35);
+        background: rgba(109, 27, 58, 0.2);
+        transform: translateY(-5px);
+      }
+      .timeline-dot {
+        width: 14px;
+        height: 14px;
+        background: var(--warm-sand);
+        border-radius: 50%;
+        box-shadow: 0 0 15px rgba(201, 75, 107, 0.6);
+        flex-shrink: 0;
+        margin-top: 6px;
+      }
+      .timeline-line {
+        width: 2px;
+        background: linear-gradient(to bottom, var(--warm-sand), transparent);
+        flex: 1;
+        margin: 0 auto;
+        min-height: 40px;
+      }
+
+      .love-note {
+        background: linear-gradient(135deg, #fff0f5, #ffe3ec);
+        border-radius: 20px;
+        padding: 28px;
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+        position: relative;
+        transform: rotate(-1deg);
+        transition: all 0.4s ease;
+      }
+      .love-note:hover {
+        transform: rotate(1deg) scale(1.02);
+        box-shadow: 0 30px 60px rgba(201, 75, 107, 0.25);
+      }
+      .love-note::before {
+        content: "💌";
+        position: absolute;
+        top: -18px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 1.8rem;
+      }
+
+      .stat-bubble {
+        background: rgba(109, 27, 58, 0.15);
+        border: 1px solid rgba(255, 179, 198, 0.15);
+        border-radius: 24px;
+        padding: 24px 16px;
+        text-align: center;
+        transition: all 0.4s ease;
+      }
+      .stat-bubble:hover {
+        border-color: var(--nude);
+        background: rgba(109, 27, 58, 0.25);
+        transform: translateY(-6px);
+      }
+      .stat-bubble .stat-number {
+        font-family: "Playfair Display", serif;
+        font-size: 2.2rem;
+        font-weight: 900;
+        font-style: italic;
+        background: linear-gradient(to bottom, var(--cream), var(--nude));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .sparkle-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        margin: 20px 0;
+      }
+      .sparkle-divider::before,
+      .sparkle-divider::after {
+        content: "";
+        height: 1px;
+        width: 60px;
+        background: linear-gradient(to right, transparent, var(--warm-sand), transparent);
+      }
+      .sparkle-divider span {
+        color: var(--nude);
+        font-size: 1.2rem;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(8px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      .animate-fade-in {
+        animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
       }
     </style>
   </head>
   <body>
-    <!-- LOADER -->
+    <!-- ========== CUTE LOADER ========== -->
     <div
       id="loader"
-      class="fixed inset-0 z-[10000] bg-[#fdf3fb] flex flex-col items-center justify-center overflow-hidden"
+      class="fixed inset-0 z-[10000] flex flex-col items-center justify-center overflow-hidden"
     >
-      <!-- Soft Ambient Background Glow Behind the Loader -->
-      <div
-        class="absolute w-[40vw] h-[40vw] bg-accent pointer-events-none z-0"
-      ></div>
+      <!-- Soft floating hearts background -->
+      <div class="loader-float-hearts absolute inset-0 pointer-events-none">
+        <span>💗</span>
+        <span>💕</span>
+        <span>💖</span>
+        <span>💝</span>
+        <span>💘</span>
+      </div>
 
       <div class="relative z-10 flex flex-col items-center justify-center">
-        <!-- GEOMETRIC LOADER CORE (Replacing the bar) -->
-        <div class="relative w-32 h-32 flex items-center justify-center mb-8">
-          <!-- Outer Elegant Spinning Ring -->
-          <div
-            class="absolute inset-0 rounded-full border border-[#7c2d8f] border-t-[#7c2d8f] animate-spin [animation-duration:1.5s]"
-          ></div>
-
-          <!-- Inner Reverse Pulsing Ring -->
-          <div
-            class="absolute inset-2 rounded-full border border-white/[0.03] border-b-[#7c2d8f]/40 animate-spin [animation-direction:reverse] [animation-duration:2.5s]"
-          ></div>
-
-          <!-- Center Smooth Percentage Number -->
-          <div
-            class="font-mono text-2xl font-extralight tracking-tighter text-black flex items-center justify-center"
-          >
-            <span id="loader-percentage">00</span
-            ><span class="text-xs text-[#000] font-normal ml-0.5">%</span>
-          </div>
+        <!-- Cute heart ring loader -->
+        <div class="loader-heart-ring mb-8">
+          <div class="loader-ring-outer"></div>
+          <div class="loader-ring-inner"></div>
         </div>
 
-        <!-- Masked Text Reveal Effect -->
+        <!-- Percentage -->
+        <div
+          class="font-mono text-3xl font-extralight tracking-tighter text-[#8b1e3f] flex items-center justify-center mb-4"
+        >
+          <span id="loader-percentage">00</span
+          ><span class="text-sm text-[#c94b6b] font-normal ml-1">%</span>
+        </div>
+
+        <!-- Masked Text Reveal -->
         <div class="overflow-hidden h-8 flex items-center justify-center">
           <div
             id="loader-text"
-            class="font-serif italic text-xl text-black tracking-widest translate-y-full"
+            class="font-serif italic text-xl text-[#6d1b3a] tracking-widest translate-y-full"
           >
             Entering into my heart...
           </div>
@@ -631,96 +1103,159 @@
       </div>
     </div>
 
-    <!-- HERO SECTION -->
-    <section
-      class="relative min-h-screen w-full bg-accent text-stone-200 flex flex-col justify-between px-6 sm:px-16 py-8 overflow-hidden select-none"
-    >
-      <!-- Subtle Amber Ambient Light Spot -->
-      <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-[radial-gradient(circle,rgba(216,120,220,0.03)_0%,transparent_60%)] pointer-events-none"
-      ></div>
+    <!-- ========== MODERN HERO SLIDER ========== -->
+    <div class="hero-slider">
+      <div class="swiper heroSwiper h-full w-full">
+        <div class="swiper-wrapper">
+          <!-- Slide 1 -->
+          <div class="swiper-slide">
+            <img
+              src="pics/1.jpeg"
+              alt="Hiba Khan"
+              class="slide-bg"
+            />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <span class="slide-tag">My Favorite Person</span>
+              <h1 class="slide-title">
+                Hiba
+                <span class="accent-word">Khan</span>
+              </h1>
+              <p class="slide-desc">
+                "In a world full of temporary noise, you are my permanent melody."
+              </p>
+              <a href="#gallery" class="slide-btn">
+                Explore More
+                <i class="fas fa-arrow-right"></i>
+              </a>
+            </div>
+          </div>
 
-      <!-- 2. CENTER PIECE: VERTICAL MINIMALIST STACK -->
-      <div
-        class="flex-1 flex flex-col items-center justify-center text-center max-w-2xl mx-auto relative z-10 my-12"
-      >
-        <!-- Delicate Poetic Kicker -->
-        <span
-          class="reveal opacity-0 block text-[10px] font-mono uppercase tracking-[0.8em] text-[#e79bea] mb-6 pl-[0.8em]"
-        >
-          My Favorite Person
-        </span>
+          <!-- Slide 2 -->
+          <div class="swiper-slide">
+            <img
+              src="pics/2.jpeg"
+              alt="Hiba Khan"
+              class="slide-bg"
+            />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <span class="slide-tag">Pure Elegance</span>
+              <h1 class="slide-title">
+                Effortlessly
+                <span class="accent-word">Beautiful</span>
+              </h1>
+              <p class="slide-desc">
+                You walk around casually setting the standard for everyone else.
+              </p>
+              <a href="#gallery" class="slide-btn">
+                See The Magic
+                <i class="fas fa-heart"></i>
+              </a>
+            </div>
+          </div>
 
-        <!-- Giant Elegant Typography Name -->
-        <h1
-          class="reveal opacity-0 text-7xl sm:text-9xl md:text-[10rem] font-serif font-bold italic leading-none text-stone-100 tracking-tighter filter drop-shadow-md"
-        >
-          Hiba Khan
-        </h1>
+          <!-- Slide 3 -->
+          <div class="swiper-slide">
+            <img
+              src="pics/3.jpeg"
+              alt="Hiba Khan"
+              class="slide-bg"
+            />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <span class="slide-tag">Unforgettable</span>
+              <h1 class="slide-title">
+                The One &
+                <span class="accent-word">Only</span>
+              </h1>
+              <p class="slide-desc">
+                Don't let this go to your head, but you're pretty much unforgettable.
+              </p>
+              <a href="#gallery" class="slide-btn">
+                Discover
+                <i class="fas fa-sparkles"></i>
+              </a>
+            </div>
+          </div>
 
-        <!-- Soft Poetic Text Wrap -->
-        <div class="mt-8 max-w-md">
-          <p
-            class="reveal opacity-0 text-sm sm:text-base text-stone-400 font-light leading-relaxed tracking-wide italic"
-          >
-            "In a world full of temporary noise, you are my permanent melody."
-          </p>
-          <p
-            class="reveal opacity-0 text-xs text-stone-500 font-light leading-relaxed tracking-wide mt-4"
-          >
-            "You know, it’s honestly a good thing we’re close friends, because
-            if we weren’t, I’d spend way too much time trying to figure out how
-            to look that effortlessly good. You walk around casually setting the
-            standard for everyone else Don't let this go to your head, but
-            you're pretty much unforgettable." Hibaaaaa khaann sorry itna wait krwane k liye 
-           hain apke sath game khel krr baat krke mzak krke bht maza
-            aata h... chalen ub aap scroll kren or enjoy kren.
-          </p>
+          <!-- Slide 4 -->
+          <div class="swiper-slide">
+            <img
+              src="pics/4.jpeg"
+              alt="Hiba Khan"
+              class="slide-bg"
+            />
+            <div class="slide-overlay"></div>
+            <div class="slide-content">
+              <span class="slide-tag">Timeless Grace</span>
+              <h1 class="slide-title">
+                Simply
+                <span class="accent-word">Stunning</span>
+              </h1>
+              <p class="slide-desc">
+                Every playlist I make somehow turns into songs that remind me of you.
+              </p>
+              <a href="#gallery" class="slide-btn">
+                Listen & See
+                <i class="fas fa-music"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+
+        <!-- Scroll hint -->
+        <div class="scroll-hint">
+          <span>Scroll</span>
+          <div class="scroll-line"></div>
         </div>
       </div>
+    </div>
 
-     
-    </section>
-
-    <!-- QUOTES SECTION -->
+    <!-- ========== QUOTES SECTION ========== -->
     <section class="py-32 container mx-auto px-8">
       <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
         <div class="glass-card reveal opacity-0">
-          <i data-lucide="sparkles" class="text-nude mb-8" size="32"></i>
+          <i data-lucide="sparkles" class="text-[#ffb3c6] mb-8" size="32"></i>
           <p class="text-2xl font-serif italic leading-snug">
-            You’re my favorite distraction.
+            You're my favorite distraction.
           </p>
         </div>
         <div class="glass-card reveal opacity-0 md:translate-y-16">
-          <i data-lucide="fingerprint" class="text-nude mb-8" size="32"></i>
+          <i data-lucide="fingerprint" class="text-[#ffb3c6] mb-8" size="32"></i>
           <p class="text-2xl font-serif italic leading-snug">
             "Are you always this charming, or do I just bring out the best in
-            you?."
+            you?"
           </p>
         </div>
         <div class="glass-card reveal opacity-0">
-          <i data-lucide="feather" class="text-nude mb-8" size="32"></i>
+          <i data-lucide="feather" class="text-[#ffb3c6] mb-8" size="32"></i>
           <p class="text-2xl font-serif italic leading-snug">
             "I'd tell you you're breathtaking, but I don't want to leave myself
             breathless."
           </p>
         </div>
         <div class="glass-card reveal opacity-0 md:translate-y-10">
-          <i data-lucide="heart-handshake" class="text-nude mb-8" size="32"></i>
+          <i data-lucide="heart-handshake" class="text-[#ffb3c6] mb-8" size="32"></i>
           <p class="text-2xl font-serif italic leading-snug">
             "Every playlist I make somehow turns into songs that remind me of
             you."
           </p>
         </div>
         <div class="glass-card reveal opacity-0">
-          <i data-lucide="star" class="text-nude mb-8" size="32"></i>
+          <i data-lucide="star" class="text-[#ffb3c6] mb-8" size="32"></i>
           <p class="text-2xl font-serif italic leading-snug">
             "You didn't just walk into my life, you redecorated the whole
             place."
           </p>
         </div>
         <div class="glass-card reveal opacity-0 md:translate-y-16">
-          <i data-lucide="candy" class="text-nude mb-8" size="32"></i>
+          <i data-lucide="candy" class="text-[#ffb3c6] mb-8" size="32"></i>
           <p class="text-2xl font-serif italic leading-snug">
             "Warning: prolonged exposure to your smile may cause butterflies."
           </p>
@@ -728,49 +1263,140 @@
       </div>
     </section>
 
-    <!-- REASONS SECTION -->
+    <!-- ========== NEW: LOVE TIMELINE SECTION ========== -->
+    <section class="py-24 container mx-auto px-8 max-w-3xl">
+      <div class="mb-16 text-center">
+        <h2 class="font-serif text-5xl italic accent-gradient">
+          Our Little Timeline
+        </h2>
+        <div class="sparkle-divider"><span>✦</span></div>
+        <p class="text-stone-400 text-sm font-light">
+          Some moments just stay, don't they?
+        </p>
+      </div>
+
+      <div class="space-y-8">
+        <div class="reveal opacity-0 flex gap-5">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card flex-1">
+            <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-[#ffb3c6]">The First Hello</span>
+            <h3 class="font-serif text-2xl italic text-white mt-2">Jab pehli baar baat hui</h3>
+            <p class="text-stone-400 text-sm mt-2 font-light leading-relaxed">I still remember thinking, "Okay, this person is different." And I was right.</p>
+          </div>
+        </div>
+
+        <div class="reveal opacity-0 flex gap-5">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card flex-1">
+            <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-[#ffb3c6]">The Late Night Talks</span>
+            <h3 class="font-serif text-2xl italic text-white mt-2">3 AM conversations</h3>
+            <p class="text-stone-400 text-sm mt-2 font-light leading-relaxed">Woh raat ke 2 baje wali baatein, jinme time ka pata hi nahi chalta. Best kind of insomnia.</p>
+          </div>
+        </div>
+
+        <div class="reveal opacity-0 flex gap-5">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-card flex-1">
+            <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-[#ffb3c6]">The Games & Laughs</span>
+            <h3 class="font-serif text-2xl italic text-white mt-2">Har game mein maza</h3>
+            <p class="text-stone-400 text-sm mt-2 font-light leading-relaxed">Chahe win ho ya lose, apke saath khelne mein maza hi alag level ka hai.</p>
+          </div>
+        </div>
+
+        <div class="reveal opacity-0 flex gap-5">
+          <div class="flex flex-col items-center">
+            <div class="timeline-dot"></div>
+          </div>
+          <div class="timeline-card flex-1">
+            <span class="text-[10px] font-mono tracking-[0.3em] uppercase text-[#ffb3c6]">Today & Always</span>
+            <h3 class="font-serif text-2xl italic text-white mt-2">And the story continues...</h3>
+            <p class="text-stone-400 text-sm mt-2 font-light leading-relaxed">Every day with you adds a new page to this beautiful story. Here's to more memories.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== REASONS SECTION ========== -->
     <section class="py-24 container mx-auto px-8">
       <div class="mb-16 text-center">
         <h2 class="font-serif text-5xl italic accent-gradient">
           Reasons I'm Obsessed With You
         </h2>
-        <div class="h-[2px] w-20 bg-nude/30 mx-auto mt-6"></div>
+        <div class="sparkle-divider"><span>💗</span></div>
       </div>
       <div class="max-w-2xl mx-auto grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-6">
         <div class="reveal opacity-0 flex items-start gap-3">
-          <span class="text-nude text-lg">💗</span>
+          <span class="text-[#ffb3c6] text-lg">💗</span>
           <p class="text-stone-300 text-sm sm:text-base leading-relaxed">Your laugh is genuinely my favorite sound.</p>
         </div>
         <div class="reveal opacity-0 flex items-start gap-3">
-          <span class="text-nude text-lg">💜</span>
+          <span class="text-[#ffb3c6] text-lg">💜</span>
           <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You remember tiny things I didn't think mattered.</p>
         </div>
         <div class="reveal opacity-0 flex items-start gap-3">
-          <span class="text-nude text-lg">💖</span>
+          <span class="text-[#ffb3c6] text-lg">💖</span>
           <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You make ordinary days feel like main character moments.</p>
         </div>
         <div class="reveal opacity-0 flex items-start gap-3">
-          <span class="text-nude text-lg">🩷</span>
+          <span class="text-[#ffb3c6] text-lg">🩷</span>
           <p class="text-stone-300 text-sm sm:text-base leading-relaxed">Your texts turn my whole mood around instantly.</p>
         </div>
         <div class="reveal opacity-0 flex items-start gap-3">
-          <span class="text-nude text-lg">✨</span>
+          <span class="text-[#ffb3c6] text-lg">✨</span>
           <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You're effortlessly the most interesting person in any room.</p>
         </div>
         <div class="reveal opacity-0 flex items-start gap-3">
-          <span class="text-nude text-lg">💫</span>
+          <span class="text-[#ffb3c6] text-lg">💫</span>
           <p class="text-stone-300 text-sm sm:text-base leading-relaxed">You just... get me, without needing an explanation.</p>
         </div>
       </div>
     </section>
 
-    <!-- POLAROID GALLERY -->
-    <section class="py-40 container mx-auto px-6">
+    <!-- ========== NEW: LOVE STATS SECTION ========== -->
+    <section class="py-24 container mx-auto px-8 max-w-4xl">
+      <div class="mb-16 text-center">
+        <h2 class="font-serif text-5xl italic accent-gradient">
+          Just Some Random Stats
+        </h2>
+        <div class="sparkle-divider"><span>✦</span></div>
+        <p class="text-stone-400 text-sm font-light">Kyunki numbers bhi bolte hain 💕</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="stat-bubble reveal opacity-0">
+          <div class="stat-number">1000+</div>
+          <p class="text-stone-400 text-xs mt-2 uppercase tracking-widest font-mono">Messages</p>
+        </div>
+        <div class="stat-bubble reveal opacity-0">
+          <div class="stat-number">∞</div>
+          <p class="text-stone-400 text-xs mt-2 uppercase tracking-widest font-mono">Laughs Shared</p>
+        </div>
+        <div class="stat-bubble reveal opacity-0">
+          <div class="stat-number">24/7</div>
+          <p class="text-stone-400 text-xs mt-2 uppercase tracking-widest font-mono">On My Mind</p>
+        </div>
+        <div class="stat-bubble reveal opacity-0">
+          <div class="stat-number">💯</div>
+          <p class="text-stone-400 text-xs mt-2 uppercase tracking-widest font-mono">Percent Real</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== POLAROID GALLERY ========== -->
+    <section id="gallery" class="py-40 container mx-auto px-6">
       <div class="mb-24 text-center">
         <h2 class="font-serif text-6xl italic accent-gradient">
           Hiba khan ki Pictures
         </h2>
-        <div class="h-[2px] w-20 bg-nude/30 mx-auto mt-6"></div>
+        <div class="sparkle-divider"><span>📸</span></div>
       </div>
       <div
         class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-16"
@@ -780,269 +1406,277 @@
       </div>
     </section>
 
-    <!-- SWIPER SECTION START -->
-   <section class="py-20 md:py-40 container mx-auto px-4 overflow-hidden">
-  <div class="mb-16 md:mb-24 text-center">
-    <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl italic accent-gradient">
-      Hibaaaaaa ki or Pictures
-    </h2>
-    <p class="text-stone-400 mt-2">Pictures pr click kren...</p>
-    <div class="h-[2px] w-16 md:w-20 bg-nude/30 mx-auto mt-4 md:mt-6"></div>
-  </div>
+    <!-- ========== SWIPER SECTION ========== -->
+    <section class="py-20 md:py-40 container mx-auto px-4 overflow-hidden">
+      <div class="mb-16 md:mb-24 text-center">
+        <h2 class="font-serif text-4xl sm:text-5xl md:text-6xl italic accent-gradient">
+          Hibaaaaaa ki or Pictures
+        </h2>
+        <p class="text-stone-400 mt-2">Pictures pr click kren...</p>
+        <div class="sparkle-divider"><span>✨</span></div>
+      </div>
 
-  <div class="swiper cinemaSwiper !overflow-visible">
-    <div class="swiper-wrapper" id="gallery-wall">
-      
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/9.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-white text-center italic tracking-wide">
-              Strikingly simple, effortlessly beautiful
-            </p>
+      <div class="swiper cinemaSwiper !overflow-visible">
+        <div class="swiper-wrapper" id="gallery-wall-swiper">
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/9.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-white text-center italic tracking-wide">
+                  Strikingly simple, effortlessly beautiful
+                </p>
+              </div>
+            </div>
           </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/10.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  Elegance in its purest form
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/1.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  Pure visual poetry
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/2.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  Favorite Smile
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/3.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  Timeless grace
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/4.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  WOwwww veryy dangerous
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/5.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  WOwwwwwwwww beautiful
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
+            <div class="img-container">
+              <img src="pics/6.jpeg" alt="Hiba" class="w-full h-full object-cover" />
+              <div class="card-overlay">
+                <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
+                  very very very cute
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- ========== NEW: LOVE NOTE SECTION ========== -->
+    <section class="py-24 container mx-auto px-6 max-w-2xl">
+      <div class="love-note reveal opacity-0">
+        <h3 class="font-serif text-2xl italic text-[#8b1e3f] text-center mb-4">A Little Note For You</h3>
+        <p class="text-[#6d1b3a] text-sm leading-relaxed text-center font-light">
+          Hiba, tumhare bina yeh website adhuri lagti hai. Tum wo insaan ho jiske saath har cheez better lagti hai.
+          Chahe woh ek simple text ho, ya koi random game, ya bas silence mein bhi baat karna. Tumhari presence
+          hi kaafi hai. Yeh sab tumhare liye, kyunki tum special ho. Hamesha. 💗
+        </p>
+        <div class="text-center mt-6 text-2xl space-x-2">
+          <span>💕</span><span>💖</span><span>💝</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== AUDIO PLAYER ========== -->
+    <div id="audio-player" class="audio-player minimized">
+      <div class="player-header" id="player-toggle">
+        <div class="player-title">
+          <div class="relative w-9 h-9 rounded-full overflow-hidden border border-[#ffb3c6]/40 flex-shrink-0 image-spin" id="mini-album-art-container">
+            <img src="https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg" id="mini-album-art" alt="Album Art" class="w-full h-full object-cover" />
+          </div>
+          <div class="flex flex-col min-w-0">
+            <span class="song-name-mini" id="mini-song-name">I Think They Call This Love</span>
+            <span class="text-[10px] text-[#ffb3c6]/80 font-medium tracking-wider pl-[10px] uppercase">Playing</span>
+          </div>
+        </div>
+        <div class="player-controls-mini">
+          <button class="play-pause-mini" id="mini-play-btn">
+            <i class="fas fa-play text-[#ffb3c6]" id="mini-play-icon"></i>
+          </button>
+          <button class="maximize-mini" id="mini-maximize-btn">
+            <i class="fas fa-expand-alt text-[#ffb3c6]"></i>
+          </button>
         </div>
       </div>
 
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/10.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              Elegance in its purest form
-            </p>
+      <div class="player-body">
+        <div class="flex justify-between items-center mb-5 border-b border-white/5 pb-3">
+          <span class="text-xs font-semibold tracking-widest text-[#ffb3c6] uppercase">Now Playing</span>
+          <button id="minimize-btn" class="minimize-btn group">
+            <i class="fas fa-compress-alt text-zinc-400 group-hover:text-[#ffb3c6] transition-colors" id="minimize-icon"></i>
+          </button>
+        </div>
+
+        <div class="flex items-center space-x-4 mb-5 p-3 rounded-2xl bg-white/[0.02] border border-white/5">
+          <div class="w-16 h-16 rounded-xl overflow-hidden shadow-lg shadow-black/70 border border-[#ffb3c6]/30 relative flex-shrink-0" id="main-album-art-container">
+            <img src="" id="main-album-art" alt="Album Art" class="w-full h-full object-cover" />
+          </div>
+          <div class="min-w-0 flex-1">
+            <h3 class="text-stone-100 font-bold text-base truncate tracking-wide" id="current-song">Song Title</h3>
+            <p class="text-[#ffb3c6] text-xs font-medium truncate mt-0.5" id="current-artist">Artist Name</p>
+          </div>
+        </div>
+
+        <div class="flex items-center justify-center space-x-6 mb-4">
+          <button id="prev-btn" class="text-stone-400 hover:text-[#ffb3c6] hover:scale-110 active:scale-95 transition-all text-lg">
+            <i class="fas fa-step-backward"></i>
+          </button>
+          <button id="play-btn" class="w-12 h-12 rounded-full bg-[#c94b6b] text-stone-950 font-bold flex items-center justify-center shadow-[0_0_20px_rgba(201,75,107,0.4)] hover:shadow-[0_0_25px_rgba(201,75,107,0.7)] hover:scale-105 active:scale-95 transition-all">
+            <i class="fas fa-play text-lg pl-0.5" id="play-btn-icon"></i>
+          </button>
+          <button id="next-btn" class="text-stone-400 hover:text-[#ffb3c6] hover:scale-110 active:scale-95 transition-all text-lg">
+            <i class="fas fa-step-forward"></i>
+          </button>
+        </div>
+
+        <div class="progress-container mb-2" id="progress-container">
+          <div class="progress-bar" id="progress"></div>
+        </div>
+
+        <div class="flex justify-between text-[11px] font-mono text-stone-400 mb-5">
+          <span id="current-time">0:00</span>
+          <span id="duration">0:00</span>
+        </div>
+
+        <div class="song-list custom-scrollbar max-h-[160px] overflow-y-auto space-y-1.5 pr-1">
+          <div class="song-item active" data-index="0">
+            <div class="flex items-center space-x-3 min-w-0">
+              <img src="https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
+              <div class="min-w-0">
+                <p class="text-stone-200 font-medium text-xs truncate">I Think They Call This Love</p>
+                <p class="text-stone-400 text-[10px] truncate">Dedicated to Hiba</p>
+              </div>
+            </div>
+            <i class="fas fa-play text-[#ffb3c6] text-[10px] flex-shrink-0 animate-pulse"></i>
+          </div>
+
+          <div class="song-item" data-index="1">
+            <div class="flex items-center space-x-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-lg object-cover" alt="" />
+              <div class="min-w-0">
+                <p class="text-stone-200 font-medium text-xs truncate">Sahiba Lyrics</p>
+                <p class="text-stone-400 text-[10px] truncate">For Hiba Khan</p>
+              </div>
+            </div>
+            <i class="fas fa-heart text-stone-500 text-[10px] flex-shrink-0"></i>
+          </div>
+
+          <div class="song-item" data-index="2">
+            <div class="flex items-center space-x-3 min-w-0">
+              <img src="https://m.media-amazon.com/images/I/71fqFyMSaNL._AC_UF1000,1000_QL80_.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
+              <div class="min-w-0">
+                <p class="text-stone-200 font-medium text-xs truncate">Ed Sheeran - Perfect</p>
+                <p class="text-stone-400 text-[10px] truncate">For Hiba Khan</p>
+              </div>
+            </div>
+            <i class="fas fa-crown text-stone-500 text-[10px] flex-shrink-0"></i>
+          </div>
+
+          <div class="song-item" data-index="3">
+            <div class="flex items-center space-x-3 min-w-0">
+              <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-lg object-cover" alt="" />
+              <div class="min-w-0">
+                <p class="text-stone-200 font-medium text-xs truncate">Ishq Wala Love</p>
+                <p class="text-stone-400 text-[10px] truncate">For Hiba</p>
+              </div>
+            </div>
+            <i class="fas fa-star text-stone-500 text-[10px] flex-shrink-0"></i>
+          </div>
+
+          <div class="song-item" data-index="4">
+            <div class="flex items-center space-x-3 min-w-0">
+              <img src="https://i.ytimg.com/vi/A1MdThqGarI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihJMA8=&rs=AOn4CLCDbzt4dnR3ecEhgddKfElJI9UIJQ" class="w-8 h-8 rounded-lg object-cover" alt="" />
+              <div class="min-w-0">
+                <p class="text-stone-200 font-medium text-xs truncate">Pretty Little Baby</p>
+                <p class="text-stone-400 text-[10px] truncate">For Hiba</p>
+              </div>
+            </div>
+            <i class="fas fa-moon text-stone-500 text-[10px] flex-shrink-0"></i>
+          </div>
+
+          <div class="song-item" data-index="5">
+            <div class="flex items-center space-x-3 min-w-0">
+              <img src="https://i.ytimg.com/vi/vO_wELU6pGM/maxresdefault.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
+              <div class="min-w-0">
+                <p class="text-stone-200 font-medium text-xs truncate">O Meri Laila Lyrics</p>
+                <p class="text-stone-400 text-[10px] truncate">For Hiba</p>
+              </div>
+            </div>
+            <i class="fas fa-heartbeat text-stone-500 text-[10px] flex-shrink-0"></i>
+          </div>
+        </div>
+
+        <div class="mt-4 pt-3 border-t border-white/5 flex justify-between items-center bg-black/40 p-2 rounded-xl">
+          <button id="volume-btn" class="text-stone-400 hover:text-[#ffb3c6] transition-colors">
+            <i class="fas fa-volume-up"></i>
+          </button>
+          <div class="w-3/4 px-2">
+            <input type="range" id="volume-slider" min="0" max="100" value="70" class="volume-slider w-full h-1 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-[#c94b6b]" />
           </div>
         </div>
       </div>
-
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/1.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              Pure visual poetry
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/2.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              Favorite Smile
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/3.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              Timeless grace
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/4.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              WOwwww veryy dangerous
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/5.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              WOwwwwwwwww beautiful
-            </p>
-          </div>
-        </div>
-      </div>
-
-      <div class="swiper-slide premium-gallery-card" onclick="toggleMobileMessage(this)">
-        <div class="img-container">
-          <img src="pics/6.jpeg" alt="Hiba" class="w-full h-full object-cover" />
-          <div class="card-overlay">
-            <p class="font-serif text-base md:text-lg text-center text-white italic tracking-wide">
-              very very very cute
-            </p>
-          </div>
-        </div>
-      </div>
-
     </div>
 
-    <div class="swiper-pagination"></div>
-  </div>
-</section>
-    <!-- SWIPER SECTION END -->
-
-   <div id="audio-player" class="audio-player minimized">
-  <div class="player-header" id="player-toggle">
-    <div class="player-title">
-      <div class="relative w-9 h-9 rounded-full overflow-hidden border border-fuchsia-500/40 flex-shrink-0 image-spin" id="mini-album-art-container">
-        <img src="https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg" id="mini-album-art" alt="Album Art" class="w-full h-full object-cover" />
-      </div>
-      <div class="flex flex-col min-w-0">
-        <span class="song-name-mini" id="mini-song-name">I Think They Call This Love</span>
-        <span class="text-[10px] text-pink-400/80 font-medium tracking-wider pl-[10px] uppercase">Playing</span>
-      </div>
-    </div>
-    <div class="player-controls-mini">
-      <button class="play-pause-mini" id="mini-play-btn">
-        <i class="fas fa-play text-pink-400" id="mini-play-icon"></i>
-      </button>
-      <button class="maximize-mini" id="mini-maximize-btn">
-        <i class="fas fa-expand-alt text-pink-300"></i>
-      </button>
-    </div>
-  </div>
-
-  <div class="player-body">
-    <div class="flex justify-between items-center mb-5 border-b border-white/5 pb-3">
-      <span class="text-xs font-semibold tracking-widest text-pink-400 uppercase">Now Playing</span>
-      <button id="minimize-btn" class="minimize-btn group">
-        <i class="fas fa-compress-alt text-zinc-400 group-hover:text-pink-400 transition-colors" id="minimize-icon"></i>
-      </button>
-    </div>
-
-    <div class="flex items-center space-x-4 mb-5 p-3 rounded-2xl bg-white/[0.02] border border-white/5">
-      <div class="w-16 h-16 rounded-xl overflow-hidden shadow-lg shadow-black/70 border border-fuchsia-500/30 relative flex-shrink-0" id="main-album-art-container">
-        <img src="" id="main-album-art" alt="Album Art" class="w-full h-full object-cover" />
-      </div>
-      <div class="min-w-0 flex-1">
-        <h3 class="text-stone-100 font-bold text-base truncate tracking-wide" id="current-song">Song Title</h3>
-        <p class="text-pink-400 text-xs font-medium truncate mt-0.5" id="current-artist">Artist Name</p>
-      </div>
-    </div>
-
-    <div class="flex items-center justify-center space-x-6 mb-4">
-      <button id="prev-btn" class="text-stone-400 hover:text-pink-400 hover:scale-110 active:scale-95 transition-all text-lg">
-        <i class="fas fa-step-backward"></i>
-      </button>
-      <button id="play-btn" class="w-12 h-12 rounded-full bg-fuchsia-500 text-stone-950 font-bold flex items-center justify-center shadow-[0_0_20px_rgba(199,66,199,0.4)] hover:shadow-[0_0_25px_rgba(199,66,199,0.7)] hover:scale-105 active:scale-95 transition-all">
-        <i class="fas fa-play text-lg pl-0.5" id="play-btn-icon"></i>
-      </button>
-      <button id="next-btn" class="text-stone-400 hover:text-pink-400 hover:scale-110 active:scale-95 transition-all text-lg">
-        <i class="fas fa-step-forward"></i>
-      </button>
-    </div>
-
-    <div class="progress-container mb-2" id="progress-container">
-      <div class="progress-bar" id="progress"></div>
-    </div>
-
-    <div class="flex justify-between text-[11px] font-mono text-stone-400 mb-5">
-      <span id="current-time">0:00</span>
-      <span id="duration">0:00</span>
-    </div>
-
-    <div class="song-list custom-scrollbar max-h-[160px] overflow-y-auto space-y-1.5 pr-1">
-      
-      <div class="song-item active" data-index="0">
-        <div class="flex items-center space-x-3 min-w-0">
-          <img src="https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
-          <div class="min-w-0">
-            <p class="text-stone-200 font-medium text-xs truncate">I Think They Call This Love</p>
-            <p class="text-stone-400 text-[10px] truncate">Dedicated to Hiba</p>
-          </div>
-        </div>
-        <i class="fas fa-play text-pink-400 text-[10px] flex-shrink-0 animate-pulse"></i>
-      </div>
-
-      <div class="song-item" data-index="1">
-        <div class="flex items-center space-x-3 min-w-0">
-          <img src="https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-lg object-cover" alt="" />
-          <div class="min-w-0">
-            <p class="text-stone-200 font-medium text-xs truncate">Sahiba Lyrics</p>
-            <p class="text-stone-400 text-[10px] truncate">For Hiba Khan</p>
-          </div>
-        </div>
-        <i class="fas fa-heart text-stone-500 text-[10px] flex-shrink-0"></i>
-      </div>
-
-      <div class="song-item" data-index="2">
-        <div class="flex items-center space-x-3 min-w-0">
-          <img src="https://m.media-amazon.com/images/I/71fqFyMSaNL._AC_UF1000,1000_QL80_.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
-          <div class="min-w-0">
-            <p class="text-stone-200 font-medium text-xs truncate">Ed Sheeran - Perfect</p>
-            <p class="text-stone-400 text-[10px] truncate">For Hiba Khan</p>
-          </div>
-        </div>
-        <i class="fas fa-crown text-stone-500 text-[10px] flex-shrink-0"></i>
-      </div>
-
-      <div class="song-item" data-index="3">
-        <div class="flex items-center space-x-3 min-w-0">
-          <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=100&auto=format&fit=crop" class="w-8 h-8 rounded-lg object-cover" alt="" />
-          <div class="min-w-0">
-            <p class="text-stone-200 font-medium text-xs truncate">Ishq Wala Love</p>
-            <p class="text-stone-400 text-[10px] truncate">For Hiba</p>
-          </div>
-        </div>
-        <i class="fas fa-star text-stone-500 text-[10px] flex-shrink-0"></i>
-      </div>
-
-      <div class="song-item" data-index="4">
-        <div class="flex items-center space-x-3 min-w-0">
-          <img src="https://i.ytimg.com/vi/A1MdThqGarI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihJMA8=&rs=AOn4CLCDbzt4dnR3ecEhgddKfElJI9UIJQ" class="w-8 h-8 rounded-lg object-cover" alt="" />
-          <div class="min-w-0">
-            <p class="text-stone-200 font-medium text-xs truncate">Pretty Little Baby</p>
-            <p class="text-stone-400 text-[10px] truncate">For Hiba</p>
-          </div>
-        </div>
-        <i class="fas fa-moon text-stone-500 text-[10px] flex-shrink-0"></i>
-      </div>
-
-      <div class="song-item" data-index="5">
-        <div class="flex items-center space-x-3 min-w-0">
-          <img src="https://i.ytimg.com/vi/vO_wELU6pGM/maxresdefault.jpg" class="w-8 h-8 rounded-lg object-cover" alt="" />
-          <div class="min-w-0">
-            <p class="text-stone-200 font-medium text-xs truncate">O Meri Laila Lyrics</p>
-            <p class="text-stone-400 text-[10px] truncate">For Hiba</p>
-          </div>
-        </div>
-        <i class="fas fa-heartbeat text-stone-500 text-[10px] flex-shrink-0"></i>
-      </div>
-    </div>
-
-    <div class="mt-4 pt-3 border-t border-white/5 flex justify-between items-center bg-black/40 p-2 rounded-xl">
-      <button id="volume-btn" class="text-stone-400 hover:text-pink-400 transition-colors">
-        <i class="fas fa-volume-up"></i>
-      </button>
-      <div class="w-3/4 px-2">
-        <input type="range" id="volume-slider" min="0" max="100" value="70" class="volume-slider w-full h-1 bg-stone-800 rounded-lg appearance-none cursor-pointer accent-fuchsia-500" />
-      </div>
-    </div>
-  </div>
-</div>
-
-    <!-- new game sec  -->
-
+    <!-- ========== QUIZ SECTION ========== -->
     <section
       class="relative h-auto w-full bg-[var(--dark-mocha)] text-[var(--cream)] flex flex-col justify-between px-6 sm:px-16 py-8 overflow-hidden select-none"
     >
-      <!-- Subtle Background Glow -->
       <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(circle,rgba(255,143,214,0.05)_0%,transparent_60%)] pointer-events-none"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(circle,rgba(255,179,198,0.06)_0%,transparent_60%)] pointer-events-none"
       ></div>
 
-      <!-- Game Box Matrix -->
       <div
         class="flex-1 flex flex-col items-center justify-center text-center max-w-xl mx-auto relative z-10 my-6 w-full"
       >
-        <!-- Header -->
         <div class="mb-8">
           <h2
             class="text-3xl font-serif font-bold italic text-[var(--cream)] tracking-tight"
@@ -1051,14 +1685,11 @@
           </h2>
         </div>
 
-        <!-- Main Dynamic Card Component -->
         <div
           id="quiz-card"
           class="w-full bg-[var(--dark-mocha)] border border-[var(--warm-sand)]/20 rounded-3xl p-6 sm:p-10 shadow-[0_30px_70px_rgba(0,0,0,0.6)] backdrop-blur-md transition-all duration-500"
         >
-          <!-- Screens inside this card will be managed by JS -->
           <div id="quiz-content" class="space-y-6">
-            <!-- Question Title -->
             <h3
               id="question-text"
               class="text-xl font-serif font-medium text-white italic leading-relaxed"
@@ -1066,50 +1697,33 @@
               Loading your thoughts...
             </h3>
 
-            <!-- Options Stack -->
-            <div id="options-container" class="flex flex-col gap-3 pt-4">
-              <!-- Buttons will slide in here dynamic -->
-            </div>
+            <div id="options-container" class="flex flex-col gap-3 pt-4"></div>
           </div>
         </div>
 
-        <!-- Mini Progress Dots -->
         <div
           id="quiz-progress"
           class="flex gap-2 mt-6 justify-center items-center"
         >
-          <div
-            class="w-2 h-2 rounded-full bg-[var(--nude)] transition-all duration-300"
-          ></div>
-          <div
-            class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"
-          ></div>
-          <div
-            class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"
-          ></div>
-          <div
-            class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"
-          ></div>
+          <div class="w-2 h-2 rounded-full bg-[var(--nude)] transition-all duration-300"></div>
+          <div class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"></div>
+          <div class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"></div>
+          <div class="w-2 h-2 rounded-full bg-[var(--warm-sand)]/30 transition-all duration-300"></div>
         </div>
       </div>
     </section>
 
-    <!-- end it  -->
-
-    <!-- another  -->
+    <!-- ========== FLIRT GENERATOR ========== -->
     <section
       class="relative h-auto w-full bg-[var(--dark-mocha)] text-[var(--cream)] flex flex-col justify-between px-6 sm:px-16 py-8 overflow-hidden select-none"
     >
-      <!-- Subtle Background Glow -->
       <div
-        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(circle,rgba(255,143,214,0.06)_0%,transparent_60%)] pointer-events-none"
+        class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[70vw] h-[70vw] bg-[radial-gradient(circle,rgba(255,179,198,0.06)_0%,transparent_60%)] pointer-events-none"
       ></div>
 
-      <!-- Main Machine/Card Wrapper -->
       <div
         class="flex-1 flex flex-col items-center justify-center text-center max-w-xl mx-auto relative z-10 my-6 w-full"
       >
-        <!-- Header -->
         <div class="mb-8">
           <h2
             class="text-3xl font-serif font-bold italic text-[var(--cream)] tracking-tight"
@@ -1118,14 +1732,10 @@
           </h2>
         </div>
 
-        <!-- The Animated Card Frame -->
         <div
           id="flirt-card"
           class="w-full aspect-[4/3] sm:h-72 bg-[var(--dark-mocha)] border border-[var(--warm-sand)]/20 rounded-3xl p-6 sm:p-10 flex flex-col items-center justify-center shadow-[0_30px_70px_rgba(0,0,0,0.6)] backdrop-blur-md relative overflow-hidden"
         >
-        
-
-          <!-- Content Area where text flips -->
           <div id="text-perspective" class="w-full perspective-1000">
             <p
               id="flirt-text"
@@ -1137,11 +1747,10 @@
           </div>
         </div>
 
-        <!-- The Generator Button Node -->
         <div class="pt-8">
           <button
             id="generate-btn"
-            class="group px-8 py-3 rounded-full bg-[var(--nude)] text-[var(--dark-mocha)] font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 active:scale-95 hover:bg-[var(--cream)] shadow-[0_10px_25px_rgba(255,143,214,0.15)]"
+            class="group px-8 py-3 rounded-full bg-[var(--nude)] text-[var(--dark-mocha)] font-mono text-[11px] font-bold tracking-[0.2em] uppercase transition-all duration-300 active:scale-95 hover:bg-[var(--cream)] shadow-[0_10px_25px_rgba(255,179,198,0.15)]"
           >
             <span class="flex items-center gap-3">
               Generate Thoughts
@@ -1153,139 +1762,30 @@
         </div>
       </div>
     </section>
-    <!-- end  -->
 
-    <!-- yes no section  -->
-     <!-- DO YOU LOVE ADAN? SECTION -->
-      <style>
-        /* Love Question Section */
-.love-question-card {
-  background: rgba(255,255,255,0.02);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255,143,214,0.15);
-  border-radius: 48px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 30px 80px rgba(0,0,0,0.6);
-  transition: all 0.4s ease;
-}
-.love-question-card:hover {
-  border-color: rgba(255,143,214,0.4);
-  box-shadow: 0 30px 80px rgba(199,66,199,0.15);
-}
-.btn-love-yes {
-  background: linear-gradient(145deg, #ff8fd6, #c25ec2);
-  color: #1a0e21;
-  font-weight: 700;
-  padding: 16px 48px;
-  border-radius: 60px;
-  font-size: 1.2rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(255,143,214,0.3);
-}
-.btn-love-yes:hover { transform: scale(1.05); box-shadow: 0 15px 40px rgba(255,143,214,0.5); }
-.btn-love-no {
-  background: rgba(255,255,255,0.05);
-  color: #ff8fd6;
-  border: 1px solid rgba(255,143,214,0.3);
-  padding: 16px 48px;
-  border-radius: 60px;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  backdrop-filter: blur(4px);
-  position: relative;
-  touch-action: none;
-}
-.btn-love-no:hover { background: rgba(255,143,214,0.1); border-color: #ff8fd6; }
-.celebration-emoji { font-size: 4rem; animation: float 2s ease-in-out infinite; }
-@keyframes float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
-      </style>
-<section class="py-24 container mx-auto px-6 max-w-3xl">
-  <div class="love-question-card text-center">
-    <h2 class="font-serif text-4xl md:text-5xl italic text-[var(--cream)] mb-4">💖 Do you love Adan? 💖</h2>
-    <p class="text-stone-400 text-sm font-light mb-10">Be honest, your heart knows the answer. 👀</p>
-    <div class="flex flex-wrap items-center justify-center gap-6 relative" id="love-buttons-container" style="min-height:100px;">
-      <button class="btn-love-yes" id="btn-love-yes">Yes 💕</button>
-      <button class="btn-love-no" id="btn-love-no" style="touch-action: none;">No 😤</button>
-    </div>
-    <div id="celebration-area" class="mt-10 hidden">
-      <div class="celebration-emoji">🥳💖🎉</div>
-      <p class="text-2xl font-serif italic text-[var(--nude)] mt-4">Yesss! I knew it! 💞</p>
-      <div class="flex flex-wrap justify-center gap-2 mt-4 text-4xl">
-        <span>❤️</span><span>💕</span><span>💗</span><span>💖</span><span>💘</span><span>💝</span>
+    <!-- ========== LOVE QUESTION ========== -->
+    <section class="py-24 container mx-auto px-6 max-w-3xl">
+      <div class="love-question-card text-center">
+        <h2 class="font-serif text-4xl md:text-5xl italic text-[var(--cream)] mb-4">💖 Do you love Adan? 💖</h2>
+        <p class="text-stone-400 text-sm font-light mb-10">Be honest, your heart knows the answer. 👀</p>
+        <div class="flex flex-wrap items-center justify-center gap-6 relative" id="love-buttons-container" style="min-height:100px;">
+          <button class="btn-love-yes" id="btn-love-yes">Yes 💕</button>
+          <button class="btn-love-no" id="btn-love-no" style="touch-action: none;">No 😤</button>
+        </div>
+        <div id="celebration-area" class="mt-10 hidden">
+          <div class="celebration-emoji">🥳💖🎉</div>
+          <p class="text-2xl font-serif italic text-[var(--nude)] mt-4">Yesss! I knew it! 💞</p>
+          <div class="flex flex-wrap justify-center gap-2 mt-4 text-4xl">
+            <span>❤️</span><span>💕</span><span>💗</span><span>💖</span><span>💘</span><span>💝</span>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</section>
-<script>
-  // LOVE QUESTION (Do you love Adan?) - No button runs away on touch AND mouse
-document.addEventListener("DOMContentLoaded", () => {
-  const yesBtn = document.getElementById("btn-love-yes");
-  const noBtn = document.getElementById("btn-love-no");
-  const celebration = document.getElementById("celebration-area");
-  const container = document.getElementById("love-buttons-container");
+    </section>
 
-  function moveNoButton() {
-    const rect = container.getBoundingClientRect();
-    const btnRect = noBtn.getBoundingClientRect();
-    const maxX = rect.width - btnRect.width - 10;
-    const maxY = rect.height - btnRect.height - 10;
-    const x = Math.random() * Math.max(0, maxX);
-    const y = Math.random() * Math.max(0, maxY);
-    noBtn.style.position = "relative";
-    noBtn.style.left = `${x}px`;
-    noBtn.style.top = `${y}px`;
-    noBtn.style.transition = "all 0.2s ease";
-  }
-
-  // For mouse hover
-  noBtn.addEventListener("mouseenter", moveNoButton);
-  
-  // For touch devices (touchstart)
-  noBtn.addEventListener("touchstart", (e) => {
-    e.preventDefault();
-    moveNoButton();
-  });
-
-  // Yes button celebration
-  yesBtn.addEventListener("click", () => {
-    celebration.classList.remove("hidden");
-    celebration.scrollIntoView({ behavior: "smooth", block: "center" });
-    
-    // Rain of hearts celebration
-    for (let i = 0; i < 30; i++) {
-      setTimeout(() => {
-        const heart = document.createElement("span");
-        heart.textContent = ["❤️","💕","💗","💖","💘","💝"][Math.floor(Math.random()*6)];
-        heart.style.position = "fixed";
-        heart.style.left = Math.random() * 100 + "vw";
-        heart.style.top = "-10px";
-        heart.style.fontSize = (Math.random() * 30 + 20) + "px";
-        heart.style.zIndex = "9999";
-        heart.style.pointerEvents = "none";
-        heart.style.transition = "all 3s ease-out";
-        document.body.appendChild(heart);
-        
-        requestAnimationFrame(() => {
-          heart.style.transform = `translateY(${window.innerHeight + 100}px) rotate(${Math.random()*360}deg)`;
-          heart.style.opacity = "0";
-        });
-        
-        setTimeout(() => heart.remove(), 3000);
-      }, i * 60);
-    }
-  });
-});
-</script>
-    <!-- yes no section  -->
-
-    <!-- Chatbot Section Container -->
+    <!-- ========== CHATBOT ========== -->
     <div
-      class="flex flex-col h-[500px] w-[90%] max-w-md mx-auto rounded-3xl overflow-hidden border border-[var(--rich-tan)]/30 shadow-2xl bg-[var(--dark-mocha)] text-[var(--cream)] font-sans"
+      class="flex flex-col h-[500px] w-[90%] max-w-md mx-auto rounded-3xl overflow-hidden border border-[var(--rich-tan)]/30 shadow-2xl bg-[var(--dark-mocha)] text-[var(--cream)] font-sans my-16"
     >
-      <!-- Chat Header -->
       <div
         class="flex items-center justify-between px-6 py-4 bg-gradient-to-r from-[var(--rich-tan)] to-[var(--dark-mocha)] border-b border-[var(--rich-tan)]/40"
       >
@@ -1320,12 +1820,10 @@ document.addEventListener("DOMContentLoaded", () => {
         </button>
       </div>
 
-      <!-- Chat Messages Area -->
       <div
         id="chat-messages"
         class="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar"
       >
-        <!-- Bot Message (Welcome) -->
         <div class="flex gap-3 items-end max-w-[85%] animate-fade-in">
           <div
             class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0"
@@ -1341,7 +1839,6 @@ document.addEventListener("DOMContentLoaded", () => {
           </div>
         </div>
 
-        <!-- Animated Typing Indicator -->
         <div
           id="typing-indicator"
           class="flex gap-3 items-end max-w-[85%] hidden"
@@ -1354,28 +1851,18 @@ document.addEventListener("DOMContentLoaded", () => {
           <div
             class="bg-[var(--rich-tan)]/30 border border-[var(--rich-tan)]/40 px-4 py-3 rounded-2xl rounded-bl-sm flex items-center gap-1.5 h-10"
           >
-            <span
-              class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce [animation-delay:-0.3s]"
-            ></span>
-            <span
-              class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce [animation-delay:-0.15s]"
-            ></span>
-            <span
-              class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce"
-            ></span>
+            <span class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce [animation-delay:-0.3s]"></span>
+            <span class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce [animation-delay:-0.15s]"></span>
+            <span class="w-2 h-2 bg-[var(--nude)] rounded-full animate-bounce"></span>
           </div>
         </div>
       </div>
 
-      <!-- Chat Input Footer -->
-      <div
-        class="p-4 bg-[var(--dark-mocha)] border-t border-[var(--rich-tan)]/30"
-      >
+      <div class="p-4 bg-[var(--dark-mocha)] border-t border-[var(--rich-tan)]/30">
         <form
           id="chat-form"
           class="flex items-center gap-2 bg-[var(--rich-tan)]/20 border border-[var(--rich-tan)]/50 rounded-2xl p-2 pl-4 focus-within:border-[var(--nude)]/70 transition-all duration-300"
         >
-          <!-- Input field ko text-base kar diya -->
           <input
             type="text"
             id="user-input"
@@ -1384,39 +1871,24 @@ document.addEventListener("DOMContentLoaded", () => {
             required
             autocomplete="off"
           />
-
-          <!-- Send Button (Fixed SVG) -->
           <button
             type="submit"
             class="bg-[var(--warm-sand)] hover:bg-[var(--nude)] text-[var(--dark-mocha)] p-2.5 rounded-xl transition-all duration-300 flex items-center justify-center shadow-md hover:scale-105 active:scale-95 group"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="2.5"
-              stroke="currentColor"
-              class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5"
-              />
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-4 h-4 transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform duration-300">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.768 59.768 0 013.27 20.875L5.999 12zm0 0h7.5" />
             </svg>
           </button>
         </form>
       </div>
     </div>
 
-    <!-- last section  -->
+    <!-- ========== FINAL KISS/HEART SECTION ========== -->
     <section
       id="loveSection"
       class="w-full min-h-[450px] flex flex-col items-center justify-center p-6 bg-[var(--dark-mocha)] select-none relative overflow-hidden"
     >
-      <!-- Isolated Animation Styles -->
       <style>
-        /* Virtual Kiss Animation */
         @keyframes floatUpKiss {
           0% {
             transform: translateY(0) scale(0.3) rotate(0deg);
@@ -1435,7 +1907,6 @@ document.addEventListener("DOMContentLoaded", () => {
           animation: floatUpKiss 1.2s cubic-bezier(0.25, 1, 0.5, 1) forwards;
         }
 
-        /* Heart Rain Animation */
         @keyframes heartRain {
           0% {
             transform: translateY(-20px) rotate(0deg);
@@ -1457,7 +1928,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       </style>
 
-      <!-- Content Container -->
       <div
         class="relative w-full max-w-xl text-center flex flex-col items-center gap-8 z-10"
       >
@@ -1467,11 +1937,9 @@ document.addEventListener("DOMContentLoaded", () => {
           Spread the Love!
         </h3>
 
-        <!-- Flex Row Container for Buttons (Stacks on tiny screens, side-by-side on mobile up) -->
         <div
           class="flex flex-col sm:flex-row items-center justify-center gap-4 w-full px-4"
         >
-          <!-- Button 1: Virtual Kiss -->
           <div class="relative inline-block w-full sm:w-auto">
             <button
               id="kissBtn"
@@ -1482,7 +1950,6 @@ document.addEventListener("DOMContentLoaded", () => {
             </button>
           </div>
 
-          <!-- Button 2: Heart Rain -->
           <div class="relative inline-block w-full sm:w-auto">
             <button
               id="heartBtn"
@@ -1495,86 +1962,64 @@ document.addEventListener("DOMContentLoaded", () => {
         </div>
       </div>
     </section>
-    <!-- end last sec -->
 
-    <!-- Extra Tailwind Custom Animation Configurations (If your config doesn't have fade-in) -->
-    <style>
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(8px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-      .animate-fade-in {
-        animation: fadeIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-      }
-    </style>
-
-   <script>
-  // Global context scope tracking function (Bypasses Swiper loop duplicate mutations flawlessly)
-  function toggleMobileMessage(element) {
-    if (window.innerWidth < 1024) {
-      
-      // Check if the explicitly tapped target already contains the open class
-      if (element.classList.contains('touch-revealed')) {
-        element.classList.remove('touch-revealed');
-      } else {
-        // Safe reset: clear out any lingering text boxes on alternative slides
-        document.querySelectorAll('.premium-gallery-card').forEach(slide => {
-          slide.classList.remove('touch-revealed');
-        });
-        
-        // Unleash current view state
-        element.classList.add('touch-revealed');
-      }
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", () => {
-    const cinemaSwiper = new Swiper(".cinemaSwiper", {
-      effect: "coverflow",
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: "auto",
-      loop: true, /* Infinite layout generation engine */
-      watchSlidesProgress: true,
-      speed: 600,
-      coverflowEffect: {
-        rotate: 4,
-        stretch: 0,
-        depth: 100,
-        modifier: 2,
-        slideShadows: false,
-      },
-      autoplay: {
-        delay: 3000,
-        disableOnInteraction: false,
-      },
-      pagination: {
-        el: ".cinemaSwiper .swiper-pagination",
-        clickable: true,
-      },
-      on: {
-        // Clean snap listener: whenever user drags or swipes away, wipe the previous messages clean!
-        slideChange: function () {
-          document.querySelectorAll('.premium-gallery-card').forEach(slide => {
-            slide.classList.remove('touch-revealed');
-          });
-        }
-      }
-    });
-  });
-</script>
-
+    <!-- ========== FOOTER ========== -->
     <footer class="py-32 text-center">
-      <p class="text-[14px] text-nude/20">
+      <p class="text-[14px] text-[#ffb3c6]/30">
         Designed and Developed with ❤️ for Hiba by Adan
       </p>
     </footer>
+
+    <!-- ========== SCRIPTS ========== -->
+    <script>
+      // Toggle mobile message
+      function toggleMobileMessage(element) {
+        if (window.innerWidth < 1024) {
+          if (element.classList.contains('touch-revealed')) {
+            element.classList.remove('touch-revealed');
+          } else {
+            document.querySelectorAll('.premium-gallery-card').forEach(slide => {
+              slide.classList.remove('touch-revealed');
+            });
+            element.classList.add('touch-revealed');
+          }
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", () => {
+        const cinemaSwiper = new Swiper(".cinemaSwiper", {
+          effect: "coverflow",
+          grabCursor: true,
+          centeredSlides: true,
+          slidesPerView: "auto",
+          loop: true,
+          watchSlidesProgress: true,
+          speed: 600,
+          coverflowEffect: {
+            rotate: 4,
+            stretch: 0,
+            depth: 100,
+            modifier: 2,
+            slideShadows: false,
+          },
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".cinemaSwiper .swiper-pagination",
+            clickable: true,
+          },
+          on: {
+            slideChange: function () {
+              document.querySelectorAll('.premium-gallery-card').forEach(slide => {
+                slide.classList.remove('touch-revealed');
+              });
+            }
+          }
+        });
+      });
+    </script>
 
     <script>
       if (typeof lucide !== "undefined") {
@@ -1583,7 +2028,6 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Lucide icons failed to load from CDN — icons will be skipped.");
       }
 
-      // 1. SMOOTH SCROLL (falls back to native scroll if the CDN is blocked)
       if (typeof Lenis !== "undefined") {
         const lenis = new Lenis({ lerp: 0.05 });
         function raf(time) {
@@ -1595,16 +2039,9 @@ document.addEventListener("DOMContentLoaded", () => {
         console.warn("Lenis failed to load from CDN — using native scrolling instead.");
       }
 
-      // Variable to hold the actual objective progress
-
-      // Outward clean animations happening simultaneously
-
-      // Global Core Engine Configuration
       let trackProgress = { value: 0 };
       const percentText = document.getElementById("loader-percentage");
 
-      // Safety net: if GSAP never loaded (CDN blocked), skip the animated
-      // loader entirely so the page never gets stuck behind it.
       if (typeof gsap === "undefined") {
         console.warn("GSAP failed to load from CDN — skipping animated loader.");
         const loaderElement = document.getElementById("loader");
@@ -1615,125 +2052,94 @@ document.addEventListener("DOMContentLoaded", () => {
         });
         if (typeof initMusic === "function") initMusic();
       } else {
-
-      /**
-       * 1. INITIAL ENTRY TIMELINE
-       * Loader window load hote hi text ko niche se upar slide karega smoothly
-       */
-      gsap.to("#loader-text", {
-        y: "0%",
-        duration: 1.2,
-        ease: "power4.out",
-        delay: 0.1,
-      });
-
-      /**
-       * 2. PROGRESS ENGINE SIMULATOR
-       * Math.random use karke dynamic calculation generate karta hai bina jhatke khaye
-       */
-      const progressSimulation = setInterval(() => {
-        let nextStep = trackProgress.value + (Math.random() * 18 + 6);
-        if (nextStep >= 100) {
-          nextStep = 100;
-          clearInterval(progressSimulation);
-        }
-
-        // Makhan Smooth GSAP Tween Property handling
-        gsap.to(trackProgress, {
-          value: nextStep,
-          duration: 0.7,
-          ease: "power2.out",
-          onUpdate: () => {
-            const currentPercent = Math.floor(trackProgress.value);
-            // Double digit format management (01, 05, 12, 99)
-            percentText.textContent =
-              currentPercent < 10 ? `0${currentPercent}` : currentPercent;
-          },
-          onComplete: () => {
-            if (trackProgress.value === 100) {
-              triggerLoaderExit();
-            }
-          },
-        });
-      }, 280);
-
-      } // end gsap-available branch
-
-      /**
-       * 3. PREMIUM EXIT SEQUENCE ORCHESTRATOR
-       * Loader ko dismiss karke back-to-back sequential delay par hero elements reveal karega
-       */
-      function triggerLoaderExit() {
-        const exitTimeline = gsap.timeline({
-          onComplete: () => {
-            // DOM cleanup perform karega performance enhance karne ke liye
-            const loaderElement = document.getElementById("loader");
-            if (loaderElement) loaderElement.remove();
-
-            // Audio stream initialize karne ka function
-            if (typeof initMusic === "function") initMusic();
-
-            // Continuous micro-interactions activate karega background layer par
-            startAmbientFloating();
-          },
+        gsap.to("#loader-text", {
+          y: "0%",
+          duration: 1.2,
+          ease: "power4.out",
+          delay: 0.1,
         });
 
-        exitTimeline
-          // A: Loader components scaling down softly
-          .to("#loader-text, .relative.w-32", {
-            opacity: 0,
-            scale: 0.85,
-            duration: 0.5,
-            ease: "power3.in",
-          })
-          // B: Main Solid Black Panel Curtains sliding straight up
-          .to(
-            "#loader",
-            {
-              y: "-100%",
-              duration: 1.4,
-              ease: "expo.inOut",
+        const progressSimulation = setInterval(() => {
+          let nextStep = trackProgress.value + (Math.random() * 18 + 6);
+          if (nextStep >= 100) {
+            nextStep = 100;
+            clearInterval(progressSimulation);
+          }
+
+          gsap.to(trackProgress, {
+            value: nextStep,
+            duration: 0.7,
+            ease: "power2.out",
+            onUpdate: () => {
+              const currentPercent = Math.floor(trackProgress.value);
+              percentText.textContent =
+                currentPercent < 10 ? `0${currentPercent}` : currentPercent;
             },
-            "-=0.2",
-          )
-          // C: HERO ELEMENTS REVEAL STACK (Staggered Entrance Animation)
-          .fromTo(
-            ".reveal",
-            {
+            onComplete: () => {
+              if (trackProgress.value === 100) {
+                triggerLoaderExit();
+              }
+            },
+          });
+        }, 280);
+
+        function triggerLoaderExit() {
+          const exitTimeline = gsap.timeline({
+            onComplete: () => {
+              const loaderElement = document.getElementById("loader");
+              if (loaderElement) loaderElement.remove();
+              if (typeof initMusic === "function") initMusic();
+              startAmbientFloating();
+            },
+          });
+
+          exitTimeline
+            .to("#loader-text, .loader-heart-ring", {
               opacity: 0,
-              y: 40,
-            },
-            {
-              opacity: 1,
-              y: 0,
-              stagger: 0.12, // Har element ke beech 0.12s ka delay automatic manage hoga
-              duration: 1.5,
-              ease: "power4.out", // Clean custom decelerated ease profile
-            },
-            "-=0.7", // Pura screen khulne se thoda pehle text dynamic slide shuru kar dega
-          );
+              scale: 0.85,
+              duration: 0.5,
+              ease: "power3.in",
+            })
+            .to(
+              "#loader",
+              {
+                y: "-100%",
+                duration: 1.4,
+                ease: "expo.inOut",
+              },
+              "-=0.2",
+            )
+            .fromTo(
+              ".reveal",
+              {
+                opacity: 0,
+                y: 40,
+              },
+              {
+                opacity: 1,
+                y: 0,
+                stagger: 0.12,
+                duration: 1.5,
+                ease: "power4.out",
+              },
+              "-=0.7",
+            );
+        }
       }
 
-      /**
-       * 4. AMBIENT FLOATING ELEMENTS (Optional Pro Tip)
-       * Screen open hone ke baad user experience ko completely immersive rakhne ke liye subtle wave effect
-       */
       function startAmbientFloating() {
-        // Check if target element exists
         if (document.querySelector(".group img")) {
           gsap.to(".group img", {
             y: -6,
             duration: 3,
             ease: "sine.inOut",
-            yoyo: true, // Reverse path automatically calculate karega
-            repeat: -1, // Infinite infinite loop stream configuration
+            yoyo: true,
+            repeat: -1,
           });
         }
       }
 
-      // end
-
-      // 3. POLAROID WALL
+      // Polaroid wall
       const imgList = [
         "pics/1.jpeg",
         "pics/2.jpeg",
@@ -1748,335 +2154,343 @@ document.addEventListener("DOMContentLoaded", () => {
       imgList.forEach((src, i) => {
         const angle = Math.random() * 20 - 10;
         wall.innerHTML += `
-                <div class="polaroid-frame reveal opacity-0" style="transform: rotate(${angle}deg)">
-                    <img src="${src}" class="shadow-md" />
-                    <div class="polaroid-tag">Picture #${i + 1}</div>
-                </div>
-            `;
+          <div class="polaroid-frame reveal opacity-0" style="transform: rotate(${angle}deg)">
+              <img src="${src}" class="shadow-md" />
+              <div class="polaroid-tag">Picture #${i + 1}</div>
+          </div>
+        `;
       });
-
-  
-      
-
-   
-    
-
-      
     </script>
 
-   <script>
-  function initAudioPlayer() {
-    const audioPlayer = document.getElementById("audio-player");
-    const minimizeBtn = document.getElementById("minimize-btn");
-    const playBtn = document.getElementById("play-btn");
-    const playBtnIcon = document.getElementById("play-btn-icon");
-    const prevBtn = document.getElementById("prev-btn");
-    const nextBtn = document.getElementById("next-btn");
-    const progress = document.getElementById("progress");
-    const progressContainer = document.getElementById("progress-container");
-    const currentTimeEl = document.getElementById("current-time");
-    const durationEl = document.getElementById("duration");
-    const currentSongEl = document.getElementById("current-song");
-    const currentArtistEl = document.getElementById("current-artist");
-    const volumeBtn = document.getElementById("volume-btn");
-    const volumeSlider = document.getElementById("volume-slider");
-    const songItems = document.querySelectorAll(".song-item");
+    <script>
+      // Hero slider initialization
+      document.addEventListener("DOMContentLoaded", () => {
+        const heroSwiper = new Swiper(".heroSwiper", {
+          loop: true,
+          speed: 1200,
+          effect: "fade",
+          fadeEffect: { crossFade: true },
+          autoplay: {
+            delay: 5500,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".hero-slider .swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".hero-slider .swiper-button-next",
+            prevEl: ".hero-slider .swiper-button-prev",
+          },
+        });
+      });
+    </script>
 
-    const playerToggle = document.getElementById("player-toggle");
-    const miniPlayBtn = document.getElementById("mini-play-btn");
-    const miniPlayIcon = document.getElementById("mini-play-icon");
-    const miniMaximizeBtn = document.getElementById("mini-maximize-btn");
-    const miniSongName = document.getElementById("mini-song-name");
+    <script>
+      function initAudioPlayer() {
+        const audioPlayer = document.getElementById("audio-player");
+        const minimizeBtn = document.getElementById("minimize-btn");
+        const playBtn = document.getElementById("play-btn");
+        const playBtnIcon = document.getElementById("play-btn-icon");
+        const prevBtn = document.getElementById("prev-btn");
+        const nextBtn = document.getElementById("next-btn");
+        const progress = document.getElementById("progress");
+        const progressContainer = document.getElementById("progress-container");
+        const currentTimeEl = document.getElementById("current-time");
+        const durationEl = document.getElementById("duration");
+        const currentSongEl = document.getElementById("current-song");
+        const currentArtistEl = document.getElementById("current-artist");
+        const volumeBtn = document.getElementById("volume-btn");
+        const volumeSlider = document.getElementById("volume-slider");
+        const songItems = document.querySelectorAll(".song-item");
 
-    const mainAlbumArt = document.getElementById("main-album-art");
-    const miniAlbumArt = document.getElementById("mini-album-art");
+        const playerToggle = document.getElementById("player-toggle");
+        const miniPlayBtn = document.getElementById("mini-play-btn");
+        const miniPlayIcon = document.getElementById("mini-play-icon");
+        const miniMaximizeBtn = document.getElementById("mini-maximize-btn");
+        const miniSongName = document.getElementById("mini-song-name");
 
-    const audio = new Audio();
-    let currentSongIndex = 0; 
-    let isPlaying = false;
-    let isMinimized = true;
+        const mainAlbumArt = document.getElementById("main-album-art");
+        const miniAlbumArt = document.getElementById("mini-album-art");
 
-    const songs = [
-      {
-        title: "I Think They Call This Love",
-        artist: "Dedicated to Hiba",
-        src: "songs/I_Think_They_Call_This_Love.mp3",
-        cover: "https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg",
-      },
-      {
-        title: "Sahiba Lyrics",
-        artist: "For Hiba Khan",
-        src: "songs/Sahiba_Lyrics-Aditya_Rikhari.mp3",
-        cover: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop",
-      },
-      {
-        title: "Ed Sheeran - Perfect",
-        artist: "For Hiba Khan",
-        src: "songs/Ed_Sheeran-Perfect.mp3",
-        cover: "https://m.media-amazon.com/images/I/71fqFyMSaNL._AC_UF1000,1000_QL80_.jpg",
-      },
-      {
-        title: "Ishq Wala Love",
-        artist: "For Hiba",
-        src: "songs/Ishq_Wala_Love.mp3",
-        cover: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=100&auto=format&fit=crop",
-      },
-      {
-        title: "Pretty Little Baby",
-        artist: "For Hiba",
-        src: "songs/Connie_Francis-Pretty_Little_Baby.mp3",
-        cover: "https://i.ytimg.com/vi/A1MdThqGarI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihJMA8=&rs=AOn4CLCDbzt4dnR3ecEhgddKfElJI9UIJQ",
-      },
-      {
-        title: "O Meri Laila Lyrics",
-        artist: "For Hiba",
-        src: "songs/O_Meri_Laila_Lyrics-Atif_Aslam.mp3",
-        cover: "https://i.ytimg.com/vi/vO_wELU6pGM/maxresdefault.jpg",
-      },
-    ];
+        const audio = new Audio();
+        let currentSongIndex = 0;
+        let isPlaying = false;
+        let isMinimized = true;
 
-    // Standard volume setup & loading track
-    audio.volume = 0.7;
-    setPlayerMode(true);
-    loadSong(currentSongIndex);
+        const songs = [
+          {
+            title: "I Think They Call This Love",
+            artist: "Dedicated to Hiba",
+            src: "songs/I_Think_They_Call_This_Love.mp3",
+            cover: "https://i1.sndcdn.com/artworks-XAvgXvsh9P45-0-t500x500.jpg",
+          },
+          {
+            title: "Sahiba Lyrics",
+            artist: "For Hiba Khan",
+            src: "songs/Sahiba_Lyrics-Aditya_Rikhari.mp3",
+            cover: "https://images.unsplash.com/photo-1498038432885-c6f3f1b912ee?q=80&w=100&auto=format&fit=crop",
+          },
+          {
+            title: "Ed Sheeran - Perfect",
+            artist: "For Hiba Khan",
+            src: "songs/Ed_Sheeran-Perfect.mp3",
+            cover: "https://m.media-amazon.com/images/I/71fqFyMSaNL._AC_UF1000,1000_QL80_.jpg",
+          },
+          {
+            title: "Ishq Wala Love",
+            artist: "For Hiba",
+            src: "songs/Ishq_Wala_Love.mp3",
+            cover: "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?q=80&w=100&auto=format&fit=crop",
+          },
+          {
+            title: "Pretty Little Baby",
+            artist: "For Hiba",
+            src: "songs/Connie_Francis-Pretty_Little_Baby.mp3",
+            cover: "https://i.ytimg.com/vi/A1MdThqGarI/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgWihJMA8=&rs=AOn4CLCDbzt4dnR3ecEhgddKfElJI9UIJQ",
+          },
+          {
+            title: "O Meri Laila Lyrics",
+            artist: "For Hiba",
+            src: "songs/O_Meri_Laila_Lyrics-Atif_Aslam.mp3",
+            cover: "https://i.ytimg.com/vi/vO_wELU6pGM/maxresdefault.jpg",
+          },
+        ];
 
-    // ==========================================
-    // SEAMLESS PASSIVE AUTOPLAY ENFORCEMENT
-    // ==========================================
-    // This watches for any touch, click, scroll start or keyboard interaction
-    const userInteractions = ["click", "touchstart", "pointerdown", "scroll"];
-    
-    function triggerSeamlessAutoplay() {
-      if (!isPlaying) {
-        audio.play().then(() => {
+        audio.volume = 0.7;
+        setPlayerMode(true);
+        loadSong(currentSongIndex);
+
+        const userInteractions = ["click", "touchstart", "pointerdown", "scroll"];
+
+        function triggerSeamlessAutoplay() {
+          if (!isPlaying) {
+            audio.play().then(() => {
+              isPlaying = true;
+              if (audioPlayer) audioPlayer.classList.add("audio-playing");
+              updatePlayIcons();
+            }).catch((err) => {
+              console.warn("Autoplay was held back by the sandbox engine:", err);
+            });
+          }
+
+          userInteractions.forEach((event) => {
+            document.removeEventListener(event, triggerSeamlessAutoplay);
+          });
+        }
+
+        userInteractions.forEach((event) => {
+          document.addEventListener(event, triggerSeamlessAutoplay, { passive: true });
+        });
+
+        function setPlayerMode(minimized) {
+          isMinimized = minimized;
+          if (!audioPlayer) return;
+          if (minimized) {
+            audioPlayer.classList.add("minimized");
+          } else {
+            audioPlayer.classList.remove("minimized");
+          }
+        }
+
+        if (playerToggle) {
+          playerToggle.addEventListener("click", function () {
+            if (isMinimized) setPlayerMode(false);
+          });
+        }
+
+        if (miniMaximizeBtn) {
+          miniMaximizeBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            setPlayerMode(false);
+          });
+        }
+
+        if (minimizeBtn) {
+          minimizeBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            setPlayerMode(true);
+          });
+        }
+
+        function togglePlay() {
+          if (isPlaying) {
+            pauseSong();
+          } else {
+            playSong();
+          }
+        }
+
+        function playSong() {
           isPlaying = true;
           if (audioPlayer) audioPlayer.classList.add("audio-playing");
+          audio.play().catch((e) => {
+            isPlaying = false;
+            if (audioPlayer) audioPlayer.classList.remove("audio-playing");
+            updatePlayIcons();
+          });
           updatePlayIcons();
-        }).catch((err) => {
-          console.warn("Autoplay was held back by the sandbox engine:", err);
+        }
+
+        function pauseSong() {
+          isPlaying = false;
+          if (audioPlayer) audioPlayer.classList.remove("audio-playing");
+          audio.pause();
+          updatePlayIcons();
+        }
+
+        function updatePlayIcons() {
+          if (isPlaying) {
+            if (playBtnIcon) playBtnIcon.className = "fas fa-pause text-lg";
+            if (miniPlayIcon) miniPlayIcon.className = "fas fa-pause text-[#ffb3c6]";
+          } else {
+            if (playBtnIcon) playBtnIcon.className = "fas fa-play text-lg pl-0.5";
+            if (miniPlayIcon) miniPlayIcon.className = "fas fa-play text-[#ffb3c6]";
+          }
+        }
+
+        if (playBtn) playBtn.addEventListener("click", togglePlay);
+
+        if (miniPlayBtn) {
+          miniPlayBtn.addEventListener("click", function (e) {
+            e.stopPropagation();
+            togglePlay();
+          });
+        }
+
+        if (prevBtn) {
+          prevBtn.addEventListener("click", function () {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+            playSong();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener("click", function () {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+            playSong();
+          });
+        }
+
+        function loadSong(index) {
+          audio.src = songs[index].src;
+          if (currentSongEl) currentSongEl.textContent = songs[index].title;
+          if (currentArtistEl) currentArtistEl.textContent = songs[index].artist;
+          if (miniSongName) miniSongName.textContent = songs[index].title;
+
+          if (mainAlbumArt) mainAlbumArt.src = songs[index].cover;
+          if (miniAlbumArt) miniAlbumArt.src = songs[index].cover;
+
+          if (progress) progress.style.width = "0%";
+          if (currentTimeEl) currentTimeEl.textContent = "0:00";
+
+          updateActiveSongItem(index);
+        }
+
+        audio.addEventListener("timeupdate", function () {
+          if (!isNaN(audio.duration)) {
+            const progressPercent = (audio.currentTime / audio.duration) * 100;
+            if (progress) progress.style.width = `${progressPercent}%`;
+            if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
+          }
+        });
+
+        if (progressContainer) {
+          progressContainer.addEventListener("click", function (e) {
+            const width = this.clientWidth;
+            const clickX = e.offsetX;
+            const duration = audio.duration;
+            if (!isNaN(duration)) {
+              audio.currentTime = (clickX / width) * duration;
+            }
+          });
+        }
+
+        if (volumeSlider) {
+          volumeSlider.addEventListener("input", function (e) {
+            audio.volume = e.target.value / 100;
+            if (!volumeBtn) return;
+            const volumeIcon = volumeBtn.querySelector("i");
+            if (!volumeIcon) return;
+
+            if (e.target.value == 0) {
+              volumeIcon.className = "fas fa-volume-mute";
+            } else if (e.target.value < 50) {
+              volumeIcon.className = "fas fa-volume-down";
+            } else {
+              volumeIcon.className = "fas fa-volume-up";
+            }
+          });
+        }
+
+        if (volumeBtn) {
+          volumeBtn.addEventListener("click", function () {
+            const volumeIcon = volumeBtn.querySelector("i");
+            if (!volumeIcon) return;
+
+            if (audio.volume > 0) {
+              audio.volume = 0;
+              if (volumeSlider) volumeSlider.value = 0;
+              volumeIcon.className = "fas fa-volume-mute";
+            } else {
+              audio.volume = 0.7;
+              if (volumeSlider) volumeSlider.value = 70;
+              volumeIcon.className = "fas fa-volume-up";
+            }
+          });
+        }
+
+        songItems.forEach((item) => {
+          item.addEventListener("click", function () {
+            const clickedIndex = parseInt(this.getAttribute("data-index"));
+            if (clickedIndex !== currentSongIndex) {
+              currentSongIndex = clickedIndex;
+              loadSong(currentSongIndex);
+              playSong();
+            }
+          });
+        });
+
+        function updateActiveSongItem(activeIndex) {
+          songItems.forEach((item, index) => {
+            const icon = item.querySelector("i");
+            if (index === activeIndex) {
+              item.classList.add("active");
+              if (icon) icon.className = "fas fa-play text-[#ffb3c6] text-[10px] flex-shrink-0 animate-pulse";
+            } else {
+              item.classList.remove("active");
+              if (icon) {
+                const icons = ["fa-play", "fa-heart", "fa-crown", "fa-star", "fa-moon", "fa-heartbeat"];
+                icon.className = `fas ${icons[index] || "fa-music"} text-stone-500 text-[10px] flex-shrink-0`;
+              }
+            }
+          });
+        }
+
+        function formatTime(seconds) {
+          if (isNaN(seconds)) return "0:00";
+          const mins = Math.floor(seconds / 60);
+          const secs = Math.floor(seconds % 60);
+          return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
+        }
+
+        audio.addEventListener("ended", function () {
+          currentSongIndex = (currentSongIndex + 1) % songs.length;
+          loadSong(currentSongIndex);
+          playSong();
+        });
+
+        audio.addEventListener("loadedmetadata", () => {
+          if (!isNaN(audio.duration)) {
+            if (durationEl) durationEl.textContent = formatTime(audio.duration);
+          }
         });
       }
 
-      // Cleanup listeners immediately so subsequent scrolling or touching does not interrupt playback
-      userInteractions.forEach((event) => {
-        document.removeEventListener(event, triggerSeamlessAutoplay);
-      });
-    }
-
-    userInteractions.forEach((event) => {
-      document.addEventListener(event, triggerSeamlessAutoplay, { passive: true });
-    });
-    // ==========================================
-
-    function setPlayerMode(minimized) {
-      isMinimized = minimized;
-      if (!audioPlayer) return;
-      if (minimized) {
-        audioPlayer.classList.add("minimized");
-      } else {
-        audioPlayer.classList.remove("minimized");
-      }
-    }
-
-    if (playerToggle) {
-      playerToggle.addEventListener("click", function () {
-        if (isMinimized) setPlayerMode(false);
-      });
-    }
-
-    if (miniMaximizeBtn) {
-      miniMaximizeBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        setPlayerMode(false);
-      });
-    }
-
-    if (minimizeBtn) {
-      minimizeBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        setPlayerMode(true);
-      });
-    }
-
-    function togglePlay() {
-      if (isPlaying) {
-        pauseSong();
-      } else {
-        playSong();
-      }
-    }
-
-    function playSong() {
-      isPlaying = true;
-      if (audioPlayer) audioPlayer.classList.add("audio-playing");
-      
-      audio.play().catch((e) => {
-        isPlaying = false;
-        if (audioPlayer) audioPlayer.classList.remove("audio-playing");
-        updatePlayIcons();
-      });
-      updatePlayIcons();
-    }
-
-    function pauseSong() {
-      isPlaying = false;
-      if (audioPlayer) audioPlayer.classList.remove("audio-playing");
-      audio.pause();
-      updatePlayIcons();
-    }
-
-    function updatePlayIcons() {
-      if (isPlaying) {
-        if (playBtnIcon) playBtnIcon.className = "fas fa-pause text-lg";
-        if (miniPlayIcon) miniPlayIcon.className = "fas fa-pause text-pink-400";
-      } else {
-        if (playBtnIcon) playBtnIcon.className = "fas fa-play text-lg pl-0.5";
-        if (miniPlayIcon) miniPlayIcon.className = "fas fa-play text-pink-400";
-      }
-    }
-
-    if (playBtn) playBtn.addEventListener("click", togglePlay);
-    
-    if (miniPlayBtn) {
-      miniPlayBtn.addEventListener("click", function (e) {
-        e.stopPropagation();
-        togglePlay();
-      });
-    }
-
-    if (prevBtn) {
-      prevBtn.addEventListener("click", function () {
-        currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-        loadSong(currentSongIndex);
-        playSong();
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener("click", function () {
-        currentSongIndex = (currentSongIndex + 1) % songs.length;
-        loadSong(currentSongIndex);
-        playSong();
-      });
-    }
-
-    function loadSong(index) {
-      audio.src = songs[index].src;
-      if (currentSongEl) currentSongEl.textContent = songs[index].title;
-      if (currentArtistEl) currentArtistEl.textContent = songs[index].artist;
-      if (miniSongName) miniSongName.textContent = songs[index].title;
-
-      if (mainAlbumArt) mainAlbumArt.src = songs[index].cover;
-      if (miniAlbumArt) miniAlbumArt.src = songs[index].cover;
-
-      if (progress) progress.style.width = "0%";
-      if (currentTimeEl) currentTimeEl.textContent = "0:00";
-
-      updateActiveSongItem(index);
-    }
-
-    audio.addEventListener("timeupdate", function () {
-      if (!isNaN(audio.duration)) {
-        const progressPercent = (audio.currentTime / audio.duration) * 100;
-        if (progress) progress.style.width = `${progressPercent}%`;
-        if (currentTimeEl) currentTimeEl.textContent = formatTime(audio.currentTime);
-      }
-    });
-
-    if (progressContainer) {
-      progressContainer.addEventListener("click", function (e) {
-        const width = this.clientWidth;
-        const clickX = e.offsetX;
-        const duration = audio.duration;
-        if (!isNaN(duration)) {
-          audio.currentTime = (clickX / width) * duration;
-        }
-      });
-    }
-
-    if (volumeSlider) {
-      volumeSlider.addEventListener("input", function (e) {
-        audio.volume = e.target.value / 100;
-        if (!volumeBtn) return;
-        const volumeIcon = volumeBtn.querySelector("i");
-        if (!volumeIcon) return;
-        
-        if (e.target.value == 0) {
-          volumeIcon.className = "fas fa-volume-mute";
-        } else if (e.target.value < 50) {
-          volumeIcon.className = "fas fa-volume-down";
-        } else {
-          volumeIcon.className = "fas fa-volume-up";
-        }
-      });
-    }
-
-    if (volumeBtn) {
-      volumeBtn.addEventListener("click", function () {
-        const volumeIcon = volumeBtn.querySelector("i");
-        if (!volumeIcon) return;
-        
-        if (audio.volume > 0) {
-          audio.volume = 0;
-          if (volumeSlider) volumeSlider.value = 0;
-          volumeIcon.className = "fas fa-volume-mute";
-        } else {
-          audio.volume = 0.7;
-          if (volumeSlider) volumeSlider.value = 70;
-          volumeIcon.className = "fas fa-volume-up";
-        }
-      });
-    }
-
-    songItems.forEach((item) => {
-      item.addEventListener("click", function () {
-        const clickedIndex = parseInt(this.getAttribute("data-index"));
-        if (clickedIndex !== currentSongIndex) {
-          currentSongIndex = clickedIndex;
-          loadSong(currentSongIndex);
-          playSong();
-        }
-      });
-    });
-
-    function updateActiveSongItem(activeIndex) {
-      songItems.forEach((item, index) => {
-        const icon = item.querySelector("i");
-        if (index === activeIndex) {
-          item.classList.add("active");
-          if (icon) icon.className = "fas fa-play text-pink-400 text-[10px] flex-shrink-0 animate-pulse";
-        } else {
-          item.classList.remove("active");
-          if (icon) {
-            const icons = ["fa-play", "fa-heart", "fa-crown", "fa-star", "fa-moon", "fa-heartbeat"];
-            icon.className = `fas ${icons[index] || "fa-music"} text-stone-500 text-[10px] flex-shrink-0`;
-          }
-        }
-      });
-    }
-
-    function formatTime(seconds) {
-      if (isNaN(seconds)) return "0:00";
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${mins}:${secs < 10 ? "0" : ""}${secs}`;
-    }
-
-    audio.addEventListener("ended", function () {
-      currentSongIndex = (currentSongIndex + 1) % songs.length;
-      loadSong(currentSongIndex);
-      playSong();
-    });
-
-    audio.addEventListener("loadedmetadata", () => {
-      if (!isNaN(audio.duration)) {
-        if (durationEl) durationEl.textContent = formatTime(audio.duration);
-      }
-    });
-  }
-
-  document.addEventListener("DOMContentLoaded", initAudioPlayer);
-</script>
+      document.addEventListener("DOMContentLoaded", initAudioPlayer);
+    </script>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
@@ -2087,92 +2501,41 @@ document.addEventListener("DOMContentLoaded", () => {
 
         let currentStep = 0;
 
-        // 3 Fully Tailored Romantic/Flirty Questions Dataset
         const quizData = [
           {
             question: "In a room full of art, what would I be staring at?",
             options: [
-              {
-                text: "The expensive paintings",
-                correct: false,
-                reply: "Nah, art on the wall is boring.",
-              },
-              {
-                text: "The beautiful architecture",
-                correct: false,
-                reply: "Structures can't compete.",
-              },
-              {
-                text: "Directly at you, obviously. 🤎",
-                correct: true,
-                reply: "Exactly. You easily outshine any masterpiece.",
-              },
+              { text: "The expensive paintings", correct: false, reply: "Nah, art on the wall is boring." },
+              { text: "The beautiful architecture", correct: false, reply: "Structures can't compete." },
+              { text: "Directly at you, obviously. 🤎", correct: true, reply: "Exactly. You easily outshine any masterpiece." },
             ],
           },
           {
             question: "What is my absolute favorite playlist or soundscape?",
             options: [
-              {
-                text: "Lo-Fi Beats at midnight",
-                correct: false,
-                reply: "Close, but still second place.",
-              },
-              {
-                text: "The sound of your voice. ✨",
-                correct: true,
-                reply: "Spot on. Your voice is my permanent melody.",
-              },
-              {
-                text: "Cinematic classical tracks",
-                correct: false,
-                reply: "Too dramatic, needs more of you.",
-              },
+              { text: "Lo-Fi Beats at midnight", correct: false, reply: "Close, but still second place." },
+              { text: "The sound of your voice. ✨", correct: true, reply: "Spot on. Your voice is my permanent melody." },
+              { text: "Cinematic classical tracks", correct: false, reply: "Too dramatic, needs more of you." },
             ],
           },
           {
             question: "Quick round: what's my go-to excuse to text you first?",
             options: [
-              {
-                text: "\"Just checking the weather\"",
-                correct: false,
-                reply: "Nice try, but nobody buys that one.",
-              },
-              {
-                text: "I don't need an excuse, I just want to. 🩷",
-                correct: true,
-                reply: "Exactly. No excuse needed, ever.",
-              },
-              {
-                text: "Group project updates",
-                correct: false,
-                reply: "There's no group project and you know it.",
-              },
+              { text: "\"Just checking the weather\"", correct: false, reply: "Nice try, but nobody buys that one." },
+              { text: "I don't need an excuse, I just want to. 🩷", correct: true, reply: "Exactly. No excuse needed, ever." },
+              { text: "Group project updates", correct: false, reply: "There's no group project and you know it." },
             ],
           },
           {
-            question:
-              "One last thing... who owns the permanent keys to this entire digital space?",
+            question: "One last thing... who owns the permanent keys to this entire digital space?",
             options: [
-              {
-                text: "Synth & Stack Developers",
-                correct: false,
-                reply: "We just code it, we don't own it!",
-              },
-              {
-                text: "Hiba, today & forever. 👑",
-                correct: true,
-                reply: "Always. This whole universe is curated for you.",
-              },
-              {
-                text: "Just a random visitor",
-                correct: false,
-                reply: "No way, this is premium exclusively for one soul.",
-              },
+              { text: "Synth & Stack Developers", correct: false, reply: "We just code it, we don't own it!" },
+              { text: "Hiba, today & forever. 👑", correct: true, reply: "Always. This whole universe is curated for you." },
+              { text: "Just a random visitor", correct: false, reply: "No way, this is premium exclusively for one soul." },
             ],
           },
         ];
 
-        // Load Question with Smooth Mask/Slide Fade
         function loadQuestion() {
           if (currentStep >= quizData.length) {
             showFinalReveal();
@@ -2181,19 +2544,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
           const currentData = quizData[currentStep];
 
-          // Update progress dots visually
           for (let i = 0; i < progressDots.length; i++) {
             if (i === currentStep) {
               progressDots[i].style.backgroundColor = "var(--nude)";
               progressDots[i].style.width = "16px";
             } else {
-              progressDots[i].style.backgroundColor = "rgba(166,123,91,0.3)";
+              progressDots[i].style.backgroundColor = "rgba(201,75,107,0.3)";
               progressDots[i].style.width = "8px";
             }
             progressDots[i].style.transition = "all 0.3s ease";
           }
 
-          // GSAP Animate Text Switch smoothly
           gsap.to([questionText, optionsContainer], {
             opacity: 0,
             y: -10,
@@ -2202,20 +2563,16 @@ document.addEventListener("DOMContentLoaded", () => {
               questionText.textContent = currentData.question;
               optionsContainer.innerHTML = "";
 
-              // Build premium buttons dynamically
               currentData.options.forEach((opt) => {
                 const btn = document.createElement("button");
                 btn.className =
                   "w-full px-5 py-3.5 rounded-xl border border-[var(--warm-sand)]/20 bg-[var(--rich-tan)]/10 text-sm font-serif text-left italic text-[var(--cream)] transition-all duration-300 hover:border-[var(--nude)]/50 hover:bg-[var(--rich-tan)]/20 active:scale-[0.99]";
                 btn.textContent = opt.text;
 
-                btn.addEventListener("click", () =>
-                  handleOptionClick(opt, btn),
-                );
+                btn.addEventListener("click", () => handleOptionClick(opt, btn));
                 optionsContainer.appendChild(btn);
               });
 
-              // Slide everything back up elegantly
               gsap.to([questionText, optionsContainer], {
                 opacity: 1,
                 y: 0,
@@ -2226,13 +2583,11 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        // Handle choice execution
         function handleOptionClick(option, buttonElement) {
           if (option.correct) {
-            // Highlight green border accent temporarily and move forward
             gsap.to(buttonElement, {
-              borderColor: "rgba(219,39,119,0.5)",
-              backgroundColor: "rgba(219,39,119,0.05)",
+              borderColor: "rgba(201,75,107,0.5)",
+              backgroundColor: "rgba(201,75,107,0.05)",
               duration: 0.2,
             });
 
@@ -2241,18 +2596,16 @@ document.addEventListener("DOMContentLoaded", () => {
               loadQuestion();
             }, 1000);
           } else {
-            // Wrong choice shake dynamic effect (Using GSAP standard manipulation)
             gsap.fromTo(
               buttonElement,
               { x: -6 },
-              { x: 6, duration: 0.08, clearProps: "x", repeat: 5, yoyo: true },
+              { x: 6, duration: 0.08, clearProps: "x", repeat: 5, yoyo: true }
             );
             gsap.to(buttonElement, {
               borderColor: "rgba(239,68,68,0.4)",
               duration: 0.2,
             });
 
-            // Update temporarily with a witty reminder response
             const originalText = buttonElement.textContent;
             buttonElement.textContent = option.reply;
             buttonElement.style.color = "var(--nude)";
@@ -2260,34 +2613,33 @@ document.addEventListener("DOMContentLoaded", () => {
             setTimeout(() => {
               buttonElement.textContent = originalText;
               buttonElement.style.color = "var(--cream)";
-              buttonElement.style.borderColor = "rgba(166,123,91,0.2)";
+              buttonElement.style.borderColor = "rgba(201,75,107,0.2)";
             }, 2000);
           }
         }
 
-        // Grand Romantic Final Screen Reveal
         function showFinalReveal() {
           gsap.to(quizCard, {
             borderColor: "var(--nude)",
-            boxShadow: "0 0 40px rgba(255,143,214,0.15)",
+            boxShadow: "0 0 40px rgba(255,179,198,0.15)",
             duration: 0.8,
             onComplete: () => {
               document.getElementById("quiz-progress").style.display = "none";
 
               quizCard.innerHTML = `
-          <div class="space-y-6 opacity-0 transform translate-y-4" id="final-card-view">
-            <div class="text-4xl">🤎</div>
-            <h3 class="text-3xl font-serif font-bold italic text-white">Perfect Rhythm!</h3>
-            <p class="text-sm text-[var(--cream)]/80 font-light leading-relaxed max-w-sm mx-auto">
-              "In a world full of temporary noise, you are my permanent melody, Hiba. You parsed every question perfectly, just like how you understand my soul."
-            </p>
-            <div class="pt-4">
-              <span class="text-[9px] font-mono tracking-[0.4em] text-[var(--nude)] uppercase border-t border-[var(--warm-sand)]/20 pt-4 block w-24 mx-auto">
-                End Transmission
-              </span>
-            </div>
-          </div>
-        `;
+                <div class="space-y-6 opacity-0 transform translate-y-4" id="final-card-view">
+                  <div class="text-4xl">🤎</div>
+                  <h3 class="text-3xl font-serif font-bold italic text-white">Perfect Rhythm!</h3>
+                  <p class="text-sm text-[var(--cream)]/80 font-light leading-relaxed max-w-sm mx-auto">
+                    "In a world full of temporary noise, you are my permanent melody, Hiba. You parsed every question perfectly, just like how you understand my soul."
+                  </p>
+                  <div class="pt-4">
+                    <span class="text-[9px] font-mono tracking-[0.4em] text-[var(--nude)] uppercase border-t border-[var(--warm-sand)]/20 pt-4 block w-24 mx-auto">
+                      End Transmission
+                    </span>
+                  </div>
+                </div>
+              `;
 
               gsap.to("#final-card-view", {
                 opacity: 1,
@@ -2299,7 +2651,6 @@ document.addEventListener("DOMContentLoaded", () => {
           });
         }
 
-        // Initialize engine execution loop
         loadQuestion();
       });
     </script>
@@ -2310,39 +2661,27 @@ document.addEventListener("DOMContentLoaded", () => {
         const generateBtn = document.getElementById("generate-btn");
         const flirtCard = document.getElementById("flirt-card");
 
-        // Premium Flirty Dialogues Database exclusively for Hiba
         const thoughtBank = [
-          // --- Existing Items (Jo pehle se hain unke niche ye add karlo) ---
-
-          // Tech & Code Blends (For that Software Engineer touch 😉)
           "My database could hold terabytes of data, but the only schema it naturally saves is you. 💻",
-          "If my heart was an API, you’d be the only authorized token with unlimited access requests.",
+          "If my heart was an API, you'd be the only authorized token with unlimited access requests.",
           "I can clear my browser cache, my local storage, and my server logs, but your memory is hardcoded. ☕",
           "You are the CSS to my HTML—without you, my world is just an unstyled skeleton.",
           "Are you a git commit? Because every time you enter my life, everything stabilizes perfectly.",
           "I could run a million simulation loops, but every single path leads straight back to you. ♾️",
-
-          // Pure Cinematic & Aesthetics
           "The universe has billions of galaxies, but my favorite view will always be your smile. 🌌",
           "They look at the moon and write poetry; I just look at you and understand what art means. ✨",
           "In a crowded room full of bright lights, my eyes will always find your calm silhouette. 🤎",
           "You carry a kind of grace that makes even the chaotic world look like a slow-motion movie.",
           "If comfort was a person, it would definitely have your voice and your laugh. 🌸",
           "Some people need coffee to wake up; I just need a single glance at your name pop-up. ☕",
-
-          // Witty, Playful & Scientific Cleverness
           "Are you an anomaly? Because you completely broke all the mathematical rules of my predictable life.",
           "Do you have a map? Because I keep getting lost in the depth of those eyes. 🗺️",
-          "If charm was measured in volts, you’d be powering up this entire city on your own.",
+          "If charm was measured in volts, you'd be powering up this entire city on your own.",
           "Are we made of entangled particles? Because no matter the distance, I feel every bit of your vibe.",
           "I'm pretty sure thermodynamics is wrong, because you keep generating endless warmth without cooling down. ☀️",
-
-          // Premium Romantic
           "Honestly, if I could bookmark a moment in time, it would be any second spent talking to you. 📌",
-          "You aren’t just a chapter in my story, Hiba; you are the entire plot twist I never knew I needed. 👑",
+          "You aren't just a chapter in my story, Hiba; you are the entire plot twist I never knew I needed. 👑",
           "The world is busy looking for shooting stars, but I already found my permanent wish in you.",
-
-          // New extra-flirty additions 💗
           "If being this cute was a crime, you'd be serving a life sentence, no bail. 🩷",
           "I keep 'accidentally' opening our chat just to see your name pop up. 💌",
           "You're the reason my playlists are 90% love songs now.",
@@ -2356,7 +2695,6 @@ document.addEventListener("DOMContentLoaded", () => {
         let lastIndex = -1;
 
         generateBtn.addEventListener("click", () => {
-          // Pick a truly random index without repeating the immediate last one
           let randomIndex;
           do {
             randomIndex = Math.floor(Math.random() * thoughtBank.length);
@@ -2365,17 +2703,14 @@ document.addEventListener("DOMContentLoaded", () => {
           lastIndex = randomIndex;
           const nextThought = thoughtBank[randomIndex];
 
-          // Premium 3D Card Slot/Flip Transition Timeline
           const tl = gsap.timeline();
 
-          // 1. Interactive Button Feedback Ripple
           gsap.fromTo(
             generateBtn,
             { scale: 1 },
-            { scale: 0.94, duration: 0.15, yoyo: true, repeat: 1 },
+            { scale: 0.94, duration: 0.15, yoyo: true, repeat: 1 }
           );
 
-          // 2. Flash dynamic pink outline on the card container
           gsap.to(flirtCard, {
             borderColor: "var(--nude)",
             duration: 0.2,
@@ -2383,7 +2718,6 @@ document.addEventListener("DOMContentLoaded", () => {
             repeat: 1,
           });
 
-          // 3. Flip Out Old Text down/backward
           tl.to(flirtText, {
             rotationX: -90,
             opacity: 0,
@@ -2391,19 +2725,16 @@ document.addEventListener("DOMContentLoaded", () => {
             duration: 0.25,
             ease: "power2.in",
             onComplete: () => {
-              // Change text when fully invisible
               flirtText.textContent = nextThought;
-              // Preset position for incoming flip animation
               gsap.set(flirtText, { rotationX: 90, y: -15 });
             },
           })
-            // 4. Flip In New Text from top/forward
             .to(flirtText, {
               rotationX: 0,
               opacity: 1,
               y: 0,
               duration: 0.45,
-              ease: "back.out(1.4)", // Adds a beautiful rubber-band text bounce effect
+              ease: "back.out(1.4)",
             });
         });
       });
@@ -2416,10 +2747,7 @@ document.addEventListener("DOMContentLoaded", () => {
       const typingIndicator = document.getElementById("typing-indicator");
       const clearChatBtn = document.getElementById("clear-chat-btn");
 
-      // Load chat logs from LocalStorage or fall back to welcome object array
-      let chatHistory = JSON.parse(
-        localStorage.getItem("synth_chat_history"),
-      ) || [
+      let chatHistory = JSON.parse(localStorage.getItem("synth_chat_history")) || [
         {
           role: "assistant",
           content:
@@ -2427,17 +2755,12 @@ document.addEventListener("DOMContentLoaded", () => {
         },
       ];
 
-      // Render initialization history
       function initChat() {
-        // Keep indicator node secure during clear re-render
         chatMessages.innerHTML = "";
         chatMessages.appendChild(typingIndicator);
 
         chatHistory.forEach((msg) => {
-          renderStaticMessage(
-            msg.content,
-            msg.role === "user" ? "user" : "bot",
-          );
+          renderStaticMessage(msg.content, msg.role === "user" ? "user" : "bot");
         });
         scrollToBottom();
       }
@@ -2448,22 +2771,20 @@ document.addEventListener("DOMContentLoaded", () => {
           msgDiv.className =
             "flex gap-3 items-end max-w-[85%] ml-auto justify-end animate-fade-in";
           msgDiv.innerHTML = `
-        <div class="bg-[var(--warm-sand)] text-[var(--dark-mocha)] font-medium px-4 py-3 rounded-2xl rounded-br-sm shadow-md text-sm leading-relaxed">${text}</div>
-      `;
+            <div class="bg-[var(--warm-sand)] text-[var(--dark-mocha)] font-medium px-4 py-3 rounded-2xl rounded-br-sm shadow-md text-sm leading-relaxed">${text}</div>
+          `;
         } else {
           msgDiv.className = "flex gap-3 items-end max-w-[85%] animate-fade-in";
           msgDiv.innerHTML = `
-        <div class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0">✨</div>
-        <div class="bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm">${text}</div>
-      `;
+            <div class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0">✨</div>
+            <div class="bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm">${text}</div>
+          `;
         }
         chatMessages.insertBefore(msgDiv, typingIndicator);
       }
 
-      // ChatGPT Typing Effect Simulator
       function typeMessageEffect(text, containerElement) {
         let index = 0;
-        // Fast step typing pacing (milliseconds)
         const interval = setInterval(() => {
           if (index < text.length) {
             containerElement.textContent += text.charAt(index);
@@ -2480,9 +2801,9 @@ document.addEventListener("DOMContentLoaded", () => {
         msgDiv.className = "flex gap-3 items-end max-w-[85%] animate-fade-in";
 
         msgDiv.innerHTML = `
-      <div class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0">✨</div>
-      <div class="text-target bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm"></div>
-    `;
+          <div class="w-8 h-8 rounded-full bg-[var(--rich-tan)] flex items-center justify-center text-sm shadow-md flex-shrink-0">✨</div>
+          <div class="text-target bg-[var(--rich-tan)]/40 border border-[var(--rich-tan)]/60 text-[var(--cream)] px-4 py-3 rounded-2xl rounded-bl-sm backdrop-blur-sm shadow-sm leading-relaxed text-sm"></div>
+        `;
 
         chatMessages.insertBefore(msgDiv, typingIndicator);
         const textContainer = msgDiv.querySelector(".text-target");
@@ -2493,13 +2814,11 @@ document.addEventListener("DOMContentLoaded", () => {
         chatMessages.scrollTop = chatMessages.scrollHeight;
       }
 
-      // Submit Handler Action
       chatForm.addEventListener("submit", async (e) => {
         e.preventDefault();
         const prompt = userInput.value.trim();
         if (!prompt) return;
 
-        // Append and save user interaction
         renderStaticMessage(prompt, "user");
         chatHistory.push({ role: "user", content: prompt });
         localStorage.setItem("synth_chat_history", JSON.stringify(chatHistory));
@@ -2512,7 +2831,6 @@ document.addEventListener("DOMContentLoaded", () => {
           const response = await fetch("/.netlify/functions/bot", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
-            // Passing 'message' and 'history' mapping structure cleanly to function backend
             body: JSON.stringify({
               message: prompt,
               history: chatHistory,
@@ -2525,18 +2843,11 @@ document.addEventListener("DOMContentLoaded", () => {
           if (result.success && (result.reply || result.data)) {
             const botReply = result.reply || result.data;
 
-            // Execute typing engine execution and pipeline data
             appendDynamicBotResponse(botReply);
             chatHistory.push({ role: "assistant", content: botReply });
-            localStorage.setItem(
-              "synth_chat_history",
-              JSON.stringify(chatHistory),
-            );
+            localStorage.setItem("synth_chat_history", JSON.stringify(chatHistory));
           } else {
-            renderStaticMessage(
-              "Something went wrong. Please try again.",
-              "bot",
-            );
+            renderStaticMessage("Something went wrong. Please try again.", "bot");
           }
         } catch (error) {
           typingIndicator.classList.add("hidden");
@@ -2545,7 +2856,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       });
 
-      // Clear Session Data Event
       clearChatBtn.addEventListener("click", () => {
         localStorage.removeItem("synth_chat_history");
         chatHistory = [
@@ -2558,13 +2868,65 @@ document.addEventListener("DOMContentLoaded", () => {
         initChat();
       });
 
-      // Run initial state render cycle
       initChat();
     </script>
 
-    <!-- end sec js  -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const yesBtn = document.getElementById("btn-love-yes");
+        const noBtn = document.getElementById("btn-love-no");
+        const celebration = document.getElementById("celebration-area");
+        const container = document.getElementById("love-buttons-container");
 
-    <!-- JavaScript Logic -->
+        function moveNoButton() {
+          const rect = container.getBoundingClientRect();
+          const btnRect = noBtn.getBoundingClientRect();
+          const maxX = rect.width - btnRect.width - 10;
+          const maxY = rect.height - btnRect.height - 10;
+          const x = Math.random() * Math.max(0, maxX);
+          const y = Math.random() * Math.max(0, maxY);
+          noBtn.style.position = "relative";
+          noBtn.style.left = `${x}px`;
+          noBtn.style.top = `${y}px`;
+          noBtn.style.transition = "all 0.2s ease";
+        }
+
+        noBtn.addEventListener("mouseenter", moveNoButton);
+
+        noBtn.addEventListener("touchstart", (e) => {
+          e.preventDefault();
+          moveNoButton();
+        });
+
+        yesBtn.addEventListener("click", () => {
+          celebration.classList.remove("hidden");
+          celebration.scrollIntoView({ behavior: "smooth", block: "center" });
+
+          for (let i = 0; i < 30; i++) {
+            setTimeout(() => {
+              const heart = document.createElement("span");
+              heart.textContent = ["❤️", "💕", "💗", "💖", "💘", "💝"][Math.floor(Math.random() * 6)];
+              heart.style.position = "fixed";
+              heart.style.left = Math.random() * 100 + "vw";
+              heart.style.top = "-10px";
+              heart.style.fontSize = Math.random() * 30 + 20 + "px";
+              heart.style.zIndex = "9999";
+              heart.style.pointerEvents = "none";
+              heart.style.transition = "all 3s ease-out";
+              document.body.appendChild(heart);
+
+              requestAnimationFrame(() => {
+                heart.style.transform = `translateY(${window.innerHeight + 100}px) rotate(${Math.random() * 360}deg)`;
+                heart.style.opacity = "0";
+              });
+
+              setTimeout(() => heart.remove(), 3000);
+            }, i * 60);
+          }
+        });
+      });
+    </script>
+
     <script>
       (function () {
         const kissBtn = document.getElementById("kissBtn");
@@ -2573,7 +2935,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!kissBtn || !heartBtn || !section) return;
 
-        // --- 1. KISS BUTTON LOGIC ---
         kissBtn.addEventListener("click", () => {
           const kiss = document.createElement("span");
           kiss.innerText = "💋";
@@ -2588,29 +2949,17 @@ document.addEventListener("DOMContentLoaded", () => {
           setTimeout(() => kiss.remove(), 1200);
         });
 
-        // --- 2. HEART RAIN LOGIC ---
         const heartTypes = ["❤️", "💖", "💝", "💕", "💘"];
 
         heartBtn.addEventListener("click", () => {
-          // Spawns a burst of 15 hearts raining down simultaneously
           for (let i = 0; i < 15; i++) {
             const heart = document.createElement("span");
-
-            // Pick a random heart emoji style
-            heart.innerText =
-              heartTypes[Math.floor(Math.random() * heartTypes.length)];
-
-            // Style & attach animation
+            heart.innerText = heartTypes[Math.floor(Math.random() * heartTypes.length)];
             heart.className =
               "absolute text-xl sm:text-3xl pointer-events-none animate-heart-rain z-0";
-
-            // Randomize horizontal starting point across the section width (0% to 100%)
             heart.style.left = `${Math.random() * 100}%`;
-
-            // Top constraint starting point
             heart.style.top = "-40px";
 
-            // Stagger the falling speed and starting delay slightly for a natural look
             const delay = Math.random() * 0.6;
             const duration = 1.8 + Math.random() * 1.2;
             heart.style.animationDelay = `${delay}s`;
@@ -2618,25 +2967,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
             section.appendChild(heart);
 
-            // Clean up element after animation finishes (delay + duration max)
-            setTimeout(
-              () => {
-                heart.remove();
-              },
-              (delay + duration) * 1000,
-            );
+            setTimeout(() => {
+              heart.remove();
+            }, (delay + duration) * 1000);
           }
         });
       })();
     </script>
-
-    <!-- end sec js ends here  -->
   </body>
 </html>
-
 <style>
-  [data-netlify-badge], 
-a[href*="netlify.com"][style*="position: fixed"] {
+  [data-netlify-badge],
+  a[href*="netlify.com"][style*="position: fixed"] {
     display: none !important;
-}
+  }
 </style>
